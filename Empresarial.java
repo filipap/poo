@@ -184,4 +184,17 @@ public class Empresarial {
                 
     return sb.toString();
   }
+
+  /**
+  * Retorna o hashcode
+  * @return result
+  */
+  public int hashCode() {
+    int result = nif;
+    result = 31 * result + (email != null ? email.hashCode() : 0);
+    result = 31 * result + (nome != null ? nome.hashCode() : 0);
+    result = 31 * result + (morada != null ? morada.hashCode() : 0);
+    result = 31 * result + (password != null ? password.hashCode() : 0);
+    return result;
+  }
 }
