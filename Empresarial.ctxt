@@ -1,0 +1,24 @@
+#BlueJ class context
+comment0.target=Empresarial
+comment1.params=
+comment1.target=Empresarial()
+comment1.text=\n\ COnstrutor\ por\ omissao\ para\ objetos\ da\ classe\ Empresarial\n
+comment2.params=nif\ email\ nome\ morada\ password
+comment2.target=Empresarial(int,\ java.lang.String,\ java.lang.String,\ java.lang.String,\ java.lang.String)
+comment2.text=\n\ COnstrutor\ para\ objetos\ parametrizado\ da\ classe\ Empresarial\n\ @param\ nif\ \n\ @param\ email\n\ @param\ nome\n\ @param\ morada\n\ @param\ password\n
+comment3.params=emp
+comment3.target=Empresarial(Empresarial)
+comment3.text=\n\ COnstrutor\ de\ copia\ para\ objetos\ da\ classe\ Empresarial\n\ @param\ emp\ Contribuinte\ Empresarial\n
+comment4.params=
+comment4.target=Empresarial\ clone()
+comment4.text=\n\ Cria\ uma\ copia\ do\ objecto\ \n\ @return\n
+comment5.params=o
+comment5.target=boolean\ equals(java.lang.Object)
+comment5.text=\n\ Verifica\ a\ igualdade\ de\ dois\ objectos\n\ @param\ obj\n\ @return\ \n
+comment6.params=
+comment6.target=java.lang.String\ toString()
+comment6.text=\n\ Retorna\ uma\ representao\ textual\ do\ objecto\n\ @return\ \n
+comment7.params=
+comment7.target=int\ hashCode()
+comment7.text=\n\ Retorna\ o\ hashcode\n\ @return\ result\n
+numComments=8
