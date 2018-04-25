@@ -11,7 +11,7 @@ import java.util.ArrayList;
 public class Empresarial extends Contribuinte {
   
   /** informacao das atividades economicas nas quais atuam */
-  private List<AtividadesE> infoAtividades; //fazer get e set e meter nos construtores
+  //private List<AtividadesE> infoAtividades; //fazer get e set e meter nos construtores
   /**
   * COnstrutor por omissao para objetos da classe Empresarial
   */

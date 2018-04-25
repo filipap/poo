@@ -1,13 +1,20 @@
 
 /**
  * AtividadesE - classe das Atividades Economicas
- *
- * @author (your name here)
- * @version (version number or date here)
  */
 public abstract class AtividadesE
 {
+    public abstract String getNaturezaDespesa();
+    public abstract double getDeducao();
+    private String atividade;
+    private double deducao;
     
+    public AtividadesE(){
+      this.atividade = getNaturezaDespesa();
+      this.deducao = getDeducao();
+    }
     
-    
+    public double getDeducaoDespesa(){
+        return this.deducao;
+    }
 }
