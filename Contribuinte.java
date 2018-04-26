@@ -103,7 +103,9 @@ public class Contribuinte
              && this.password.equals(c.getPassword()));
   }
   
-  
+  public Contribuinte clone() {
+     return new Contribuinte(this); 
+   }
   
   public String toString() {
     StringBuilder sb = new StringBuilder();
