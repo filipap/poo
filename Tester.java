@@ -22,5 +22,12 @@ public class Tester
        Fatura f = new Fatura(c2.getNif(),c2.getNome(),LocalDate.now(),c1.getNif(),"pente",20,at);
        System.out.println(f.toString()+"\n");
        
+       GestaoContribuintes gc = new GestaoContribuintes();
+       gc.addContribuinte(c1);
+       gc.addContribuinte(c2);
+       
+       System.out.println("Sistema de Gestão de Contribuintes:");
+       System.out.println(gc.toString());
+       
     }
 }

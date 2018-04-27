@@ -36,7 +36,7 @@ public class GestaoContribuintes {
   public String toString() {
      StringBuffer sb = new StringBuffer();
      for (Contribuinte c: this.contribuintes.values())
-       sb.append(c.toString() + "\n");
+       sb.append(c.toString() + "\n ----- \n");
      return sb.toString(); 
   }
    
@@ -51,6 +51,11 @@ public class GestaoContribuintes {
    }    
    
   public GestaoContribuintes clone() {
-     return new GestaoContribuintes(this); 
+    return new GestaoContribuintes(this); 
    }
+   
+  // b) public void addContribuinte(Contribuinte cont)
+  public void addContribuinte(Contribuinte cont) {
+    this.contribuintes.put(cont.getNif(), cont.clone());    
+  }
 }
