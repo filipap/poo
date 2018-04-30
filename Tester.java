@@ -13,20 +13,20 @@ public class Tester
        atC1.add(1);
        atC1.add(2);
        Contribuinte c1 = new Individuais(122,"lipap","Filipa","rua da mata","12*34",2,agC1,(float)0.15,atC1);
-       System.out.println(c1.toString()+"\n");
+       //System.out.println(c1.toString()+"\n");
        Contribuinte c2 = new Empresarial(123,"lipap","Lava Tudo Direitinho","rua do passo","12NE4");
-       System.out.println(c2.toString()+"\n");
+       //System.out.println(c2.toString()+"\n");
        Saude s1 = new Saude();
        ArrayList <AtividadesE> at = new ArrayList<>();
        at.add(s1);
        Fatura f = new Fatura(c2.getNif(),c2.getNome(),LocalDate.now(),c1.getNif(),"pente",20,at);
-       System.out.println(f.toString()+"\n");
+       //System.out.println(f.toString()+"\n");
        
        GestaoContribuintes gc = new GestaoContribuintes();
        gc.addContribuinte(c1);
        gc.addContribuinte(c2);
        
-       System.out.println("Sistema de Gestão de Contribuintes:");
+       System.out.println("Sistema de Gestão de Contribuintes:\n");
        System.out.println(gc.toString());
        
     }

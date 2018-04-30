@@ -1,0 +1,20 @@
+#BlueJ class context
+comment0.target=GestaoContribuintes
+comment1.params=
+comment1.target=GestaoContribuintes()
+comment1.text=\n\ COnstrutor\ para\ objetos\ da\ classe\ GestaoContribuintes\n
+comment2.params=cont
+comment2.target=GestaoContribuintes(java.util.Map)
+comment3.params=gc
+comment3.target=GestaoContribuintes(GestaoContribuintes)
+comment4.params=
+comment4.target=java.util.Map\ getContribuintes()
+comment5.params=
+comment5.target=java.lang.String\ toString()
+comment6.params=o
+comment6.target=boolean\ equals(java.lang.Object)
+comment7.params=cont
+comment7.target=void\ addContribuinte(Contribuinte)
+comment8.params=
+comment8.target=GestaoContribuintes\ clone()
+numComments=9

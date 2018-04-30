@@ -110,7 +110,9 @@ public class Contribuinte
   public String toString() {
     StringBuilder sb = new StringBuilder();
     sb.append("NIF: ").append(this.nif).append("\nEmail: ").append(this.email)
-         .append("\nNome: ").append(this.nome).append("\nMorada: ").append(this.morada);   
+         .append("\nNome: ").append(this.nome)
+         .append("\nMorada: ").append(this.morada)
+         .append("\nPass: ").append(this.password);   
     return sb.toString();
   } 
   
