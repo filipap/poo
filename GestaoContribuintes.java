@@ -49,22 +49,15 @@ public class GestaoContribuintes {
     return this.contribuintes.equals(gc.getContribuintes());
        
    }    
-
+   
+   // public void addContribuinte(Contribuinte cont)
   public void addContribuinte(Contribuinte cont) {
     this.contribuintes.put(cont.getNif(),cont.clone());    
   }
   
   public GestaoContribuintes clone() {
     return new GestaoContribuintes(this); 
-<<<<<<< HEAD
    }
-   
-  // public void addContribuinte(Contribuinte cont)
-  public void addContribuinte(Contribuinte cont) {
-    this.contribuintes.put(cont.getNif(), cont.clone());    
-=======
->>>>>>> 49c9e9683e1bfc2c236fe1821224f372439dcdce
-  }
   
   // conta contribuintes
   public int contaContribuintes() {

@@ -103,11 +103,6 @@ public class GestaoFaturas {
   */
  
   public int hashCode() {
-    int result = super.hashCode();
-    result = 31 * result + agregado;
-    result = 31 * result + (nif_agregado != null ? nif_agregado.hashCode() : 0);
-    result = 31 * result + (coef_fiscal != +0.0f ? Float.floatToIntBits(coef_fiscal) : 0);
-    result = 31 * result + (codigos != null ? codigos.hashCode() : 0);
-    return result;
+    return faturas !=null ? faturas.hashCode() : 0;
   }
 }

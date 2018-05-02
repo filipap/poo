@@ -1,24 +1,25 @@
-
+package InterfaceAtividades;
 /**
- * ReparacoesV - subclasse da classe abstrata AtividadesE
- */
-public class ReparacoesV extends AtividadesE
+ * DespesasF - subclasse da classe abstrata AtividadesE
+*/
+
+public class DespesasF extends AtividadesE
 {
     // variaveis de instancia
     private String naturezaDespesa ;
     private double deducao;
 
-    public ReparacoesV()
+    public DespesasF()
     {
-      this.naturezaDespesa = "Reparaçao Veiculos";
-      this.deducao = 0.08;
+      this.naturezaDespesa = "Despesas Familiares";
+      this.deducao = 0.05;
     }
 
-    public ReparacoesV(ReparacoesV s){
+    public DespesasF(DespesasF s){
       this.naturezaDespesa = s.getNaturezaDespesa();
       this.deducao = s.getDeducao();
     }
-    
+
     /** 
      * metodo que devolve a natureza da despesa para ser comparada na Fatura 
      * @return String com a natureza da despesa
@@ -34,5 +35,5 @@ public class ReparacoesV extends AtividadesE
     public double getDeducao(){
       return this.deducao;
     }
-    
+ 
 }

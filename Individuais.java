@@ -1,4 +1,4 @@
-
+ 
 /**
  * Escreva a descrição da classe Individuais aqui.
  * 
@@ -9,6 +9,7 @@ import java.util.Arrays;
 import java.util.List;
 import java.util.ArrayList;
 import java.lang.String;
+import InterfaceAtividades.AtividadesE;
 public class Individuais extends Contribuinte {
   /** numero de dependentes do agregado familiar */
   private int agregado;

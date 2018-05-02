@@ -8,6 +8,7 @@
 import java.util.Arrays;
 import java.util.List;
 import java.util.ArrayList;
+import InterfaceAtividades.AtividadesE;
 public class Empresarial extends Contribuinte {
   
   /** informacao das atividades economicas nas quais atuam */

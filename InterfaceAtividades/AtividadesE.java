@@ -1,4 +1,4 @@
-
+package InterfaceAtividades;
 /**
  * AtividadesE - classe das Atividades Economicas
  */

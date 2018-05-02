@@ -1,20 +1,22 @@
+package InterfaceAtividades;
+
 
 /**
- * Cabeleireiros - subclasse da classe abstrata AtividadesE
+ * Restauracao - subclasse da classe abstrata AtividadesE
  */
-public class Cabeleireiros extends AtividadesE
+public class Restauracao extends AtividadesE
 {
     // variaveis de instancia
     private String naturezaDespesa ;
     private double deducao;
 
-    public Cabeleireiros()
+    public Restauracao()
     {
-      this.naturezaDespesa = "Cabeleireiros";
-      this.deducao = 0.07;
+      this.naturezaDespesa = "Restauraçao";
+      this.deducao = 0.15;
     }
 
-    public Cabeleireiros(Cabeleireiros s){
+    public Restauracao(Restauracao s){
       this.naturezaDespesa = s.getNaturezaDespesa();
       this.deducao = s.getDeducao();
     }
@@ -34,5 +36,5 @@ public class Cabeleireiros extends AtividadesE
     public double getDeducao(){
       return this.deducao;
     }
-      
+    
 }
