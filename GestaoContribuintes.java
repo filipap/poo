@@ -56,5 +56,23 @@ public class GestaoContribuintes {
   
   public GestaoContribuintes clone() {
     return new GestaoContribuintes(this); 
+<<<<<<< HEAD
+   }
+   
+  // public void addContribuinte(Contribuinte cont)
+  public void addContribuinte(Contribuinte cont) {
+    this.contribuintes.put(cont.getNif(), cont.clone());    
+=======
+>>>>>>> 49c9e9683e1bfc2c236fe1821224f372439dcdce
+  }
+  
+  // conta contribuintes
+  public int contaContribuintes() {
+    return this.contribuintes.size();    
+  }
+  
+  // public void removeContribuinte(Integer nif)
+  public void removeContribuinte(Integer nif) {
+    this.contribuintes.remove(nif);    
   }
 }

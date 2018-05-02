@@ -19,15 +19,27 @@ public class Tester
        Saude s1 = new Saude();
        ArrayList <AtividadesE> at = new ArrayList<>();
        at.add(s1);
+<<<<<<< HEAD
+       Fatura f1 = new Fatura(c2.getNif(),c2.getNome(),LocalDate.now(),c1.getNif(),"pente",20,at);
+       Fatura f2 = new Fatura(c2.getNif(),c2.getNome(),LocalDate.of(2010,5,02),c1.getNif(),"pasta de dentes",23,at);
+       Fatura f3 = new Fatura(c2.getNif(),c2.getNome(),LocalDate.of(2013,8,20),c1.getNif(),"pente",12,at);
+       GestaoFaturas gf = new GestaoFaturas();
+       gf.addFatura(f1);
+       gf.addFatura(f2);
+       gf.addFatura(f3);
+       System.out.println(gf.toString()+"\n");
+       /*
+=======
        Fatura f = new Fatura(c2.getNif(),c2.getNome(),LocalDate.now(),c1.getNif(),"pente",20,at);
        //System.out.println(f.toString()+"\n");
        
+>>>>>>> 49c9e9683e1bfc2c236fe1821224f372439dcdce
        GestaoContribuintes gc = new GestaoContribuintes();
        gc.addContribuinte(c1);
        gc.addContribuinte(c2);
        
        System.out.println("Sistema de Gestão de Contribuintes:\n");
        System.out.println(gc.toString());
-       
+       */
     }
 }
