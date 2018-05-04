@@ -10,12 +10,19 @@ public class Transportes extends AtividadesE
     private String naturezaDespesa ;
     private double deducao;
 
+  /**
+  * COnstrutor por omissao para objetos da classe Transportes
+  */
     public Transportes()
     {
       this.naturezaDespesa = "Transportes";
       this.deducao = 0.18;
     }
 
+  /**
+  * COnstrutor de copia para objetos da classe Transportes
+  * @param s
+  */
     public Transportes(Transportes s){
       this.naturezaDespesa = s.getNaturezaDespesa();
       this.deducao = s.getDeducao();

@@ -17,7 +17,10 @@ public class Contribuinte
   private String morada;
   /** password de acesso */
   private String password;
-  /**contrutor da classe Contribuinte*/
+  
+  /**
+  * COnstrutor por omissao para objetos da classe Empresarial
+  */
   public Contribuinte(){
     this.nif = 0;
     this.email = "n/a";
@@ -25,7 +28,15 @@ public class Contribuinte
     this.morada = "n/a";
     this.password = "n/a";
   }
-    
+  
+  /**
+  * COnstrutor para objetos parametrizado da classe Contribuinte
+  * @param nif 
+  * @param email
+  * @param nome
+  * @param morada
+  * @param password
+  */
   public Contribuinte(int nif, String email, String nome, String morada, String pass){
     setNif(nif);
     setEmail(email);
@@ -34,6 +45,10 @@ public class Contribuinte
     setPassword(pass);
   }
   
+  /**
+  * COnstrutor de copia para objetos da classe Contribuinte
+  * @param c Contribuinte
+  */
   public Contribuinte(Contribuinte c){
      this.nif = c.getNif();
      this.email = c.getEmail();
@@ -42,44 +57,82 @@ public class Contribuinte
      this.password = c.getPassword();
   }
     /** metodos da instancia Contribuinte */
-  //para o nif
+  /**
+  * Devolve o NIF do Contribuinte
+  * @return 
+  */
   public int getNif() {
      return this.nif;
   }
-    
+  
+  /**
+  * Define o nif do Contribuinte
+  * @param nif 
+  */
   public void setNif(int nif){
      this.nif = nif;
   }
-  // para o email
+  
+  /**
+  * Devolve o email do Contribuinte
+  * @return 
+  */
   public String getEmail() {
      return this.email;
   }
-    
+   
+  /**
+  * Define o email do Contribuinte
+  * @param email 
+  */
   public void setEmail(String email){
      this.email = email;
   }
     
-  // para o nome
+  /**
+  * Devolve o nome do Contribuinte
+  * @return 
+  */
   public String getNome() {
      return this.nome;
   }
-    
+  
+  /**
+  * Define o nome do Contribuinte
+  * @param nome 
+  */
   public void setNome(String nome){
      this.nome = nome;
   }
-  // para a morada
+  
+  /**
+  * Devolve a morada do Contribuinte
+  * @return 
+  */
   public String getMorada() {
      return this.morada;
   }
-    
+  
+  /**
+  * Define a morada do Contribuinte
+  * @param morada 
+  */
   public void setMorada(String morada){
      this.morada = morada;
   }
-  // para a password
+  
+  /**
+  * Devolve a password do Contribuinte
+  * @return 
+  */
   public String getPassword() {
      return this.password;
   }
-    
+  
+  /**
+  * Define a password do Contribuinte
+  * @param pass 
+  */
   public void setPassword(String pass){
      this.password = pass;
   }
@@ -103,10 +156,18 @@ public class Contribuinte
              && this.password.equals(c.getPassword()));
   }
   
+  /**
+  * Cria uma copia do objecto 
+  * @return
+  */
   public Contribuinte clone() {
      return new Contribuinte(this); 
    }
   
+  /**
+  * Retorna uma representacao textual do objecto
+  * @return 
+  */
   public String toString() {
     StringBuilder sb = new StringBuilder();
     sb.append("NIF: ").append(this.nif).append("\nEmail: ").append(this.email)

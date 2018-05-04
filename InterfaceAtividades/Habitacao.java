@@ -6,16 +6,24 @@ package InterfaceAtividades;
  */
 public class Habitacao extends AtividadesE
 {
-    // variaveis de instancia
-    private String naturezaDespesa ;
+    /** natureza da despesa */
+    private String naturezaDespesa;
+    /** fator de deducao fiscal */
     private double deducao;
 
+  /**
+  * COnstrutor por omissao para objetos da classe Habitacao
+  */
     public Habitacao()
     {
       this.naturezaDespesa = "Habitaçao";
       this.deducao = 0.14;
     }
 
+  /**
+  * COnstrutor de copia para objetos da classe Habitacao
+  * @param s
+  */
     public Habitacao(Habitacao s){
       this.naturezaDespesa = s.getNaturezaDespesa();
       this.deducao = s.getDeducao();
@@ -23,7 +31,7 @@ public class Habitacao extends AtividadesE
 
     /** 
      * metodo que devolve a natureza da despesa para ser comparada na Fatura 
-     * @return String com a natureza da despesa
+     * @return
     */
     public String getNaturezaDespesa(){
       return this.naturezaDespesa;
@@ -31,7 +39,7 @@ public class Habitacao extends AtividadesE
     
     /** 
      * metodo que devolve a deduçao(em percentagem) para ser calculada em Fatura 
-     * @return double com a deduçao
+     * @return
     */
     public double getDeducao(){
       return this.deducao;

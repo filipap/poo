@@ -6,16 +6,24 @@ package InterfaceAtividades;
  */
 public class Educacao extends AtividadesE
 {
-    // variaveis de instancia
-    private String naturezaDespesa ;
+    /** natureza da despesa */
+    private String naturezaDespesa;
+    /** fator de deducao fiscal */
     private double deducao;
-
+   
+  /**
+  * COnstrutor por omissao para objetos da classe Educacao
+  */
     public Educacao()
     {
       this.naturezaDespesa = "Educaçao";
       this.deducao = 0.20;
     }
-
+    
+  /**
+  * COnstrutor de copia para objetos da classe Educacao
+  * @param s
+  */
     public Educacao(Educacao s){
       this.naturezaDespesa = s.getNaturezaDespesa();
       this.deducao = s.getDeducao();

@@ -10,7 +10,7 @@ import java.util.Map;
 import java.util.stream.Stream;
 import java.util.stream.Collectors;
 public class GestaoContribuintes {
-    // variáveis de instância - substitua o exemplo abaixo pelo seu próprio
+  /** HashMap de Contribuintes cuja key e o nif */
   private Map<Integer, Contribuinte> contribuintes;
 
   /**
@@ -20,26 +20,47 @@ public class GestaoContribuintes {
     this.contribuintes = new HashMap<>();
   }
 
+  /**
+  * COnstrutor para objetos parametrizado da classe GestaoContribuintes
+  * @param cont 
+  */
   public GestaoContribuintes(Map<Integer,Contribuinte> cont) {
     //this.encomendas = encs.values().stream().collect(Collectors.toMap((e) -> e.getNEnc(),(e) -> e.clone(),(e1,e2) -> e1,HashMap::new));
     this.contribuintes = cont.values().stream().collect(Collectors.toMap((c) -> c.getNif(),(c) -> c.clone()));
   }
   
+  /**
+  * COnstrutor de copia para objetos da classe GestaoContribuinte
+  * @param gc GestaoContribuintes
+  */
   public GestaoContribuintes(GestaoContribuintes gc) {
     this.contribuintes = gc.getContribuintes();    
   }
   
+  /**
+  * Devolve o um Map com os Contribuintes
+  * @return 
+  */
   public Map<Integer,Contribuinte> getContribuintes() {
     return this.contribuintes.values().stream().collect(Collectors.toMap((c) -> c.getNif(),(c) -> c.clone())); 
   }
   
+  /**
+  * Retorna uma representacao textual do objecto
+  * @return 
+  */
   public String toString() {
      StringBuffer sb = new StringBuffer();
      for (Contribuinte c: this.contribuintes.values())
        sb.append(c.toString() + "\n ----- \n");
      return sb.toString(); 
   }
-   
+  
+  /**
+  * Verifica a igualdade de dois objectos
+  * @param o
+  * @return true or false
+  */
   public boolean equals(Object o) {
     if (this == o) 
       return true;
@@ -50,21 +71,34 @@ public class GestaoContribuintes {
        
    }    
    
-   // public void addContribuinte(Contribuinte cont)
+  /**
+  * Adiciona um objecto Contribuinte a Colecao de Contribuintes
+  * @param cont
+  */
   public void addContribuinte(Contribuinte cont) {
     this.contribuintes.put(cont.getNif(),cont.clone());    
   }
   
+  /**
+  * Cria uma copia da Colecao
+  * @return
+  */
   public GestaoContribuintes clone() {
     return new GestaoContribuintes(this); 
    }
   
-  // conta contribuintes
+  /**
+  * Conta o numero de Contribuintes na Colecao de Contribuintes
+  * @return
+  */
   public int contaContribuintes() {
     return this.contribuintes.size();    
   }
   
-  // public void removeContribuinte(Integer nif)
+  /**
+  * Remove objetos Contribuintes da Colecao de Contribuintes dado o seu nif
+  * @param nif
+  */
   public void removeContribuinte(Integer nif) {
     this.contribuintes.remove(nif);    
   }

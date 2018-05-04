@@ -6,16 +6,24 @@ package InterfaceAtividades;
  */
 public class Cabeleireiros extends AtividadesE
 {
-    // variaveis de instancia
-    private String naturezaDespesa ;
+    /** natureza da despesa */
+    private String naturezaDespesa;
+    /** fator de deducao fiscal */
     private double deducao;
 
+  /**
+  * COnstrutor por omissao para objetos da classe Cabeleireiros
+  */
     public Cabeleireiros()
     {
       this.naturezaDespesa = "Cabeleireiros";
       this.deducao = 0.07;
     }
 
+  /**
+  * COnstrutor de copia para objetos da classe Cabeleireiros
+  * @param s
+  */
     public Cabeleireiros(Cabeleireiros s){
       this.naturezaDespesa = s.getNaturezaDespesa();
       this.deducao = s.getDeducao();

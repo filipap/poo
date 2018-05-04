@@ -10,12 +10,19 @@ public class Animais extends AtividadesE
     private String naturezaDespesa ;
     private double deducao;
 
+/**
+* COnstrutor por omissao para objetos da classe Animais
+*/
     public Animais()
     {
       this.naturezaDespesa = "Cuidados Veterinarios";
       this.deducao = 0.10;
     }
 
+/**
+* COnstrutor de copia para objetos da classe Animais
+* @param s
+*/
     public Animais(Animais s){
       this.naturezaDespesa = s.getNaturezaDespesa();
       this.deducao = s.getDeducao();
