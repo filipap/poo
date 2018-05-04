@@ -10,6 +10,7 @@ import java.time.format.DateTimeFormatter;
 import java.util.ArrayList;
 import java.util.List;
 import InterfaceAtividades.AtividadesE;
+import java.util.stream.Collectors;
 public class Fatura {
   /** numero fiscal do Emitente */
   private int nifEmitente;
@@ -24,7 +25,7 @@ public class Fatura {
   /** valor da despesa*/
   private int valorDespesa;
   /** natureza da despesa (atividade economica a que diz respeito)*/
-  private AtividadesE naturezaD;
+  private List<AtividadesE> naturezaD;
     
 
   /**
@@ -37,7 +38,7 @@ public class Fatura {
     this.nifCliente = 0;
     this.descricao = "n/a";
     this.valorDespesa = 0;
-    this.naturezaD = null;
+    this.naturezaD = new ArrayList<>();
   }
 
   /**
@@ -52,14 +53,14 @@ public class Fatura {
   * @param naturezaD
   */
   public Fatura(int nifEmitente, String designacao, LocalDate dataDespesa, int nifCliente, 
-  String descricao, int valorDespesa, AtividadesE naturezaD){
+  String descricao, int valorDespesa, List<AtividadesE> naturezaD){
     setNifEmitente(nifEmitente);
     setDesignacao(designacao);
     setDataDespesa(dataDespesa);
     setNifCliente(nifCliente);
     setDescricao(descricao);
     setValorDespesa(valorDespesa);
-    //setNaturezaD(naturezaD);
+    setNaturezaD(naturezaD);
   }
   
   /**
@@ -125,11 +126,18 @@ public class Fatura {
   */
   public int getValorDespesa() {
     return this.valorDespesa;
-  }
-  
-  public AtividadesE getNaturezaD(){
-      return this.naturezaD.getAtividadesE();
-  }
+}
+
+  /**
+  * metodo que da o array das atividades economicas 
+  * @return array das atividades economicas
+  */
+  public List<AtividadesE> getNaturezaD(){
+    return this.naturezaD.stream().filter(h->h instanceof AtividadesE)
+        .map(AtividadesE::clone)
+        .collect(Collectors.toList());
+  } 
+
   
   /**
   * Define o nif do emitente
@@ -180,12 +188,16 @@ public class Fatura {
   }
   
   /**
-  * Redefine o valor da natureza da despesa
-  * @param natureza da despesa
+  * metodo que atualiza o array das atividades economicas 
+  * @return nothing
   */
-  /*public void setNaturezaD(AtividadesE naturezaD) {
-      setAtividadesE(naturezaD);
-  }*/
+
+  public void setNaturezaD(List<AtividadesE> at){
+    this.naturezaD = new ArrayList<>();
+    for(AtividadesE s: at){
+      this.naturezaD.add(s.clone());
+    }
+  }
   
   /**
   * Cria uma copia do objecto 
@@ -213,6 +225,19 @@ public class Fatura {
              && this.descricao.equals(f.getDescricao()) &&
              this.valorDespesa == f.getValorDespesa());
   }
+
+  /**
+  * metodo auxiliar que retorna o array de strings 
+  * com as atividades economicas de determinada empresa
+  * @return List<String> 
+  */
+  public List<String> setoresAtividade(){
+    ArrayList<String> res = new ArrayList<>();
+    for(AtividadesE a:this.naturezaD){
+      res.add(a.getNaturezaDespesa());
+    }
+    return res;
+  }
   
   /**
   * Retorna uma representaçao textual do objecto
@@ -225,8 +250,8 @@ public class Fatura {
     sb.append("NIF do emitente: ").append(nifEmitente).append("\nDesignacao do emitente: ").append(designacao)
                 .append("\nData da despesa: ").append(d).append("\nNIF do Cliente: ").append(nifCliente)
                 .append("\nDescricao da despesa: ").append(descricao)
-                .append("\nValor da despesa: ").append(valorDespesa);//append("\nNatureza da despesa: ")
-                //.append(this.naturezaD.getNaturezaDespesa());
+                .append("\nValor da despesa: ").append(valorDespesa).append("\nNatureza da despesa: ")
+                .append(setoresAtividade());
     return sb.toString();
   }
   
