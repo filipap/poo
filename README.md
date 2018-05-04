@@ -1,3 +1,8 @@
+Constituição do grupo:
+	- Ana Rita Guimarães (A79987)
+	- Filipa Parente (A82145)
+	- Francisco Granado (A54810)
+
 # poo
 Repositorio com o trabalho de POO
 
