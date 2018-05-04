@@ -1,9 +1,8 @@
 
 /**
- * Escreva a descrição da classe GestaoFaturas aqui.
+ * classe onde se gerem as faturas
  * 
- * @author (seu nome) 
- * @version (número de versão ou data)
+ * @author Ana Guimarães(a79987), Filipa Parente (a82145), Francisco Garcia (a54810) 
  */
 
 import java.util.List;

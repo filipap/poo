@@ -2,9 +2,9 @@ package InterfaceAtividades;
 
 
 /**
- * Restauracao - subclasse da classe abstrata AtividadesE
+ * Restauracao - classe que implementa a interface AtividadesE
  */
-public class Restauracao extends AtividadesE
+public class Restauracao implements AtividadesE
 {
     // variaveis de instancia
     private String naturezaDespesa ;
@@ -12,7 +12,7 @@ public class Restauracao extends AtividadesE
 
     public Restauracao()
     {
-      this.naturezaDespesa = "Restauraçao";
+      this.naturezaDespesa = "Restauração";
       this.deducao = 0.15;
     }
 
@@ -35,6 +35,34 @@ public class Restauracao extends AtividadesE
     */
     public double getDeducao(){
       return this.deducao;
+    }
+
+    /** 
+     * metodo que devolve o objeto da classe Restauracao
+     * @return objeto Restauracao
+    */
+    public Restauracao getAtividadesE(){
+      Restauracao res = new Restauracao();
+      res.naturezaDespesa = this.naturezaDespesa;
+      res.deducao = this.deducao;
+      return res;
+    }
+    
+    /** 
+     * metodo que atualiza o objeto da classe Restauracao 
+     * @return nothing
+    */
+    public void setAtividadesE(Restauracao a){
+      this.naturezaDespesa = a.getNaturezaDespesa();
+      this.deducao = a.getDeducao();
+    }    
+
+    /**
+     * Cria uma copia do objecto 
+     * @return
+    */
+    public Restauracao clone() {
+      return new Restauracao(this);
     }
     
 }

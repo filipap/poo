@@ -1,9 +1,9 @@
 package InterfaceAtividades;
 /**
- * DespesasF - subclasse da classe abstrata AtividadesE
+ * DespesasF - classe que implementa a interface AtividadesE
 */
 
-public class DespesasF extends AtividadesE
+public class DespesasF implements AtividadesE
 {
     // variaveis de instancia
     private String naturezaDespesa ;
@@ -34,6 +34,36 @@ public class DespesasF extends AtividadesE
     */
     public double getDeducao(){
       return this.deducao;
+    }
+
+    /** 
+     * metodo que devolve o objeto da classe DespesasF 
+     * @return objeto DespesasF
+    */
+    public DespesasF getAtividadesE(){
+      DespesasF res = new DespesasF();
+      res.naturezaDespesa = this.naturezaDespesa;
+      res.deducao = this.deducao;
+      return res;
+    }
+
+    /** 
+     * metodo que atualiza o objeto da classe DespesasF 
+     * @return nothing
+    */
+    public void setAtividadesE(DespesasF a){
+      this.naturezaDespesa = a.getNaturezaDespesa();
+      this.deducao = a.getDeducao();
+    }    
+
+
+    /**
+     * Cria uma copia do objecto 
+     * @return
+    */
+
+    public DespesasF clone(){
+      return new DespesasF(this);
     }
  
 }

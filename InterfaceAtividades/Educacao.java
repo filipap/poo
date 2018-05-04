@@ -2,9 +2,9 @@ package InterfaceAtividades;
 
 
 /**
- * Educacao - subclasse da classe abstrata AtividadesE
+ * Educacao - classe que implementa a interface AtividadesE
  */
-public class Educacao extends AtividadesE
+public class Educacao implements AtividadesE
 {
     // variaveis de instancia
     private String naturezaDespesa ;
@@ -12,7 +12,7 @@ public class Educacao extends AtividadesE
 
     public Educacao()
     {
-      this.naturezaDespesa = "Educaçao";
+      this.naturezaDespesa = "Educação";
       this.deducao = 0.20;
     }
 
@@ -35,5 +35,34 @@ public class Educacao extends AtividadesE
     */
     public double getDeducao(){
       return this.deducao;
+    }
+
+    /** 
+     * metodo que devolve o objeto da classe Educacao 
+     * @return objeto Educacao
+    */
+    public Educacao getAtividadesE(){
+      Educacao res = new Educacao();
+      res.naturezaDespesa = this.naturezaDespesa;
+      res.deducao = this.deducao;
+      return res;
+    }
+
+    /** 
+     * metodo que atualiza o objeto da classe Educacao 
+     * @return nothing
+    */
+    public void setAtividadesE(Educacao a){
+      this.naturezaDespesa = a.getNaturezaDespesa();
+      this.deducao = a.getDeducao();
+    }    
+
+
+    /**
+     * Cria uma copia do objecto 
+     * @return
+    */
+    public Educacao clone() {
+      return new Educacao(this);
     }
 }

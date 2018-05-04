@@ -2,9 +2,9 @@ package InterfaceAtividades;
 
 
 /**
- * Animais - subclasse da classe abstrata AtividadesE
+ * Animais - classe que implementa a interface AtividadesE
  */
-public class Animais extends AtividadesE
+public class Animais implements AtividadesE
 {
     // variaveis de instancia
     private String naturezaDespesa ;
@@ -36,5 +36,29 @@ public class Animais extends AtividadesE
     public double getDeducao(){
       return this.deducao;
     }
+
+    /** 
+     * metodo que devolve o objeto da classe Animais 
+     * @return objeto Animais
+    */
+    public Animais getAtividadesE(){
+      Animais res = new Animais();
+      res.naturezaDespesa = this.naturezaDespesa;
+      res.deducao = this.deducao;
+      return res;
+    }
     
+    /** 
+     * metodo que atualiza o objeto da classe Animais 
+     * @return nothing
+    */
+    public void setAtividadesE(Animais a){
+      this.naturezaDespesa = a.getNaturezaDespesa();
+      this.deducao = a.getDeducao();
+    }
+
+    public Animais clone(){
+      return new Animais(this);
+    }
+
 }

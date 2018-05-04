@@ -1,6 +1,6 @@
 #BlueJ class context
 comment0.target=Restauracao
-comment0.text=\n\ Restauracao\ -\ subclasse\ da\ classe\ abstrata\ AtividadesE\n
+comment0.text=\n\ Restauracao\ -\ classe\ que\ implementa\ a\ interface\ AtividadesE\n
 comment1.params=
 comment1.target=Restauracao()
 comment2.params=s
@@ -11,4 +11,13 @@ comment3.text=\ \n\ metodo\ que\ devolve\ a\ natureza\ da\ despesa\ para\ ser\ c
 comment4.params=
 comment4.target=double\ getDeducao()
 comment4.text=\ \n\ metodo\ que\ devolve\ a\ dedu\u00E7ao(em\ percentagem)\ para\ ser\ calculada\ em\ Fatura\ \n\ @return\ double\ com\ a\ dedu\u00E7ao\n
-numComments=5
+comment5.params=
+comment5.target=Restauracao\ getAtividadesE()
+comment5.text=\ \n\ metodo\ que\ devolve\ o\ objeto\ da\ classe\ Restauracao\n\ @return\ objeto\ Restauracao\n
+comment6.params=a
+comment6.target=void\ setAtividadesE(Restauracao)
+comment6.text=\ \n\ metodo\ que\ atualiza\ o\ objeto\ da\ classe\ Restauracao\ \n\ @return\ nothing\n
+comment7.params=
+comment7.target=Restauracao\ clone()
+comment7.text=\n\ Cria\ uma\ copia\ do\ objecto\ \n\ @return\n
+numComments=8

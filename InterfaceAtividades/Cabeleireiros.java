@@ -1,10 +1,9 @@
 package InterfaceAtividades;
 
-
 /**
- * Cabeleireiros - subclasse da classe abstrata AtividadesE
+ * Cabeleireiros - classe que implementa a interface AtividadesE
  */
-public class Cabeleireiros extends AtividadesE
+public class Cabeleireiros implements AtividadesE
 {
     // variaveis de instancia
     private String naturezaDespesa ;
@@ -35,6 +34,34 @@ public class Cabeleireiros extends AtividadesE
     */
     public double getDeducao(){
       return this.deducao;
+    }
+
+    /** 
+     * metodo que devolve o objeto da classe Cabeleireiros 
+     * @return objeto Cabeleireiros
+    */
+    public Cabeleireiros getAtividadesE(){
+      Cabeleireiros res = new Cabeleireiros();
+      res.naturezaDespesa = this.naturezaDespesa;
+      res.deducao = this.deducao;
+      return res;
+    }
+
+    /** 
+     * metodo que atualiza o objeto da classe Cabeleireiros 
+     * @return nothing
+    */
+    public void setAtividadesE(Cabeleireiros a){
+      this.naturezaDespesa = a.getNaturezaDespesa();
+      this.deducao = a.getDeducao();
+    }    
+
+    /**
+     * Cria uma copia do objecto 
+     * @return
+    */
+    public Cabeleireiros clone(){
+      return new Cabeleireiros(this);
     }
       
 }

@@ -1,12 +1,12 @@
 #BlueJ class context
 comment0.target=AtividadesE
-comment0.text=\n\ AtividadesE\ -\ classe\ das\ Atividades\ Economicas\n
+comment0.text=\n\ AtividadesE\ -\ interface\ das\ Atividades\ Economicas\n
 comment1.params=
-comment1.target=java.lang.String\ getNaturezaDespesa()
+comment1.target=AtividadesE\ clone()
 comment2.params=
-comment2.target=double\ getDeducao()
+comment2.target=java.lang.String\ getNaturezaDespesa()
 comment3.params=
-comment3.target=AtividadesE()
+comment3.target=double\ getDeducao()
 comment4.params=
-comment4.target=double\ getDeducaoDespesa()
+comment4.target=AtividadesE\ getAtividadesE()
 numComments=5

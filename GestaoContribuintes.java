@@ -1,9 +1,8 @@
 
 /**
- * Escreva a descrição da classe GestaoContribuintes aqui.
+ *classe onde se gerem os Contribuintes 
  * 
- * @author (seu nome) 
- * @version (número de versão ou data)
+ * @author Ana Guimarães(a79987), Filipa Parente (a82145), Francisco Garcia (a54810)
  */
 import java.util.HashMap;
 import java.util.Map;

@@ -1,9 +1,8 @@
 
 /**
- * Escreva a descrição da classe Fatura aqui.
+ * classe das faturas
  * 
- * @author (seu nome) 
- * @version (número de versão ou data)
+ * @author Ana Guimarães(a79987), Filipa Parente (a82145), Francisco Garcia (a54810)
  */
 //import java.time.LocalDateTime;
 import java.time.LocalDate;
@@ -25,7 +24,7 @@ public class Fatura {
   /** valor da despesa*/
   private int valorDespesa;
   /** natureza da despesa (atividade economica a que diz respeito)*/
-  private List<AtividadesE> naturezaD;
+  private AtividadesE naturezaD;
     
 
   /**
@@ -38,7 +37,7 @@ public class Fatura {
     this.nifCliente = 0;
     this.descricao = "n/a";
     this.valorDespesa = 0;
-    this.naturezaD = new ArrayList<>();
+    this.naturezaD = null;
   }
 
   /**
@@ -53,14 +52,14 @@ public class Fatura {
   * @param naturezaD
   */
   public Fatura(int nifEmitente, String designacao, LocalDate dataDespesa, int nifCliente, 
-  String descricao, int valorDespesa, List<AtividadesE> naturezaD){
+  String descricao, int valorDespesa, AtividadesE naturezaD){
     setNifEmitente(nifEmitente);
     setDesignacao(designacao);
     setDataDespesa(dataDespesa);
     setNifCliente(nifCliente);
     setDescricao(descricao);
     setValorDespesa(valorDespesa);
-    setNaturezaD(naturezaD);
+    //setNaturezaD(naturezaD);
   }
   
   /**
@@ -74,6 +73,7 @@ public class Fatura {
     this.nifCliente = f.getNifCliente();
     this.descricao = f.getDescricao();
     this.valorDespesa = f.getValorDespesa();
+    this.naturezaD = f.getNaturezaD();
   }
   
   
@@ -84,7 +84,7 @@ public class Fatura {
   * @return 
   */
   public int getNifEmitente() {
-    return nifEmitente;
+    return this.nifEmitente;
   }
   
   /**
@@ -92,7 +92,7 @@ public class Fatura {
   * @return 
   */
   public String getDesignacao() {
-    return designacao;
+    return this.designacao;
   }
 
   /**
@@ -100,7 +100,7 @@ public class Fatura {
   * @return 
   */
   public LocalDate getDataDespesa() {
-    return dataDespesa;
+    return this.dataDespesa;
   }
 
   /**
@@ -108,7 +108,7 @@ public class Fatura {
   * @return 
   */
   public int getNifCliente() {
-    return nifCliente;
+    return this.nifCliente;
   }
 
   /**
@@ -116,7 +116,7 @@ public class Fatura {
   * @return 
   */
   public String getDescricao() {
-    return descricao;
+    return this.descricao;
   }
 
   /**
@@ -124,7 +124,11 @@ public class Fatura {
   * @return 
   */
   public int getValorDespesa() {
-    return valorDespesa;
+    return this.valorDespesa;
+  }
+  
+  public AtividadesE getNaturezaD(){
+      return this.naturezaD.getAtividadesE();
   }
   
   /**
@@ -176,27 +180,12 @@ public class Fatura {
   }
   
   /**
-  * Devolve a string que indica natureza da despesa
-  * @param valorDespesa
-  */
-  public List<AtividadesE> getNaturezaD() {
-    ArrayList res = new ArrayList<>();
-    for(AtividadesE x: this.naturezaD){
-      res.add(x);
-    }
-    return res;
-  }
-  
-  /**
   * Redefine o valor da natureza da despesa
   * @param natureza da despesa
   */
-  public void setNaturezaD(List<AtividadesE> naturezaD) {
-    this.naturezaD = new ArrayList<>();
-    for(AtividadesE x: naturezaD){
-      this.naturezaD.add(x);
-    }
-  }
+  /*public void setNaturezaD(AtividadesE naturezaD) {
+      setAtividadesE(naturezaD);
+  }*/
   
   /**
   * Cria uma copia do objecto 
@@ -205,7 +194,6 @@ public class Fatura {
   public Fatura clone() {
     return new Fatura(this);
   }
-  
   
   /**
   * Verifica a igualdade de dois objectos
@@ -237,8 +225,8 @@ public class Fatura {
     sb.append("NIF do emitente: ").append(nifEmitente).append("\nDesignacao do emitente: ").append(designacao)
                 .append("\nData da despesa: ").append(d).append("\nNIF do Cliente: ").append(nifCliente)
                 .append("\nDescricao da despesa: ").append(descricao)
-                .append("\nValor da despesa: ").append(valorDespesa).append("\nNatureza da despesa: "); 
-                // ainda falta fazer o toString das atividades;
+                .append("\nValor da despesa: ").append(valorDespesa);//append("\nNatureza da despesa: ")
+                //.append(this.naturezaD.getNaturezaDespesa());
     return sb.toString();
   }
   

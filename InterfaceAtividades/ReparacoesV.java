@@ -4,7 +4,7 @@ package InterfaceAtividades;
 /**
  * ReparacoesV - subclasse da classe abstrata AtividadesE
  */
-public class ReparacoesV extends AtividadesE
+public class ReparacoesV implements AtividadesE
 {
     // variaveis de instancia
     private String naturezaDespesa ;
@@ -12,7 +12,7 @@ public class ReparacoesV extends AtividadesE
 
     public ReparacoesV()
     {
-      this.naturezaDespesa = "Reparaçao Veiculos";
+      this.naturezaDespesa = "Reparação Veículos";
       this.deducao = 0.08;
     }
 
@@ -35,6 +35,34 @@ public class ReparacoesV extends AtividadesE
     */
     public double getDeducao(){
       return this.deducao;
+    }
+
+    /** 
+     * metodo que devolve o objeto da classe ReparacoesV 
+     * @return objeto ReparacoesV
+    */
+    public ReparacoesV getAtividadesE(){
+      ReparacoesV res = new ReparacoesV();
+      res.naturezaDespesa = this.naturezaDespesa;
+      res.deducao = this.deducao;
+      return res;
+    }
+    
+    /** 
+     * metodo que atualiza o objeto da classe ReparacoesV 
+     * @return nothing
+    */
+    public void setAtividadesE(ReparacoesV a){
+      this.naturezaDespesa = a.getNaturezaDespesa();
+      this.deducao = a.getDeducao();
+    }    
+
+    /**
+     * Cria uma copia do objecto 
+     * @return
+    */
+    public ReparacoesV clone() {
+      return new ReparacoesV(this);
     }
     
 }

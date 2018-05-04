@@ -2,9 +2,9 @@ package InterfaceAtividades;
 
 
 /**
- * Saude - subclasse da classe abstrata AtividadesE
+ * Saude - classe que implementa a interface AtividadesE
  */
-public class Saude extends AtividadesE
+public class Saude implements AtividadesE
 {
     // variaveis de instancia
     private String naturezaDespesa ;
@@ -12,7 +12,7 @@ public class Saude extends AtividadesE
     
     public Saude()
     {
-      this.naturezaDespesa = "Saude";
+      this.naturezaDespesa = "Saúde";
       this.deducao = 0.20;
     }   
     public Saude(Saude s){
@@ -34,4 +34,33 @@ public class Saude extends AtividadesE
     public double getDeducao(){
       return this.deducao;
     }
+
+    /** 
+     * metodo que devolve o objeto da classe Saude 
+     * @return objeto Saude
+    */
+    public Saude getAtividadesE(){
+      Saude res = new Saude();
+      res.naturezaDespesa = this.naturezaDespesa;
+      res.deducao = this.deducao;
+      return res;
+    }
+    
+    /** 
+     * metodo que atualiza o objeto da classe Saude 
+     * @return nothing
+    */
+    public void setAtividadesE(Saude a){
+      this.naturezaDespesa = a.getNaturezaDespesa();
+      this.deducao = a.getDeducao();
+    }    
+
+    /**
+     * Cria uma copia do objecto 
+     * @return
+    */
+    public Saude clone() {
+      return new Saude(this);
+    }
+
 }

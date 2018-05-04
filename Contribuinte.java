@@ -2,8 +2,7 @@
 /**
  * Write a description of class Contribuinte here.
  *
- * @author (your name)
- * @version (a version number or a date)
+ * @author Ana Guimarães(a79987), Filipa Parente (a82145), Francisco Garcia (a54810)
  */
 public class Contribuinte
 {
