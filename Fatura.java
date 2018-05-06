@@ -129,8 +129,8 @@ public class Fatura {
 }
 
   /**
-  * metodo que da o array das atividades economicas 
-  * @return array das atividades economicas
+  * metodo que devolve o array das atividades economicas 
+  * @return 
   */
   public List<AtividadesE> getNaturezaD(){
     return this.naturezaD.stream().filter(h->h instanceof AtividadesE)
@@ -189,7 +189,7 @@ public class Fatura {
   
   /**
   * metodo que atualiza o array das atividades economicas 
-  * @return nothing
+  * @return 
   */
 
   public void setNaturezaD(List<AtividadesE> at){

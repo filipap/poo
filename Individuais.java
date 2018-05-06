@@ -20,7 +20,7 @@ public class Individuais extends Contribuinte {
   private List<Integer> codigos;
 
   /**
-  * COnstrutor por omissao para objetos da classe Individuais
+  * Construtor por omissao para objetos da classe Individuais
   */
   public Individuais() {
     super();
@@ -31,7 +31,7 @@ public class Individuais extends Contribuinte {
   }
   
   /**
-  * COnstrutor para objetos parametrizado da classe Individuais
+  * Construtor para objetos parametrizado da classe Individuais
   * @param nif 
   * @param email
   * @param nome
@@ -52,7 +52,7 @@ public class Individuais extends Contribuinte {
   }
   
   /**
-  * COnstrutor de copia para objetos da classe Individuais
+  * Construtor de copia para objetos da classe Individuais
   * @param umInd Contribuinte Individual
   */
   public Individuais(Individuais umInd) {

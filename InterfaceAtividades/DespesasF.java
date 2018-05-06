@@ -9,12 +9,18 @@ public class DespesasF implements AtividadesE
     private String naturezaDespesa ;
     private double deducao;
 
+    /**
+    * Construtor por omissao para objetos da classe DespesasF
+    */
     public DespesasF()
     {
       this.naturezaDespesa = "Despesas Familiares";
       this.deducao = 0.05;
     }
 
+    /**
+    * Construtor de copia para objetos da classe DespesasF
+    */
     public DespesasF(DespesasF s){
       this.naturezaDespesa = s.getNaturezaDespesa();
       this.deducao = s.getDeducao();

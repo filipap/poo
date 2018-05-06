@@ -10,12 +10,18 @@ public class Transportes implements AtividadesE
     private String naturezaDespesa ;
     private double deducao;
 
+    /**
+    * Construtor por omissao para objetos da classe Transportes
+    */
     public Transportes()
     {
       this.naturezaDespesa = "Transportes";
       this.deducao = 0.18;
     }
 
+    /**
+    * Construtor de copia para objetos da classe Transportes
+    */
     public Transportes(Transportes s){
       this.naturezaDespesa = s.getNaturezaDespesa();
       this.deducao = s.getDeducao();

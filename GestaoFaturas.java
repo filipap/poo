@@ -11,14 +11,14 @@ import java.util.ArrayList;
 public class GestaoFaturas {
   private List<Fatura> faturas;
   /**
-  * COnstrutor para objetos da classe GestaoFaturas
+  * Construtor para objetos da classe GestaoFaturas
   */
   public GestaoFaturas() {
     this.faturas =  new ArrayList<>();
   }
 
   /**
-  * COnstrutor para objetos parametrizado da classe GestaoFaturas
+  * Construtor para objetos parametrizado da classe GestaoFaturas
   * @param faturas
   * */
   public GestaoFaturas(List<Fatura> faturas) {
@@ -26,7 +26,7 @@ public class GestaoFaturas {
   }
   
   /**
-  * COnstrutor de copia para objetos da classe GestaoFaturas
+  * Construtor de copia para objetos da classe GestaoFaturas
   * @param fat Fatura
   */
   public GestaoFaturas(GestaoFaturas fat) {

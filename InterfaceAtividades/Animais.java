@@ -10,12 +10,18 @@ public class Animais implements AtividadesE
     private String naturezaDespesa ;
     private double deducao;
 
+    /**
+    * Construtor por omissao para objetos da classe Animais
+    */
     public Animais()
     {
       this.naturezaDespesa = "Cuidados Veterinarios";
       this.deducao = 0.10;
     }
 
+    /**
+    * Construtor de copia para objetos da classe Animais
+    */
     public Animais(Animais s){
       this.naturezaDespesa = s.getNaturezaDespesa();
       this.deducao = s.getDeducao();

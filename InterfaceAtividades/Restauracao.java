@@ -10,12 +10,18 @@ public class Restauracao implements AtividadesE
     private String naturezaDespesa ;
     private double deducao;
 
+    /**
+    * Construtor por omissao para objetos da classe Restauracao
+    */
     public Restauracao()
     {
       this.naturezaDespesa = "Restauração";
       this.deducao = 0.15;
     }
 
+    /**
+    * Construtor de copia para objetos da classe Restauracao
+    */
     public Restauracao(Restauracao s){
       this.naturezaDespesa = s.getNaturezaDespesa();
       this.deducao = s.getDeducao();

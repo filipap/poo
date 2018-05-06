@@ -4,6 +4,9 @@ package InterfaceAtividades;
  */
 public interface AtividadesE
 {
+	/**
+    * metodos comuns a todas as classes que implementam a interface AtividadesE
+    */
     public abstract AtividadesE clone();
     public abstract String getNaturezaDespesa();
     public abstract double getDeducao();

@@ -10,12 +10,18 @@ public class Educacao implements AtividadesE
     private String naturezaDespesa ;
     private double deducao;
 
+    /**
+    * Construtor por omissao para objetos da classe Educacao
+    */
     public Educacao()
     {
       this.naturezaDespesa = "Educação";
       this.deducao = 0.20;
     }
 
+    /**
+    * Construtor de copia para objetos da classe Educacao
+    */
     public Educacao(Educacao s){
       this.naturezaDespesa = s.getNaturezaDespesa();
       this.deducao = s.getDeducao();

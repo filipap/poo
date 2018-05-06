@@ -9,12 +9,18 @@ public class Cabeleireiros implements AtividadesE
     private String naturezaDespesa ;
     private double deducao;
 
+    /**
+    * Construtor por omissao para objetos da classe Cabeleireiros
+    */
     public Cabeleireiros()
     {
       this.naturezaDespesa = "Cabeleireiros";
       this.deducao = 0.07;
     }
 
+    /**
+    * Construtor de copia para objetos da classe Cabeleireiros
+    */
     public Cabeleireiros(Cabeleireiros s){
       this.naturezaDespesa = s.getNaturezaDespesa();
       this.deducao = s.getDeducao();

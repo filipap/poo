@@ -13,32 +13,52 @@ public class GestaoContribuintes {
   private Map<Integer, Contribuinte> contribuintes;
 
   /**
-  * COnstrutor para objetos da classe GestaoContribuintes
+  * Construtor por omissao para objetos da classe GestaoContribuintes
   */
   public GestaoContribuintes(){
     this.contribuintes = new HashMap<>();
   }
 
+  /**
+  * Construtor para objetos parametrizado da classe GestaoContribuintes
+  */
   public GestaoContribuintes(Map<Integer,Contribuinte> cont) {
     //this.encomendas = encs.values().stream().collect(Collectors.toMap((e) -> e.getNEnc(),(e) -> e.clone(),(e1,e2) -> e1,HashMap::new));
     this.contribuintes = cont.values().stream().collect(Collectors.toMap((c) -> c.getNif(),(c) -> c.clone()));
   }
   
+  /**
+  * Construtor de copia para objetos da classe GestaoContribuintes
+  */
   public GestaoContribuintes(GestaoContribuintes gc) {
     this.contribuintes = gc.getContribuintes();    
   }
   
+  /*metodos de instancia*/
+
+  //devolve o HashMap de Contribuintes
   public Map<Integer,Contribuinte> getContribuintes() {
     return this.contribuintes.values().stream().collect(Collectors.toMap((c) -> c.getNif(),(c) -> c.clone())); 
   }
   
+  /** metodos da classe GestaoContribuintes*/
+  /**
+  * metodo que retorna a representação textual do objeto
+  * @return 
+  */
   public String toString() {
      StringBuffer sb = new StringBuffer();
      for (Contribuinte c: this.contribuintes.values())
        sb.append(c.toString() + "\n ----- \n");
      return sb.toString(); 
   }
-   
+  
+
+  /**
+  * Verifica a igualdade de dois objectos
+  * @param obj
+  * @return true or false
+  */
   public boolean equals(Object o) {
     if (this == o) 
       return true;

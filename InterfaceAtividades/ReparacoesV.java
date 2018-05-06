@@ -10,12 +10,18 @@ public class ReparacoesV implements AtividadesE
     private String naturezaDespesa ;
     private double deducao;
 
+    /**
+    * Construtor por omissao para objetos da classe ReparacoesV
+    */
     public ReparacoesV()
     {
       this.naturezaDespesa = "Reparação Veículos";
       this.deducao = 0.08;
     }
 
+    /**
+    * Construtor de copia para objetos da classe ReparacoesV
+    */
     public ReparacoesV(ReparacoesV s){
       this.naturezaDespesa = s.getNaturezaDespesa();
       this.deducao = s.getDeducao();
