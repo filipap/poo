@@ -6,7 +6,7 @@
 # poo
 trabalho de POO
 
-**Conteudo dos ficheiros:**
+**Conteúdo dos ficheiros:**
 - **GestaoContribuintes.java:** classe onde se gerem todos os contribuintes;
 	- **Contribuinte.java:** Informação genérica as empresas e aos contribuintes individuais;
 		- **Empresarial.java:** Contém a informaçao especifica para o cliente coletivo;
