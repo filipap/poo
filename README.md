@@ -1,4 +1,4 @@
-Constituição do grupo:
+**Constituição do grupo:**
 	- Ana Rita Guimarães (A79987)
 	- Filipa Parente (A82145)
 	- Francisco Granado (A54810)
@@ -8,8 +8,8 @@ trabalho de POO
 
 **Conteudo dos ficheiros:**
 - **GestaoContribuintes.java:** classe onde se gerem todos os contribuintes;
-	  - **Contribuinte.java:** Informação genérica as empresas e aos contribuintes individuais;
-  		- **Empresarial.java:** Contém a informaçao especifica para o cliente coletivo;
+	- **Contribuinte.java:** Informação genérica as empresas e aos contribuintes individuais;
+        	- **Empresarial.java:** Contém a informaçao especifica para o cliente coletivo;
   		- **Individuais.java:** Contém a informaçao especifica para o cliente individual;
 - **GestaoFaturas.java:** classe onde se gerem todas as faturas de um determinado contribuinte;  	
   	- **Fatura.java:** Contém a informação para ser inserida nas faturas;
