@@ -22,6 +22,6 @@ trabalho de POO
   		- **Transportes.java:** setor dos transportes(os passes contam para efeitos de dedução fiscal);
   		- **Animais.java:** setor veterinário;
   		- **Cabeleireiros.java:** setor onde se localizam os salões de beleza.
-  - **Tester.java:** Classe de teste 
+  - **Tester.java:** Classe de teste;
 
 ----------------------------------------------------------------
