@@ -3,6 +3,7 @@ comment0.target=AtividadesE
 comment0.text=\n\ AtividadesE\ -\ interface\ das\ Atividades\ Economicas\n
 comment1.params=
 comment1.target=AtividadesE\ clone()
+comment1.text=\n\ metodos\ comuns\ a\ todas\ as\ classes\ que\ implementam\ a\ interface\ AtividadesE\n
 comment2.params=
 comment2.target=java.lang.String\ getNaturezaDespesa()
 comment3.params=
