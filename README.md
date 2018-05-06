@@ -1,11 +1,10 @@
-
-# poo
-trabalho de POO
-
 **Constituição do grupo:**
 	- Ana Rita Guimarães (A79987)
 	- Filipa Parente (A82145)
 	- Francisco Granado (A54810)
+
+# poo
+trabalho de POO
 
 **Conteúdo dos ficheiros:**
 - **GestaoContribuintes.java:** classe onde se gerem todos os contribuintes;
