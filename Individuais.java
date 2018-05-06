@@ -1,14 +1,14 @@
-
+ 
 /**
- * Escreva a descrição da classe Individuais aqui.
+ * classe dos contribuintes individuais
  * 
- * @author (seu nome) 
- * @version (número de versão ou data)
+ * @author Ana Guimarães(a79987), Filipa Parente (a82145), Francisco Garcia (a54810)
  */
 import java.util.Arrays;
 import java.util.List;
 import java.util.ArrayList;
 import java.lang.String;
+import InterfaceAtividades.AtividadesE;
 public class Individuais extends Contribuinte {
   /** numero de dependentes do agregado familiar */
   private int agregado;
@@ -20,7 +20,7 @@ public class Individuais extends Contribuinte {
   private List<Integer> codigos;
 
   /**
-  * COnstrutor por omissao para objetos da classe Individuais
+  * Construtor por omissao para objetos da classe Individuais
   */
   public Individuais() {
     super();
@@ -31,7 +31,7 @@ public class Individuais extends Contribuinte {
   }
   
   /**
-  * COnstrutor para objetos parametrizado da classe Individuais
+  * Construtor para objetos parametrizado da classe Individuais
   * @param nif 
   * @param email
   * @param nome
@@ -52,7 +52,7 @@ public class Individuais extends Contribuinte {
   }
   
   /**
-  * COnstrutor de copia para objetos da classe Individuais
+  * Construtor de copia para objetos da classe Individuais
   * @param umInd Contribuinte Individual
   */
   public Individuais(Individuais umInd) {

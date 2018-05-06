@@ -1,15 +1,16 @@
 
 /**
- * Escreva a descrição da classe Fatura aqui.
+ * classe das faturas
  * 
- * @author (seu nome) 
- * @version (número de versão ou data)
+ * @author Ana Guimarães(a79987), Filipa Parente (a82145), Francisco Garcia (a54810)
  */
 //import java.time.LocalDateTime;
 import java.time.LocalDate;
 import java.time.format.DateTimeFormatter;
 import java.util.ArrayList;
 import java.util.List;
+import InterfaceAtividades.AtividadesE;
+import java.util.stream.Collectors;
 public class Fatura {
   /** numero fiscal do Emitente */
   private int nifEmitente;
@@ -73,6 +74,7 @@ public class Fatura {
     this.nifCliente = f.getNifCliente();
     this.descricao = f.getDescricao();
     this.valorDespesa = f.getValorDespesa();
+    this.naturezaD = f.getNaturezaD();
   }
   
   
@@ -83,7 +85,7 @@ public class Fatura {
   * @return 
   */
   public int getNifEmitente() {
-    return nifEmitente;
+    return this.nifEmitente;
   }
   
   /**
@@ -91,7 +93,7 @@ public class Fatura {
   * @return 
   */
   public String getDesignacao() {
-    return designacao;
+    return this.designacao;
   }
 
   /**
@@ -99,7 +101,7 @@ public class Fatura {
   * @return 
   */
   public LocalDate getDataDespesa() {
-    return dataDespesa;
+    return this.dataDespesa;
   }
 
   /**
@@ -107,7 +109,7 @@ public class Fatura {
   * @return 
   */
   public int getNifCliente() {
-    return nifCliente;
+    return this.nifCliente;
   }
 
   /**
@@ -115,7 +117,7 @@ public class Fatura {
   * @return 
   */
   public String getDescricao() {
-    return descricao;
+    return this.descricao;
   }
 
   /**
@@ -123,8 +125,19 @@ public class Fatura {
   * @return 
   */
   public int getValorDespesa() {
-    return valorDespesa;
-  }
+    return this.valorDespesa;
+}
+
+  /**
+  * metodo que devolve o array das atividades economicas 
+  * @return 
+  */
+  public List<AtividadesE> getNaturezaD(){
+    return this.naturezaD.stream().filter(h->h instanceof AtividadesE)
+        .map(AtividadesE::clone)
+        .collect(Collectors.toList());
+  } 
+
   
   /**
   * Define o nif do emitente
@@ -175,25 +188,14 @@ public class Fatura {
   }
   
   /**
-  * Devolve a string que indica natureza da despesa
-  * @param valorDespesa
+  * metodo que atualiza o array das atividades economicas 
+  * @return 
   */
-  public List<AtividadesE> getNaturezaD() {
-    ArrayList res = new ArrayList<>();
-    for(AtividadesE x: this.naturezaD){
-      res.add(x);
-    }
-    return res;
-  }
-  
-  /**
-  * Redefine o valor da natureza da despesa
-  * @param natureza da despesa
-  */
-  public void setNaturezaD(List<AtividadesE> naturezaD) {
+
+  public void setNaturezaD(List<AtividadesE> at){
     this.naturezaD = new ArrayList<>();
-    for(AtividadesE x: naturezaD){
-      this.naturezaD.add(x);
+    for(AtividadesE s: at){
+      this.naturezaD.add(s.clone());
     }
   }
   
@@ -204,7 +206,6 @@ public class Fatura {
   public Fatura clone() {
     return new Fatura(this);
   }
-  
   
   /**
   * Verifica a igualdade de dois objectos
@@ -224,6 +225,19 @@ public class Fatura {
              && this.descricao.equals(f.getDescricao()) &&
              this.valorDespesa == f.getValorDespesa());
   }
+
+  /**
+  * metodo auxiliar que retorna o array de strings 
+  * com as atividades economicas de determinada empresa
+  * @return List<String> 
+  */
+  public List<String> setoresAtividade(){
+    ArrayList<String> res = new ArrayList<>();
+    for(AtividadesE a:this.naturezaD){
+      res.add(a.getNaturezaDespesa());
+    }
+    return res;
+  }
   
   /**
   * Retorna uma representaçao textual do objecto
@@ -236,8 +250,8 @@ public class Fatura {
     sb.append("NIF do emitente: ").append(nifEmitente).append("\nDesignacao do emitente: ").append(designacao)
                 .append("\nData da despesa: ").append(d).append("\nNIF do Cliente: ").append(nifCliente)
                 .append("\nDescricao da despesa: ").append(descricao)
-                .append("\nValor da despesa: ").append(valorDespesa).append("\nNatureza da despesa: "); 
-                // ainda falta fazer o toString das atividades;
+                .append("\nValor da despesa: ").append(valorDespesa).append("\nNatureza da despesa: ")
+                .append(setoresAtividade());
     return sb.toString();
   }
   

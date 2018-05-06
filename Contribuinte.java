@@ -1,9 +1,8 @@
 
 /**
- * Write a description of class Contribuinte here.
+ * classe Contribuinte 
  *
- * @author (your name)
- * @version (a version number or a date)
+ * @author Ana Guimarães(a79987), Filipa Parente (a82145), Francisco Garcia (a54810)
  */
 public class Contribuinte
 {
@@ -17,7 +16,10 @@ public class Contribuinte
   private String morada;
   /** password de acesso */
   private String password;
-  /**contrutor da classe Contribuinte*/
+
+  /**
+  * Construtor por omissao para objetos da classe Contribuinte
+  */
   public Contribuinte(){
     this.nif = 0;
     this.email = "n/a";
@@ -25,7 +27,10 @@ public class Contribuinte
     this.morada = "n/a";
     this.password = "n/a";
   }
-    
+   
+  /**
+  * Construtor para objetos parametrizado da classe Contribuinte
+  */  
   public Contribuinte(int nif, String email, String nome, String morada, String pass){
     setNif(nif);
     setEmail(email);
@@ -34,6 +39,9 @@ public class Contribuinte
     setPassword(pass);
   }
   
+  /**
+  * Construtor de copia para objetos da classe Contribuinte
+  */
   public Contribuinte(Contribuinte c){
      this.nif = c.getNif();
      this.email = c.getEmail();
@@ -41,6 +49,7 @@ public class Contribuinte
      this.morada = c.getMorada();
      this.password = c.getPassword();
   }
+  
     /** metodos da instancia Contribuinte */
   //para o nif
   public int getNif() {
@@ -103,18 +112,30 @@ public class Contribuinte
              && this.password.equals(c.getPassword()));
   }
   
+  /**
+  * metodo que copia o objeto
+  * @return 
+  */
+  public Contribuinte clone() {
+     return new Contribuinte(this); 
+   }
   
-  
+  /**
+  * metodo que retorna a representação textual do objeto
+  * @return 
+  */
   public String toString() {
     StringBuilder sb = new StringBuilder();
     sb.append("NIF: ").append(this.nif).append("\nEmail: ").append(this.email)
-         .append("\nNome: ").append(this.nome).append("\nMorada: ").append(this.morada);   
+         .append("\nNome: ").append(this.nome)
+         .append("\nMorada: ").append(this.morada)
+         .append("\nPass: ").append(this.password);   
     return sb.toString();
   } 
   
   /**
   * Retorna o hashcode
-  * @return result
+  * @return 
   */
  
   public int hashCode() {

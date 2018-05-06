@@ -1,0 +1,25 @@
+#BlueJ class context
+comment0.target=DespesasF
+comment0.text=\n\ DespesasF\ -\ classe\ que\ implementa\ a\ interface\ AtividadesE\n
+comment1.params=
+comment1.target=DespesasF()
+comment1.text=\n\ Construtor\ por\ omissao\ para\ objetos\ da\ classe\ DespesasF\n
+comment2.params=s
+comment2.target=DespesasF(DespesasF)
+comment2.text=\n\ Construtor\ de\ copia\ para\ objetos\ da\ classe\ DespesasF\n
+comment3.params=
+comment3.target=java.lang.String\ getNaturezaDespesa()
+comment3.text=\ \n\ metodo\ que\ devolve\ a\ natureza\ da\ despesa\ para\ ser\ comparada\ na\ Fatura\ \n\ @return\ String\ com\ a\ natureza\ da\ despesa\n
+comment4.params=
+comment4.target=double\ getDeducao()
+comment4.text=\ \n\ metodo\ que\ devolve\ a\ dedu\u00E7ao(em\ percentagem)\ para\ ser\ calculada\ em\ Fatura\ \n\ @return\ double\ com\ a\ dedu\u00E7ao\n
+comment5.params=
+comment5.target=DespesasF\ getAtividadesE()
+comment5.text=\ \n\ metodo\ que\ devolve\ o\ objeto\ da\ classe\ DespesasF\ \n\ @return\ objeto\ DespesasF\n
+comment6.params=a
+comment6.target=void\ setAtividadesE(DespesasF)
+comment6.text=\ \n\ metodo\ que\ atualiza\ o\ objeto\ da\ classe\ DespesasF\ \n\ @return\ nothing\n
+comment7.params=
+comment7.target=DespesasF\ clone()
+comment7.text=\n\ Cria\ uma\ copia\ do\ objecto\ \n\ @return\n
+numComments=8
