@@ -84,7 +84,7 @@ public class GestaoContribuintes {
   public void addContribuinte(Contribuinte cont) throws ContJaExisteException{
     if (contribuintes.containsKey(cont.getNif()))
     throw
-       new ContJaExisteException("O contribuinte" + cont.getNif() + "ja existe!");
+       new ContJaExisteException("O contribuinte " + cont.getNif() + " ja existe!");
     else this.contribuintes.put(cont.getNif(),cont.clone());    
   }
   
@@ -107,12 +107,12 @@ public class GestaoContribuintes {
   public void removeContribuinte(Integer nif) throws ContNaoExisteException{
       if(!contribuintes.containsKey(nif))
       throw
-         new ContNaoExisteException("O contribuinte " + nif + "nao existe.");
+         new ContNaoExisteException("O contribuinte " + nif + " nao existe.");
       else this.contribuintes.remove(nif);    
   }
   
   /**
-  * escreve em ficheiro de texto
+  * escreve o estado em ficheiro de texto
   * @param nomeFicheiro
   */
   public void escreveEmFicheiroTxt(String nomeFicheiro) throws IOException

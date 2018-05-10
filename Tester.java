@@ -40,13 +40,48 @@ public class Tester
        gf.addFatura(f1);
        gf.addFatura(f2);
        gf.addFatura(f3);
-       System.out.println(gf.toString()+"\n");
+       //System.out.println(gf.toString()+"\n");
 
        GestaoContribuintes gc = new GestaoContribuintes();
-       gc.addContribuinte(c1);
-       gc.addContribuinte(c2);
+       try{
+           gc.addContribuinte(c1);
+           //System.out.println(h);
+        }
+        catch(ContJaExisteException e){
+            System.out.println(e.getMessage());
+        }
+       try{
+           gc.addContribuinte(c1);
+           //System.out.println(h);
+        }
+        catch(ContJaExisteException e){
+            System.out.println(e.getMessage());
+        }
+       try{
+           gc.addContribuinte(c2);
+           //System.out.println(h);
+        }
+        catch(ContJaExisteException e1){
+            System.out.println(e1.getMessage());
+        }
        
-       System.out.println("Sistema de Gestão de Contribuintes:\n");
-       System.out.println(gc.toString());
+       //System.out.println("Sistema de Gestão de Contribuintes:\n");
+       //System.out.println(gc.toString());
+       
+       try{
+           gc.removeContribuinte(123);
+           //System.out.println(h);
+        }
+        catch(ContNaoExisteException e2){
+            System.out.println(e2.getMessage());
+        }
+       
+        try{
+           gc.removeContribuinte(123);
+           //System.out.println(h);
+        }
+        catch(ContNaoExisteException e3){
+            System.out.println(e3.getMessage());
+        }
     }
 }
