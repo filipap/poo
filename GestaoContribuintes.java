@@ -8,6 +8,13 @@ import java.util.HashMap;
 import java.util.Map;
 import java.util.stream.Stream;
 import java.util.stream.Collectors;
+import java.io.IOException;
+import java.io.PrintWriter;
+import java.io.ObjectOutputStream;
+import java.io.FileOutputStream;
+import java.io.FileNotFoundException;
+import java.io.ObjectInputStream;
+import java.io.FileInputStream;
 public class GestaoContribuintes {
     // variáveis de instância - substitua o exemplo abaixo pelo seu próprio
   private Map<Integer, Contribuinte> contribuintes;
@@ -69,22 +76,72 @@ public class GestaoContribuintes {
        
    }    
    
-   // public void addContribuinte(Contribuinte cont)
-  public void addContribuinte(Contribuinte cont) {
-    this.contribuintes.put(cont.getNif(),cont.clone());    
+  /**
+  * Adiciona um contribuinte
+  * @param cont
+  * 
+  */
+  public void addContribuinte(Contribuinte cont) throws ContJaExisteException{
+    if (contribuintes.containsKey(cont.getNif()))
+    throw
+       new ContJaExisteException("O contribuinte" + cont.getNif() + "ja existe!");
+    else this.contribuintes.put(cont.getNif(),cont.clone());    
   }
   
   public GestaoContribuintes clone() {
     return new GestaoContribuintes(this); 
    }
   
-  // conta contribuintes
+  /**
+  * conta o numero de contribuintes
+  * @return
+  */
   public int contaContribuintes() {
     return this.contribuintes.size();    
   }
   
-  // public void removeContribuinte(Integer nif)
-  public void removeContribuinte(Integer nif) {
-    this.contribuintes.remove(nif);    
+  /**
+  * remove um contribuinte
+  * @param nif
+  */
+  public void removeContribuinte(Integer nif) throws ContNaoExisteException{
+      if(!contribuintes.containsKey(nif))
+      throw
+         new ContNaoExisteException("O contribuinte " + nif + "nao existe.");
+      else this.contribuintes.remove(nif);    
   }
+  
+  /**
+  * escreve em ficheiro de texto
+  * @param nomeFicheiro
+  */
+  public void escreveEmFicheiroTxt(String nomeFicheiro) throws IOException
+    {
+        PrintWriter fich = new PrintWriter(nomeFicheiro);
+        fich.println("---Contribuintes---");
+        fich.println(this.toString());
+        fich.flush();
+        fich.close();
+    }
+  
+  /**
+  * metodo que guarda em ficheiro de objetos o objeto que recebe a mensagem
+  * @param nomeFicheiro
+  */
+  public void guardaEstado(String nomeFicheiro) throws FileNotFoundException,IOException{
+        FileOutputStream fos = new FileOutputStream(nomeFicheiro);
+        ObjectOutputStream oos = new ObjectOutputStream(fos);
+        oos.writeObject(this); // 
+        oos.flush();
+        oos.close();
+    }
+  
+  public static GestaoContribuintes carregaEstado (String nomeFicheiro) throws FileNotFoundException,IOException,ClassNotFoundException{
+
+    FileInputStream fis = new FileInputStream(nomeFicheiro);
+    ObjectInputStream ois = new ObjectInputStream(fis);
+    GestaoContribuintes h = (GestaoContribuintes) ois.readObject();
+    ois.close();
+    return h;
+    }
 }
