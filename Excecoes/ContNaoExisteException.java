@@ -1,4 +1,4 @@
-
+package Excecoes; 
 /**
  * Escreva a descrição da classe ContNaoExisteException aqui.
  * 
