@@ -31,8 +31,9 @@ public class Empresarial extends Contribuinte {
   * @param morada
   * @param password
   */
-  public Empresarial(int nif, String email, String nome, String morada, String password,List<AtividadesE> infoAt) {
-    super(nif,email,nome,morada,password);
+  public Empresarial(int nif, String email, String nome, String morada, 
+  String password,GestaoFaturas faturas, List<AtividadesE> infoAt) {
+    super(nif,email,nome,morada,password,faturas);
     setInfoAtividades(infoAt);
   }
   

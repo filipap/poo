@@ -42,9 +42,10 @@ public class Individuais extends Contribuinte {
   * @param coef_fiscal
   * @param codigos
   */
-  public Individuais(int nif, String email, String nome, String morada, String password, int agregado, List<Integer> nif_agregado,
+  public Individuais(int nif, String email, String nome, String morada, String password,
+  GestaoFaturas faturas, int agregado, List<Integer> nif_agregado,
                      float coef_fiscal, List<Integer> codigos) {
-    super(nif,email,nome,morada,password);
+    super(nif,email,nome,morada,password,faturas);
     setAgregado(agregado);
     setNif_agregado(nif_agregado);
     setCoef_fiscal(coef_fiscal);

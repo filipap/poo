@@ -15,6 +15,7 @@ import java.io.FileOutputStream;
 import java.io.FileNotFoundException;
 import java.io.ObjectInputStream;
 import java.io.FileInputStream;
+import Excecoes.*;
 public class GestaoContribuintes {
     // variáveis de instância - substitua o exemplo abaixo pelo seu próprio
   private Map<Integer, Contribuinte> contribuintes;
@@ -135,13 +136,16 @@ public class GestaoContribuintes {
         oos.flush();
         oos.close();
     }
-  
-  public static GestaoContribuintes carregaEstado (String nomeFicheiro) throws FileNotFoundException,IOException,ClassNotFoundException{
 
-    FileInputStream fis = new FileInputStream(nomeFicheiro);
-    ObjectInputStream ois = new ObjectInputStream(fis);
-    GestaoContribuintes h = (GestaoContribuintes) ois.readObject();
-    ois.close();
-    return h;
-    }
+  /**
+   * metodo que carrega os objetos do ficheiro txt
+   * @param nomeFicheiro
+  */
+  public static GestaoContribuintes carregaEstado (String nomeFicheiro) throws FileNotFoundException,IOException,ClassNotFoundException{
+        FileInputStream fis = new FileInputStream(nomeFicheiro);
+        ObjectInputStream ois = new ObjectInputStream(fis);
+        GestaoContribuintes h = (GestaoContribuintes) ois.readObject();
+        ois.close();
+        return h;
+  }
 }

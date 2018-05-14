@@ -16,6 +16,9 @@ public class Contribuinte
   private String morada;
   /** password de acesso */
   private String password;
+  /** lista de faturas */
+  private GestaoFaturas listaFaturas;
+
 
   /**
   * Construtor por omissao para objetos da classe Contribuinte
@@ -26,17 +29,19 @@ public class Contribuinte
     this.nome = "n/a";
     this.morada = "n/a";
     this.password = "n/a";
+    this.listaFaturas = new GestaoFaturas();
   }
    
   /**
   * Construtor para objetos parametrizado da classe Contribuinte
   */  
-  public Contribuinte(int nif, String email, String nome, String morada, String pass){
+  public Contribuinte(int nif, String email, String nome, String morada, String pass,GestaoFaturas faturas){
     setNif(nif);
     setEmail(email);
     setNome(nome);
     setMorada(morada);
     setPassword(pass);
+    setListaFaturas(faturas);
   }
   
   /**
@@ -48,6 +53,7 @@ public class Contribuinte
      this.nome = c.getNome();
      this.morada = c.getMorada();
      this.password = c.getPassword();
+     this.listaFaturas = c.getListaFaturas();
   }
   
     /** metodos da instancia Contribuinte */
@@ -74,25 +80,33 @@ public class Contribuinte
   }
     
   public void setNome(String nome){
-     this.nome = nome;
+    this.nome = nome;
   }
   // para a morada
   public String getMorada() {
-     return this.morada;
+    return this.morada;
   }
     
   public void setMorada(String morada){
-     this.morada = morada;
+    this.morada = morada;
   }
   // para a password
   public String getPassword() {
-     return this.password;
+    return this.password;
   }
     
   public void setPassword(String pass){
      this.password = pass;
   }
-    
+
+  // para a lista de faturas de cada contribuinte
+  public GestaoFaturas getListaFaturas() {
+    return this.listaFaturas;
+  }
+
+  public void setListaFaturas(GestaoFaturas listaFaturas) {
+    this.listaFaturas=listaFaturas;
+  }
   /** metodos da classe contribuinte*/
   /**
   * Verifica a igualdade de dois objectos
@@ -129,7 +143,7 @@ public class Contribuinte
     sb.append("NIF: ").append(this.nif).append("\nEmail: ").append(this.email)
          .append("\nNome: ").append(this.nome)
          .append("\nMorada: ").append(this.morada)
-         .append("\nPass: ").append(this.password);   
+         .append("\n\nLista de Faturas:\n").append(this.listaFaturas.toString());   
     return sb.toString();
   } 
   

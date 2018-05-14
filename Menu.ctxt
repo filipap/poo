@@ -1,0 +1,13 @@
+#BlueJ class context
+comment0.target=Menu
+comment1.params=inicio\ fim
+comment1.target=int\ scanButton(int,\ int)
+comment2.params=n
+comment2.target=java.util.List\ scanAtivities(int)
+comment3.params=at
+comment3.target=java.util.List\ insertAtivities(java.util.List)
+comment4.params=
+comment4.target=java.util.List\ scanNewContribuinte()
+comment5.params=
+comment5.target=Empresarial\ scanNewCompany()
+numComments=6

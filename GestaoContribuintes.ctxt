@@ -14,6 +14,7 @@ comment12.target=void\ guardaEstado(java.lang.String)
 comment12.text=\n\ metodo\ que\ guarda\ em\ ficheiro\ de\ objetos\ o\ objeto\ que\ recebe\ a\ mensagem\n\ @param\ nomeFicheiro\n
 comment13.params=nomeFicheiro
 comment13.target=GestaoContribuintes\ carregaEstado(java.lang.String)
+comment13.text=\n\ metodo\ que\ carrega\ os\ objetos\ do\ ficheiro\ txt\n\ @param\ nomeFicheiro\n
 comment2.params=cont
 comment2.target=GestaoContribuintes(java.util.Map)
 comment2.text=\n\ Construtor\ para\ objetos\ parametrizado\ da\ classe\ GestaoContribuintes\n
