@@ -7,6 +7,9 @@
 
 import java.util.List;
 import java.util.ArrayList;
+import java.util.Iterator;
+import java.util.Collections;
+import java.util.Comparator;
 
 public class GestaoFaturas {
   private List<Fatura> faturas;
@@ -104,4 +107,16 @@ public class GestaoFaturas {
   public int hashCode() {
     return faturas !=null ? faturas.hashCode() : 0;
   }
+  
+  /**
+   * 
+   */
+  public void ordData(){
+      Comparator<Fatura> comp = (Fatura a, Fatura b) ->{
+        return b.compareTo(a);
+      };
+      Collections.sort(this.getFaturas(), comp );
+  }
+
+  
 }

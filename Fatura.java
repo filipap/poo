@@ -11,7 +11,7 @@ import java.util.ArrayList;
 import java.util.List;
 import InterfaceAtividades.AtividadesE;
 import java.util.stream.Collectors;
-public class Fatura {
+public class Fatura implements Comparable<Fatura>{
   /** numero fiscal do Emitente */
   private int nifEmitente;
   /** designacao do emitente */
@@ -277,6 +277,14 @@ public class Fatura {
       
   }*/
     
+  
+  /**
+   * Retorna 0 se forem iguais, 1 se this > fat e -1 se o fat > this
+   */
+  // return this.getValorDespesa.compareTo(fat.getValorDespesa());
+  public int compareTo(Fatura fat){
+    return this.getDataDespesa().compareTo(fat.getDataDespesa());
+  }
 
 
 
