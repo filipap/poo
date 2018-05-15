@@ -4,6 +4,13 @@
  *
  * @author Ana Guimarães(a79987), Filipa Parente (a82145), Francisco Garcia (a54810)
  */
+
+import java.time.LocalDate;
+import java.util.Arrays;
+import java.util.List;
+import java.util.ArrayList;
+import InterfaceAtividades.AtividadesE;
+
 public class Contribuinte
 {
   /** numero fiscal */
@@ -36,6 +43,9 @@ public class Contribuinte
   * Construtor para objetos parametrizado da classe Contribuinte
   */  
   public Contribuinte(int nif, String email, String nome, String morada, String pass,GestaoFaturas faturas){
+    /*if("todos as passes dos contribuintes".cointains(pass)){
+    return new PasswordException();
+    }*/
     setNif(nif);
     setEmail(email);
     setNome(nome);
@@ -107,6 +117,7 @@ public class Contribuinte
   public void setListaFaturas(GestaoFaturas listaFaturas) {
     this.listaFaturas=listaFaturas;
   }
+  
   /** metodos da classe contribuinte*/
   /**
   * Verifica a igualdade de dois objectos
@@ -160,5 +171,6 @@ public class Contribuinte
     result = 31 * result + (this.password != null ? this.password.hashCode() : 0);
     return result;
   }
+  
   
 }

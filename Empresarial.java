@@ -9,6 +9,7 @@ import java.util.List;
 import java.util.ArrayList;
 import InterfaceAtividades.AtividadesE;
 import java.util.stream.Collectors;
+import java.time.LocalDate;
 
 public class Empresarial extends Contribuinte {
   
@@ -123,5 +124,36 @@ public class Empresarial extends Contribuinte {
   */
   public int hashCode() {
     return super.hashCode();
+  }
+  
+  /**
+   * Retorna listagens das facturas por contribuinte num determinado intervalo de datas
+   * ....
+   */
+  public GestaoFaturas fatBetweenDates(LocalDate date1, LocalDate date2){
+      GestaoFaturas res = new GestaoFaturas();
+      for(int i = 0; i < this.getListaFaturas().getFaturas().size() ; i++){
+          if(this.getListaFaturas().getFaturas().get(i).getDataDespesa().isAfter(date1) && 
+          this.getListaFaturas().getFaturas().get(i).getDataDespesa().isBefore(date2)){
+              res.addFatura(this.getListaFaturas().getFaturas().get(i));
+          }
+      }
+      return res;
+  }
+  
+  /**
+   * Retorna total faturado num determinado intercalo de tempo
+   * ...
+   */
+  
+  public double totalFaturado(LocalDate date1, LocalDate date2){
+      double res = 0.0;
+      for(int i = 0; i < this.getListaFaturas().getFaturas().size() ; i++){
+          if(this.getListaFaturas().getFaturas().get(i).getDataDespesa().isAfter(date1) && 
+          this.getListaFaturas().getFaturas().get(i).getDataDespesa().isBefore(date2)){
+              res = res + this.getListaFaturas().getFaturas().get(i).getValorDespesa();
+          }
+      }
+      return res;
   }
 }
