@@ -11,7 +11,7 @@ import java.lang.String;
 import java.time.LocalDate;
 import java.util.Scanner;
 import InterfaceAtividades.*;
-import  java.util.Iterator;
+import java.util.Iterator;
 
 public class Tester
 {
@@ -54,5 +54,5 @@ public class Tester
            break;
          }
        }
-    }    
+    }  
 }

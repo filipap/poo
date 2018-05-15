@@ -23,7 +23,7 @@ public class Fatura {
   /** descricao da despesa*/
   private String descricao;
   /** valor da despesa*/
-  private int valorDespesa;
+  private double valorDespesa;
   /** natureza da despesa (atividade economica a que diz respeito)*/
   private List<AtividadesE> naturezaD;
     
@@ -124,7 +124,7 @@ public class Fatura {
   * Devolve o valor da despesa
   * @return 
   */
-  public int getValorDespesa() {
+  public double getValorDespesa() {
     return this.valorDespesa;
 }
 
@@ -183,7 +183,7 @@ public class Fatura {
   * Redefine o valor da despesa
   * @param valorDespesa
   */
-  public void setValorDespesa(int valorDespesa) {
+  public void setValorDespesa(double valorDespesa) {
     this.valorDespesa = valorDespesa;
   }
   
@@ -265,22 +265,9 @@ public class Fatura {
     result = 31 * result + (dataDespesa != null ? dataDespesa.hashCode() : 0);
     result = 31 * result + nifCliente;
     result = 31 * result + (descricao != null ? descricao.hashCode() : 0);
-    result = 31 * result + valorDespesa;
+    result = 31 * result + (int)valorDespesa;
     result = 31 * result + (naturezaD != null ? naturezaD.hashCode() : 0);
     return result;
   }
-  
-  /** metodos da classe Fatura */
-  /* // metodo que calcula o valor qu vai ser deduzido para IRS
-  public double valorDeduzidoIRS(){
-      double coef_deducao = c.getDeducaoDespesa(); 
-      
-  }*/
     
-
-
-
-
-
-
 }

@@ -7,8 +7,11 @@
 
 import java.util.List;
 import java.util.ArrayList;
+import java.util.Comparator;
+import java.lang.Comparable;
+import java.util.stream.Collectors;
 
-public class GestaoFaturas {
+public class GestaoFaturas implements Comparator<Fatura> {
   private List<Fatura> faturas;
   /**
   * Construtor para objetos da classe GestaoFaturas
@@ -104,4 +107,52 @@ public class GestaoFaturas {
   public int hashCode() {
     return faturas !=null ? faturas.hashCode() : 0;
   }
+
+  /**
+   * Método compareTo para datas 
+   * Retorna 0 se forem iguais, 1 se this > fat e -1 se o fat > this
+  */
+  
+  public int compareByDate(Fatura f1 , Fatura f2){
+    int r = 0;
+    if (f1.getDataDespesa().isAfter(f2.getDataDespesa())) r = -1; 
+    if (f1.getDataDespesa().isBefore(f2.getDataDespesa())) r = 1;
+    return r;
+}
+  
+  /**
+  * Método que retorna a lista de faturas ordenada por datas
+  * @return 
+  */
+  public void ordData(){
+      Comparator<Fatura> comp = (Fatura a, Fatura b) ->{
+        return compareByDate(a,b);
+      };
+      ArrayList<Fatura> sortedList = this.getFaturas().stream().sorted(comp).collect(Collectors.toCollection(ArrayList::new));
+      setFaturas(sortedList);
+  }
+  
+  /**
+   * Método compareTo para valor despesa 
+   * Retorna 0 se forem iguais, -1 se f1 > f2 e 1 se o f1 > f2
+  */
+  public int compare(Fatura f1 , Fatura f2){
+    int r=0;
+    if (f1.getValorDespesa() > f2.getValorDespesa()) r = -1; 
+    if (f1.getValorDespesa() < f2.getValorDespesa()) r = 1;
+    return r;
+  }
+  
+  /**
+  * Método que retorna a lista de faturas ordenada por valor de despesa
+  * @return 
+  */
+  public void ordValor(){
+      Comparator<Fatura> comp = (Fatura a, Fatura b) ->{
+        return compare(a,b);
+      };
+      ArrayList<Fatura> sortedList = this.getFaturas().stream().sorted(comp).collect(Collectors.toCollection(ArrayList::new));
+      setFaturas(sortedList);
+    }
+
 }
