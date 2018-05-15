@@ -27,7 +27,7 @@ public class Menu {
        System.out.println("Educação,Saúde,Cuidados Veterinários,Reparação Veículos,Cabeleireiros,Transportes,"+
        "Restauração,Habitação,Despesas Familiares");
        ArrayList <String> atE = new ArrayList<> ();
-       while(sc.hasNextLine()&& n>0){
+       while(n>0 && sc.hasNextLine()){
            atE.add(sc.nextLine());
            n--;
        }
@@ -82,29 +82,51 @@ public class Menu {
         List<String> at = scanAtivities(n);
         List<AtividadesE> res = insertAtivities(at);
         int nif = Integer.parseInt(cont.get(0));
-        return new Empresarial(nif,cont.get(0),cont.get(2),cont.get(1),cont.get(3),fat,res);
+        return new Empresarial(nif,cont.get(1),cont.get(3),cont.get(2),cont.get(4),fat,res);
     }
 
-    public List<Integer> scanAgregado(int n){
-        System.out.println("Digite o nif de cada elemento do seu agregado familiar: ");
+    public List<Integer> scanAgregado(int n,String s){
+        System.out.println(s);
         Scanner sc = new Scanner(System.in);
         ArrayList<Integer> res = new ArrayList<>();
         while(n>0){
           int i = sc.nextInt();
           res.add(i);
+          n--;
         }
         return res;
     }
 
-    public Individual scanNewCompany(){
+    public Individuais scanNewIndividual(){
         List<String> cont = scanNewContribuinte();
         GestaoFaturas fat = new GestaoFaturas();
-        System.out.println(": ");
-        List<String> at = scanAtivities(n);
         Scanner sc = new Scanner(System.in);
         System.out.println("Quantos elementos fazem parte do seu agregado familiar? "); 
         int agregado = Integer.parseInt(sc.next());
-        List<Integer> nifAgregado = scanAgregado(agregado);
-        return new Empresarial(nif,cont.get(0),cont.get(2),cont.get(1),cont.get(3),fat,res);
+        List<Integer> nifAgregado = scanAgregado(agregado,"Digite o nif de cada elemento do seu agregado familiar: ");
+        System.out.println("Coeficiente Fiscal: ");
+        int coef_fiscal = Integer.parseInt(sc.next());
+        List<Integer> codigos = scanAgregado(2,"Codigos"); 
+        int nif = Integer.parseInt(cont.get(0));
+        return new Individuais(nif,cont.get(1),cont.get(3),cont.get(2),cont.get(4),fat,agregado,nifAgregado,(float)coef_fiscal,codigos);
+    }
+    
+    /*public void execBotaoI(int tecla){
+        switch(tecla){
+          case 1:{
+            
+            System.out.println(ind.toString());
+          }
+          
+        }
+    }*/
+    
+    public void scanContribuinte(){
+        Scanner sc = new Scanner(System.in);
+        System.out.println("Digite o seu NIF: ");
+        int nif = Integer.parseInt(sc.next());
+        System.out.println("Digite a sua password de acesso: ");
+        String pass = sc.next();
+        Contribuinte c = getContribuinte();
     }
 }

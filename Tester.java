@@ -26,14 +26,17 @@ public class Tester
          case 1:{
            System.out.println("Tecla 1: Contribuinte Coletivo");
            System.out.println("Tecla 2: Contribuinte Individual");
+           System.out.println("Tecla 0: Administrador Sistema");
            int j = m.scanButton(1,2);
              switch(j){
                case 1:{
-                   Empresarial e = m.scanNewCompany();
-                   System.out.println(e.toString());
+                 Empresarial e = m.scanNewCompany();
+                 System.out.println(e.toString());
                  break;     
                }
                case 2:{
+                 Individuais ind = m.scanNewIndividual();
+                 System.out.println(ind.toString());
                  break;
                }
              }
@@ -45,13 +48,26 @@ public class Tester
            int j = m.scanButton(1,2);
              switch(j){
                case 1:{
+                 System.out.println("");
+                 System.out.println("Tecla 1: Verificar faturas emitidas");
+                 System.out.println("Tecla 2: Emitir fatura");
+                 int k = m.scanButton(1,2);
+                 m.execBotaoE(k);
                  break;     
                }
                case 2:{
+                 System.out.println("Tecla 1: Verificar faturas");
+                 System.out.println("Tecla 2: Faturas pendentes");
+                 System.out.println("Tecla 3: Visualizar perfil");
+                 int k = m.scanButton(1,3);
+                 m.execBotaoI(k);
                  break;
                }
              }
            break;
+         }
+         case 0:{
+         
          }
        }
     }  
