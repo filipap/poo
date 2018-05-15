@@ -84,4 +84,27 @@ public class Menu {
         int nif = Integer.parseInt(cont.get(0));
         return new Empresarial(nif,cont.get(0),cont.get(2),cont.get(1),cont.get(3),fat,res);
     }
+
+    public List<Integer> scanAgregado(int n){
+        System.out.println("Digite o nif de cada elemento do seu agregado familiar: ");
+        Scanner sc = new Scanner(System.in);
+        ArrayList<Integer> res = new ArrayList<>();
+        while(n>0){
+          int i = sc.nextInt();
+          res.add(i);
+        }
+        return res;
+    }
+
+    public Individual scanNewCompany(){
+        List<String> cont = scanNewContribuinte();
+        GestaoFaturas fat = new GestaoFaturas();
+        System.out.println(": ");
+        List<String> at = scanAtivities(n);
+        Scanner sc = new Scanner(System.in);
+        System.out.println("Quantos elementos fazem parte do seu agregado familiar? "); 
+        int agregado = Integer.parseInt(sc.next());
+        List<Integer> nifAgregado = scanAgregado(agregado);
+        return new Empresarial(nif,cont.get(0),cont.get(2),cont.get(1),cont.get(3),fat,res);
+    }
 }

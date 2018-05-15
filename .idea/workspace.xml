@@ -1,23 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
   <component name="ChangeListManager">
-    <list default="true" id="153b205f-ebdb-4b12-9533-d346b2f571da" name="Default" comment="">
-      <change beforePath="$PROJECT_DIR$/Contribuinte.class" beforeDir="false" afterPath="$PROJECT_DIR$/Contribuinte.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Contribuinte.ctxt" beforeDir="false" afterPath="$PROJECT_DIR$/Contribuinte.ctxt" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Contribuinte.java" beforeDir="false" afterPath="$PROJECT_DIR$/Contribuinte.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Empresarial.class" beforeDir="false" afterPath="$PROJECT_DIR$/Empresarial.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Empresarial.ctxt" beforeDir="false" afterPath="$PROJECT_DIR$/Empresarial.ctxt" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Empresarial.java" beforeDir="false" afterPath="$PROJECT_DIR$/Empresarial.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/GestaoContribuintes.class" beforeDir="false" afterPath="$PROJECT_DIR$/GestaoContribuintes.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/GestaoContribuintes.ctxt" beforeDir="false" afterPath="$PROJECT_DIR$/GestaoContribuintes.ctxt" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/GestaoContribuintes.java" beforeDir="false" afterPath="$PROJECT_DIR$/GestaoContribuintes.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Individuais.class" beforeDir="false" afterPath="$PROJECT_DIR$/Individuais.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Individuais.ctxt" beforeDir="false" afterPath="$PROJECT_DIR$/Individuais.ctxt" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Individuais.java" beforeDir="false" afterPath="$PROJECT_DIR$/Individuais.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/InterfaceAtividades/package.bluej" beforeDir="false" afterPath="$PROJECT_DIR$/InterfaceAtividades/package.bluej" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Tester.class" beforeDir="false" afterPath="$PROJECT_DIR$/Tester.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Tester.java" beforeDir="false" afterPath="$PROJECT_DIR$/Tester.java" afterDir="false" />
-    </list>
+    <list default="true" id="153b205f-ebdb-4b12-9533-d346b2f571da" name="Default" comment="" />
     <ignored path="$PROJECT_DIR$/out/" />
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
     <option name="TRACKING_ENABLED" value="true" />
