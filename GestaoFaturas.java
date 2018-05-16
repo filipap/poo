@@ -153,6 +153,20 @@ public class GestaoFaturas implements Comparator<Fatura> {
       };
       ArrayList<Fatura> sortedList = this.getFaturas().stream().sorted(comp).collect(Collectors.toCollection(ArrayList::new));
       setFaturas(sortedList);
-    }
+  }
+ 
+  /**
+  * Método que retorna a lista de faturas pendentes
+  * @return 
+  */
+  public GestaoFaturas getFaturasPendentes(){
+      GestaoFaturas gf = new GestaoFaturas();
+      for(Fatura f:this.faturas){
+        if(f.getNaturezaD().size() > 1){
+            gf.addFatura(f);
+        }
+      }
+      return gf;
+  }
 
 }

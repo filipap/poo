@@ -153,8 +153,7 @@ public class Contribuinte
     StringBuilder sb = new StringBuilder();
     sb.append("NIF: ").append(this.nif).append("\nEmail: ").append(this.email)
          .append("\nNome: ").append(this.nome)
-         .append("\nMorada: ").append(this.morada)
-         .append("\n\nLista de Faturas:\n").append(this.listaFaturas.toString());   
+         .append("\nMorada: ").append(this.morada);   
     return sb.toString();
   } 
   

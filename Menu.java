@@ -9,6 +9,8 @@ import java.util.Scanner;
 import InterfaceAtividades.*;
 import java.util.ArrayList;
 import java.util.List;
+import Excecoes.*;
+import java.io.*;
 public class Menu {
     
     public int scanButton(int inicio,int fim){
@@ -111,22 +113,77 @@ public class Menu {
         return new Individuais(nif,cont.get(1),cont.get(3),cont.get(2),cont.get(4),fat,agregado,nifAgregado,(float)coef_fiscal,codigos);
     }
     
-    /*public void execBotaoI(int tecla){
+    public void execBotaoI(int tecla,Individuais ind){
         switch(tecla){
           case 1:{
-            
+            System.out.println(ind.getListaFaturas().toString());
+          }
+          case 2:{
+            System.out.println("    Lista de faturas pendentes     ");
+            System.out.println(ind.getListaFaturas().getFaturasPendentes().toString());
+          }
+          case 3:{
             System.out.println(ind.toString());
           }
-          
         }
-    }*/
+    }
     
-    public void scanContribuinte(){
+    public Individuais scanIndividual(GestaoContribuintes gc)throws ContNaoExisteException,PassNaoCorrespondeException{
         Scanner sc = new Scanner(System.in);
         System.out.println("Digite o seu NIF: ");
         int nif = Integer.parseInt(sc.next());
         System.out.println("Digite a sua password de acesso: ");
         String pass = sc.next();
-        Contribuinte c = getContribuinte();
+        Individuais c = new Individuais();
+        c = gc.getIndividual(nif,pass);
+        return c;
     }
+    
+    public Empresarial scanEmpresa(GestaoContribuintes gc)throws ContNaoExisteException,PassNaoCorrespondeException{
+        Scanner sc = new Scanner(System.in);
+        System.out.println("Digite o seu NIF: ");
+        int nif = Integer.parseInt(sc.next());
+        System.out.println("Digite a sua password de acesso: ");
+        String pass = sc.next();
+        Empresarial c = new Empresarial();
+        c=gc.getEmpresa(nif,pass);
+        return c;
+    }
+    
+    /**
+     * escreve o estado em ficheiro de texto
+     * @param nomeFicheiro
+    */
+    public void escreveEmFicheiroTxt(String nomeFicheiro) throws IOException{
+        PrintWriter fich = new PrintWriter(nomeFicheiro);
+        fich.println("---Contribuintes---");
+        fich.println(this.toString());
+        fich.flush();
+        fich.close();
+    }
+  
+  /**
+  * metodo que guarda em ficheiro de objetos o objeto que recebe a mensagem
+  * @param nomeFicheiro
+  */
+  public void guardaEstado(String nomeFicheiro) throws FileNotFoundException,IOException{
+        FileOutputStream fos = new FileOutputStream(nomeFicheiro);
+        ObjectOutputStream oos = new ObjectOutputStream(fos);
+        oos.writeObject(this); // 
+        oos.flush();
+        oos.close();
+    }
+
+  /**
+   * metodo que carrega os objetos do ficheiro txt
+   * @param nomeFicheiro
+  */
+  public static GestaoContribuintes carregaEstado (String nomeFicheiro) throws FileNotFoundException,IOException,ClassNotFoundException{
+        FileInputStream fis = new FileInputStream(nomeFicheiro);
+        ObjectInputStream ois = new ObjectInputStream(fis);
+        GestaoContribuintes h = (GestaoContribuintes) ois.readObject();
+        ois.close();
+        return h;
+  }
+    
 }

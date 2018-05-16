@@ -8,6 +8,6 @@ package Excecoes;
  * @version (a version number or a date)
  */
 public class FaturaException extends Exception{
-    //public FaturaException() {super();}
-    //public FaturaException(GestaoFaturas s) {super(s);}
+    public FaturaException() {super();}
+    public FaturaException(String s) {super(s);}
 }

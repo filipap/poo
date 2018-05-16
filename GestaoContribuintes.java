@@ -83,9 +83,9 @@ public class GestaoContribuintes {
   * 
   */
   public void addContribuinte(Contribuinte cont) throws ContJaExisteException{
-    if (contribuintes.containsKey(cont.getNif()))
+    if (this.contribuintes.containsKey(cont.getNif()))
     throw
-       new ContJaExisteException("O contribuinte " + cont.getNif() + " ja existe!");
+       new ContJaExisteException(Integer.toString(cont.getNif()));
     else this.contribuintes.put(cont.getNif(),cont.clone());    
   }
   
@@ -102,6 +102,33 @@ public class GestaoContribuintes {
   }
   
   /**
+  * retorna um contribuinte individual
+  * @return
+  */
+  public Individuais getIndividual(int key,String password) throws ContNaoExisteException,PassNaoCorrespondeException{
+      if(this.contribuintes.containsKey(key)){
+          if(this.contribuintes.get(key).getPassword().equals(password))
+            return (Individuais)this.contribuintes.get(key).clone();
+          else throw new PassNaoCorrespondeException();
+      }
+      else throw new ContNaoExisteException(Integer.toString(key));
+  }
+  
+  /**
+  * retorna um contribuinte coletivo
+  * @return
+  */
+  public Empresarial getEmpresa(int key,String password) throws ContNaoExisteException,PassNaoCorrespondeException{
+      if(this.contribuintes.containsKey(key)){
+          if(this.contribuintes.get(key).getPassword().equals(password))
+            return (Empresarial)this.contribuintes.get(key).clone();
+          else throw new PassNaoCorrespondeException();
+      }
+      else throw new ContNaoExisteException(Integer.toString(key));
+  }
+  
+  
+  /**
   * remove um contribuinte
   * @param nif
   */
@@ -112,40 +139,5 @@ public class GestaoContribuintes {
       else this.contribuintes.remove(nif);    
   }
   
-  /**
-  * escreve o estado em ficheiro de texto
-  * @param nomeFicheiro
-  */
-  public void escreveEmFicheiroTxt(String nomeFicheiro) throws IOException
-    {
-        PrintWriter fich = new PrintWriter(nomeFicheiro);
-        fich.println("---Contribuintes---");
-        fich.println(this.toString());
-        fich.flush();
-        fich.close();
-    }
   
-  /**
-  * metodo que guarda em ficheiro de objetos o objeto que recebe a mensagem
-  * @param nomeFicheiro
-  */
-  public void guardaEstado(String nomeFicheiro) throws FileNotFoundException,IOException{
-        FileOutputStream fos = new FileOutputStream(nomeFicheiro);
-        ObjectOutputStream oos = new ObjectOutputStream(fos);
-        oos.writeObject(this); // 
-        oos.flush();
-        oos.close();
-    }
-
-  /**
-   * metodo que carrega os objetos do ficheiro txt
-   * @param nomeFicheiro
-  */
-  public static GestaoContribuintes carregaEstado (String nomeFicheiro) throws FileNotFoundException,IOException,ClassNotFoundException{
-        FileInputStream fis = new FileInputStream(nomeFicheiro);
-        ObjectInputStream ois = new ObjectInputStream(fis);
-        GestaoContribuintes h = (GestaoContribuintes) ois.readObject();
-        ois.close();
-        return h;
-  }
 }
