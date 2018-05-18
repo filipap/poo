@@ -112,6 +112,22 @@ public class Menu {
         int nif = Integer.parseInt(cont.get(0));
         return new Individuais(nif,cont.get(1),cont.get(3),cont.get(2),cont.get(4),fat,agregado,nifAgregado,(float)coef_fiscal,codigos);
     }
+
+    public Fatura scanFatura(int nifEmitente, String nomeEmpresa, List<AtividadesE> at){
+        try {
+        Scanner s = new Scanner(System.in);
+        System.out.println("Digite a data de despesa: ");
+        String dataRecebida = s.nextLine(); 
+        LocalDate dt = LocalDate.parse(dataRecebida,DateTimeFormatter.ISO_LOCAL_DATE);
+        } 
+        catch (Exception ex) {ex.printStackTrace();}
+        int nifCliente = Integer.parseInt(s.nextLine());
+        System.out.println("Digite uma pequena descrição da fatura que vai emitir: ");
+        String descr = sc.nextLine();
+        System.out.println("Digite o valor da despesa: ");
+        double valueSpent = Double.parseDouble(s.nextLine());
+        return new Fatura(nifEmitente,nomeEmpresa,dt,nifCliente,descr,valueSpent,at);
+    }
     
     public void execBotaoI(int tecla,Individuais ind){
         switch(tecla){
@@ -125,6 +141,22 @@ public class Menu {
           case 3:{
             System.out.println(ind.toString());
           }
+        }
+    }
+
+    public void execBotaoE(int tecla,Empresarial emp){
+        switch(tecla){
+          case 1:{
+            System.out.println(ind.getListaFaturas().toString());
+          }
+          case 2:{
+            int nif = emp.getNif();
+            int nomeEmpresa = emp.getDesignacao();
+            List<AtividadesE> at = emp.getNaturezaD();
+            emp.getListaFaturas.addFatura(scanFatura(nif,nomeEmpresa,at));
+            System.out.println("Fatura emitida com sucesso!");
+          }
+          
         }
     }
     
