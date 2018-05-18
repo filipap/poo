@@ -17,6 +17,14 @@ import java.io.ObjectInputStream;
 import java.io.FileInputStream;
 import java.io.Serializable;
 import Excecoes.*;
+import java.util.List;
+import java.util.ArrayList;
+import java.util.Collections;
+import java.util.Comparator;
+import java.lang.Comparable;
+import java.util.LinkedList;
+import java.util.LinkedHashMap;
+
 public class GestaoContribuintes implements Serializable{
     // variáveis de instância - substitua o exemplo abaixo pelo seu próprio
   private Map<Integer, Contribuinte> contribuintes;
