@@ -11,5 +11,5 @@ public interface AtividadesE
     public abstract String getNaturezaDespesa();
     public abstract double getDeducao();
     public abstract AtividadesE getAtividadesE();
-    //public abstract void setAtividadesE();
+    public abstract int getCod();
 }

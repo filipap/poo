@@ -1,0 +1,14 @@
+#BlueJ class context
+comment0.target=Ficheiros
+comment1.params=nomeFicheiro\ gc
+comment1.target=void\ escreveEmFicheiroTxt(java.lang.String,\ GestaoContribuintes)
+comment1.text=\n\ escreve\ o\ estado\ em\ ficheiro\ de\ texto\n\ @param\ nomeFicheiro\n
+comment2.params=nomeFicheiro\ gc
+comment2.target=void\ guardaEstado(java.lang.String,\ GestaoContribuintes)
+comment2.text=\n\ metodo\ que\ guarda\ em\ ficheiro\ de\ objetos\ o\ objeto\ que\ recebe\ a\ mensagem\n\ @param\ nomeFicheiro\n
+comment3.params=nomeFicheiro
+comment3.target=GestaoContribuintes\ carregaEstado(java.lang.String)
+comment3.text=\n\ metodo\ que\ carrega\ os\ objetos\ do\ ficheiro\ txt\n\ @param\ nomeFicheiro\n
+comment4.params=arg
+comment4.target=void\ main(java.lang.String[])
+numComments=5

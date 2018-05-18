@@ -9,6 +9,8 @@ import java.util.Scanner;
 import InterfaceAtividades.*;
 import java.util.ArrayList;
 import java.util.List;
+import java.time.LocalDate;
+import java.time.format.DateTimeFormatter;
 import Excecoes.*;
 import java.io.*;
 public class Menu {
@@ -114,19 +116,16 @@ public class Menu {
     }
 
     public Fatura scanFatura(int nifEmitente, String nomeEmpresa, List<AtividadesE> at){
-        try {
         Scanner s = new Scanner(System.in);
         System.out.println("Digite a data de despesa: ");
         String dataRecebida = s.nextLine(); 
         LocalDate dt = LocalDate.parse(dataRecebida,DateTimeFormatter.ISO_LOCAL_DATE);
-        } 
-        catch (Exception ex) {ex.printStackTrace();}
         int nifCliente = Integer.parseInt(s.nextLine());
         System.out.println("Digite uma pequena descrição da fatura que vai emitir: ");
-        String descr = sc.nextLine();
+        String descr = s.nextLine();
         System.out.println("Digite o valor da despesa: ");
         double valueSpent = Double.parseDouble(s.nextLine());
-        return new Fatura(nifEmitente,nomeEmpresa,dt,nifCliente,descr,valueSpent,at);
+        return new Fatura(nifEmitente,nomeEmpresa,dt,nifCliente,descr,(int)valueSpent,at);
     }
     
     public void execBotaoI(int tecla,Individuais ind){
@@ -135,8 +134,24 @@ public class Menu {
             System.out.println(ind.getListaFaturas().toString());
           }
           case 2:{
-            System.out.println("    Lista de faturas pendentes     ");
+            System.out.println("    Lista de faturas pendentes     \n");
             System.out.println(ind.getListaFaturas().getFaturasPendentes().toString());
+            System.out.println("\n\n Deseja: \n Tecla 1 - Definir Atividade \n Tecla 2 - Sair");
+            int k = scanButton(1,2);
+            switch(k){
+                case 1:{
+                    try{
+                        Scanner c = new Scanner(System.in);
+                        System.out.println("Qual fatura deseja alterar?\n");
+                        int index = c.nextInt();
+                        System.out.println("Introduza o codigo da atividade na qual deduz?\n");
+                        int cod = c.nextInt();
+                        ind.getListaFaturas().atualizaFaturas(cod);
+                    }
+                    catch(SemAtividadeException j){System.out.println(j.getMessage());}
+                }
+                case 2:{break;}
+            }
           }
           case 3:{
             System.out.println(ind.toString());
@@ -147,16 +162,15 @@ public class Menu {
     public void execBotaoE(int tecla,Empresarial emp){
         switch(tecla){
           case 1:{
-            System.out.println(ind.getListaFaturas().toString());
+            System.out.println(emp.getListaFaturas().toString());
           }
           case 2:{
             int nif = emp.getNif();
-            int nomeEmpresa = emp.getDesignacao();
-            List<AtividadesE> at = emp.getNaturezaD();
-            emp.getListaFaturas.addFatura(scanFatura(nif,nomeEmpresa,at));
+            String nomeEmpresa = emp.getNome();
+            List<AtividadesE> at = emp.getInfoAtividades();
+            emp.getListaFaturas().addFatura(scanFatura(nif,nomeEmpresa,at));
             System.out.println("Fatura emitida com sucesso!");
           }
-          
         }
     }
     
@@ -180,42 +194,5 @@ public class Menu {
         Empresarial c = new Empresarial();
         c=gc.getEmpresa(nif,pass);
         return c;
-    }
-    
-    /**
-     * escreve o estado em ficheiro de texto
-     * @param nomeFicheiro
-    */
-    public void escreveEmFicheiroTxt(String nomeFicheiro) throws IOException{
-        PrintWriter fich = new PrintWriter(nomeFicheiro);
-        fich.println("---Contribuintes---");
-        fich.println(this.toString());
-        fich.flush();
-        fich.close();
-    }
-  
-  /**
-  * metodo que guarda em ficheiro de objetos o objeto que recebe a mensagem
-  * @param nomeFicheiro
-  */
-  public void guardaEstado(String nomeFicheiro) throws FileNotFoundException,IOException{
-        FileOutputStream fos = new FileOutputStream(nomeFicheiro);
-        ObjectOutputStream oos = new ObjectOutputStream(fos);
-        oos.writeObject(this); // 
-        oos.flush();
-        oos.close();
-    }
-
-  /**
-   * metodo que carrega os objetos do ficheiro txt
-   * @param nomeFicheiro
-  */
-  public static GestaoContribuintes carregaEstado (String nomeFicheiro) throws FileNotFoundException,IOException,ClassNotFoundException{
-        FileInputStream fis = new FileInputStream(nomeFicheiro);
-        ObjectInputStream ois = new ObjectInputStream(fis);
-        GestaoContribuintes h = (GestaoContribuintes) ois.readObject();
-        ois.close();
-        return h;
-  }
-    
+    }    
 }

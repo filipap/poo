@@ -3,21 +3,22 @@ package InterfaceAtividades;
 /**
  * Cabeleireiros - classe que implementa a interface AtividadesE
  */
-public class Cabeleireiros implements AtividadesE
-{
+
+import java.io.Serializable;
+public class Cabeleireiros implements AtividadesE,Serializable{
     // variaveis de instancia
     private String naturezaDespesa ;
     private double deducao;
-    private int codigo;
+    private int cod;
 
     /**
     * Construtor por omissao para objetos da classe Cabeleireiros
     */
     public Cabeleireiros()
     {
-      this.naturezaDespesa = "Cabeleireiros";
+      this.naturezaDespesa = "6 - Cabeleireiros";
       this.deducao = 0.07;
-      this.codigo = 0;
+      this.cod = 6;
     }
 
     /**
@@ -48,8 +49,8 @@ public class Cabeleireiros implements AtividadesE
      * metodo que devolve a deduçao(em percentagem) para ser calculada em Fatura 
      * @return double com a deduçao
     */
-    public int getCodigo(){
-      return this.codigo;
+    public int getCod(){
+      return this.cod;
     }
 
     /** 
@@ -60,7 +61,7 @@ public class Cabeleireiros implements AtividadesE
       Cabeleireiros res = new Cabeleireiros();
       res.naturezaDespesa = this.getNaturezaDespesa();
       res.deducao = this.getDeducao();
-      res.codigo = this.getCodigo();
+      res.cod = this.getCod();
       return res;
     }
 
@@ -71,7 +72,7 @@ public class Cabeleireiros implements AtividadesE
     public void setAtividadesE(Cabeleireiros a){
       this.naturezaDespesa = a.getNaturezaDespesa();
       this.deducao = a.getDeducao();
-      this.codigo = a.getCodigo();
+      this.cod = a.getCod();
     }    
 
     /**

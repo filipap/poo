@@ -2,20 +2,21 @@ package InterfaceAtividades;
 /**
  * DespesasF - classe que implementa a interface AtividadesE
 */
-
-public class DespesasF implements AtividadesE
-{
+import java.io.Serializable;
+public class DespesasF implements AtividadesE,Serializable{
     // variaveis de instancia
     private String naturezaDespesa ;
     private double deducao;
-
+    //codigo da atividade
+    private int cod;
     /**
     * Construtor por omissao para objetos da classe DespesasF
     */
     public DespesasF()
     {
-      this.naturezaDespesa = "Despesas Familiares";
+      this.naturezaDespesa = "1 - Despesas Familiares";
       this.deducao = 0.05;
+      this.cod = 1;
     }
 
     /**
@@ -24,6 +25,7 @@ public class DespesasF implements AtividadesE
     public DespesasF(DespesasF s){
       this.naturezaDespesa = s.getNaturezaDespesa();
       this.deducao = s.getDeducao();
+      this.cod = s.getCod();
     }
 
     /** 
@@ -40,6 +42,15 @@ public class DespesasF implements AtividadesE
     */
     public double getDeducao(){
       return this.deducao;
+    }
+
+    /** 
+     * metodo que devolve o codigo da atividade 
+     * @return double com a deduçao
+    */
+
+    public int getCod(){
+      return this.cod;
     }
 
     /** 

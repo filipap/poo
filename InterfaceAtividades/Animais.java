@@ -4,19 +4,20 @@ package InterfaceAtividades;
 /**
  * Animais - classe que implementa a interface AtividadesE
  */
-public class Animais implements AtividadesE
-{
+import java.io.Serializable;
+public class Animais implements AtividadesE,Serializable{
     // variaveis de instancia
     private String naturezaDespesa ;
     private double deducao;
-
+    private int cod;
     /**
     * Construtor por omissao para objetos da classe Animais
     */
     public Animais()
     {
-      this.naturezaDespesa = "Cuidados Veterinarios";
+      this.naturezaDespesa = "9 - Cuidados Veterinarios";
       this.deducao = 0.10;
+      this.cod = 9;
     }
 
     /**
@@ -25,6 +26,7 @@ public class Animais implements AtividadesE
     public Animais(Animais s){
       this.naturezaDespesa = s.getNaturezaDespesa();
       this.deducao = s.getDeducao();
+      this.cod = s.getCod();
     }
     
     /** 
@@ -41,6 +43,15 @@ public class Animais implements AtividadesE
     */
     public double getDeducao(){
       return this.deducao;
+    }
+
+    /** 
+     * metodo que devolve o codigo da atividade 
+     * @return double com a deduçao
+    */
+
+    public int getCod(){
+      return this.cod;
     }
 
     /** 

@@ -4,19 +4,21 @@ package InterfaceAtividades;
 /**
  * Saude - classe que implementa a interface AtividadesE
  */
-public class Saude implements AtividadesE
-{
+
+import java.io.Serializable;
+public class Saude implements AtividadesE,Serializable{
     // variaveis de instancia
     private String naturezaDespesa ;
     private double deducao;
-    
+    private int cod;
     /**
     * Construtor por omissao para objetos da classe Saude
     */
     public Saude()
     {
-      this.naturezaDespesa = "Saúde";
+      this.naturezaDespesa = "3 - Saúde";
       this.deducao = 0.20;
+      this.cod = 3;
     }
 
     /**
@@ -25,6 +27,7 @@ public class Saude implements AtividadesE
     public Saude(Saude s){
       this.naturezaDespesa = s.getNaturezaDespesa();
       this.deducao = s.getDeducao();
+      this.cod = s.getCod();
     }
     /** 
      * metodo que devolve a natureza da despesa para ser comparada na Fatura 
@@ -40,6 +43,15 @@ public class Saude implements AtividadesE
     */
     public double getDeducao(){
       return this.deducao;
+    }
+
+    /** 
+     * metodo que devolve o codigo da atividade 
+     * @return double com a deduçao
+    */
+
+    public int getCod(){
+      return this.cod;
     }
 
     /** 

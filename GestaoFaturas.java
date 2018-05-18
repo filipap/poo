@@ -10,8 +10,9 @@ import java.util.ArrayList;
 import java.util.Comparator;
 import java.lang.Comparable;
 import java.util.stream.Collectors;
-
-public class GestaoFaturas implements Comparator<Fatura> {
+import java.io.Serializable;
+import Excecoes.*;
+public class GestaoFaturas implements Comparator<Fatura>,Serializable {
   private List<Fatura> faturas;
   /**
   * Construtor para objetos da classe GestaoFaturas
@@ -168,5 +169,25 @@ public class GestaoFaturas implements Comparator<Fatura> {
       }
       return gf;
   }
+  
+  /**
+  * Método que uma fatura numa determinada ordem
+  * @return 
+  */
+  public Fatura getFatura(int i){
+      Fatura f = new Fatura();
+      f = this.faturas.get(i-1);
+      return f;
+  }
+  
+  /**
+  * metodo atualiza as faturas com a atividade correta 
+  * @return 
+  */
+
+  /*public GestaoFaturas atualizaFaturas(int cod,int index) throws SemAtividadeException{
+      Fatura f = getFatura(index-1).atualizaFatura(cod);
+      return ;
+  }*/
 
 }

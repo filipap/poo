@@ -4,19 +4,22 @@ package InterfaceAtividades;
 /**
  * Habitacao - classe que implementa a interface AtividadesE
  */
-public class Habitacao implements AtividadesE
-{
+
+import java.io.Serializable;
+public class Habitacao implements AtividadesE,Serializable{
     // variaveis de instancia
     private String naturezaDespesa ;
     private double deducao;
+    private int cod;
 
     /**
     * Construtor por omissao para objetos da classe Habitacao
     */
     public Habitacao()
     {
-      this.naturezaDespesa = "Habitação";
+      this.naturezaDespesa = "2 - Habitação";
       this.deducao = 0.14;
+      this.cod = 2;
     }
 
     /**
@@ -25,6 +28,7 @@ public class Habitacao implements AtividadesE
     public Habitacao(Habitacao s){
       this.naturezaDespesa = s.getNaturezaDespesa();
       this.deducao = s.getDeducao();
+      this.cod = s.getCod();
     }
 
     /** 
@@ -41,6 +45,15 @@ public class Habitacao implements AtividadesE
     */
     public double getDeducao(){
       return this.deducao;
+    }
+
+    /** 
+     * metodo que devolve o codigo da atividade 
+     * @return double com a deduçao
+    */
+
+    public int getCod(){
+      return this.cod;
     }
 
     /** 

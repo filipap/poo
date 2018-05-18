@@ -9,7 +9,8 @@ import java.util.List;
 import java.util.ArrayList;
 import java.lang.String;
 import InterfaceAtividades.AtividadesE;
-public class Individuais extends Contribuinte {
+import java.io.Serializable;
+public class Individuais extends Contribuinte implements Serializable {
   /** numero de dependentes do agregado familiar */
   private int agregado;
   /** numeros fiscais do agregado familiar */

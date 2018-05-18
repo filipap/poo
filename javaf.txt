@@ -1,2 +1,18 @@
 ---Contribuintes---
-Menu@60b7b213
+NIF: 122
+Email: lipap
+Nome: Filipa
+Morada: rua da mata
+Agregado Familiar: 2
+NIF de cada elemento do agregado familiar: [124, 125]
+Coeficiente de deducao fiscal: 0.15
+Codigos: [1, 2]
+ ----- 
+NIF: 123
+Email: lipap
+Nome: Lava Tudo Direitinho
+Morada: rua do passo
+Setores de atividade: 
+[3 - Saúde, 7 - Reparação Veículos, 9 - Cuidados Veterinarios]
+ ----- 
+

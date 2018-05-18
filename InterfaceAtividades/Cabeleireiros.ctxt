@@ -1,6 +1,5 @@
 #BlueJ class context
 comment0.target=Cabeleireiros
-comment0.text=\n\ Cabeleireiros\ -\ classe\ que\ implementa\ a\ interface\ AtividadesE\n
 comment1.params=
 comment1.target=Cabeleireiros()
 comment1.text=\n\ Construtor\ por\ omissao\ para\ objetos\ da\ classe\ Cabeleireiros\n
@@ -14,7 +13,7 @@ comment4.params=
 comment4.target=double\ getDeducao()
 comment4.text=\ \n\ metodo\ que\ devolve\ a\ dedu\u00E7ao(em\ percentagem)\ para\ ser\ calculada\ em\ Fatura\ \n\ @return\ double\ com\ a\ dedu\u00E7ao\n
 comment5.params=
-comment5.target=int\ getCodigo()
+comment5.target=int\ getCod()
 comment5.text=\ \n\ metodo\ que\ devolve\ a\ dedu\u00E7ao(em\ percentagem)\ para\ ser\ calculada\ em\ Fatura\ \n\ @return\ double\ com\ a\ dedu\u00E7ao\n
 comment6.params=
 comment6.target=Cabeleireiros\ getAtividadesE()

@@ -4,19 +4,21 @@ package InterfaceAtividades;
 /**
  * ReparacoesV - subclasse da classe abstrata AtividadesE
  */
-public class ReparacoesV implements AtividadesE
-{
+import java.io.Serializable;
+public class ReparacoesV implements AtividadesE,Serializable{
     // variaveis de instancia
     private String naturezaDespesa ;
     private double deducao;
+    private int cod;
 
     /**
     * Construtor por omissao para objetos da classe ReparacoesV
     */
     public ReparacoesV()
     {
-      this.naturezaDespesa = "Reparação Veículos";
+      this.naturezaDespesa = "7 - Reparação Veículos";
       this.deducao = 0.08;
+      this.cod = 7;
     }
 
     /**
@@ -25,6 +27,7 @@ public class ReparacoesV implements AtividadesE
     public ReparacoesV(ReparacoesV s){
       this.naturezaDespesa = s.getNaturezaDespesa();
       this.deducao = s.getDeducao();
+      this.cod = s.getCod();
     }
     
     /** 
@@ -41,6 +44,15 @@ public class ReparacoesV implements AtividadesE
     */
     public double getDeducao(){
       return this.deducao;
+    }
+
+    /** 
+     * metodo que devolve o codigo da atividade 
+     * @return double com a deduçao
+    */
+
+    public int getCod(){
+      return this.cod;
     }
 
     /** 

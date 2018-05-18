@@ -10,9 +10,8 @@ import java.util.Arrays;
 import java.util.List;
 import java.util.ArrayList;
 import InterfaceAtividades.AtividadesE;
-
-public class Contribuinte
-{
+import java.io.Serializable;
+public class Contribuinte implements Serializable{
   /** numero fiscal */
   private int nif;
   /** email de contato */

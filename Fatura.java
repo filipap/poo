@@ -11,7 +11,9 @@ import java.util.ArrayList;
 import java.util.List;
 import InterfaceAtividades.AtividadesE;
 import java.util.stream.Collectors;
-public class Fatura {
+import java.io.Serializable;
+import Excecoes.SemAtividadeException;
+public class Fatura implements Serializable{
   /** numero fiscal do Emitente */
   private int nifEmitente;
   /** designacao do emitente */
@@ -225,6 +227,23 @@ public class Fatura {
              && this.descricao.equals(f.getDescricao()) &&
              this.valorDespesa == f.getValorDespesa());
   }
+  
+  /**
+  * metodo que escolhe uma atividade conforme o codigo 
+  * @return 
+  */
+
+  public Fatura atualizaFatura(int cod) throws SemAtividadeException{
+    ArrayList<AtividadesE> res = new ArrayList<>();
+    for(AtividadesE x:this.naturezaD){
+      if(x.getCod()==cod){
+        res.add(x.getAtividadesE());
+      }
+    }
+    if(res.isEmpty()) throw new SemAtividadeException("A fatura não deduz para nenhuma atividade!");
+    setNaturezaD(res);
+    return this.clone();
+  }
 
   /**
   * metodo auxiliar que retorna o array de strings 
@@ -238,7 +257,7 @@ public class Fatura {
     }
     return res;
   }
-  
+
   /**
   * Retorna uma representaçao textual do objecto
   * @return String com o texto

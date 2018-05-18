@@ -9,12 +9,6 @@ import java.util.Map;
 import java.util.stream.Stream;
 import java.util.stream.Collectors;
 import java.io.IOException;
-import java.io.PrintWriter;
-import java.io.ObjectOutputStream;
-import java.io.FileOutputStream;
-import java.io.FileNotFoundException;
-import java.io.ObjectInputStream;
-import java.io.FileInputStream;
 import java.io.Serializable;
 import Excecoes.*;
 public class GestaoContribuintes implements Serializable{
@@ -117,7 +111,7 @@ public class GestaoContribuintes implements Serializable{
     if(this.contribuintes.containsKey(key)){
       if (this.contribuintes.get(key).getPassword().equals(pass)){
         if(this.contribuintes.get(key).getClass().getSimpleName().equals("Empresarial")){
-          return this.contribuintes.get(key).clone();
+          return (Empresarial)this.contribuintes.get(key).clone();
         }
         throw new ContNaoExisteException("o contribuinte " + key + " não é do tipo empresarial");
       }
@@ -135,7 +129,7 @@ public class GestaoContribuintes implements Serializable{
     if(this.contribuintes.containsKey(key)){
       if (this.contribuintes.get(key).getPassword().equals(pass)){
         if(this.contribuintes.get(key).getClass().getSimpleName().equals("Individuais")){
-          return this.contribuintes.get(key).clone();
+          return (Individuais)this.contribuintes.get(key).clone();
         }
         throw new ContNaoExisteException("o contribuinte" + key + "não é do tipo individual");
       }

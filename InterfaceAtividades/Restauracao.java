@@ -4,19 +4,22 @@ package InterfaceAtividades;
 /**
  * Restauracao - classe que implementa a interface AtividadesE
  */
-public class Restauracao implements AtividadesE
-{
+
+import java.io.Serializable;
+public class Restauracao implements AtividadesE,Serializable{
     // variaveis de instancia
     private String naturezaDespesa ;
     private double deducao;
+    private int cod;
 
     /**
     * Construtor por omissao para objetos da classe Restauracao
     */
     public Restauracao()
     {
-      this.naturezaDespesa = "Restauração";
+      this.naturezaDespesa = "8 - Restauração";
       this.deducao = 0.15;
+      this.cod = 8;
     }
 
     /**
@@ -25,6 +28,7 @@ public class Restauracao implements AtividadesE
     public Restauracao(Restauracao s){
       this.naturezaDespesa = s.getNaturezaDespesa();
       this.deducao = s.getDeducao();
+      this.cod = s.getCod();
     }
     
     /** 
@@ -41,6 +45,15 @@ public class Restauracao implements AtividadesE
     */
     public double getDeducao(){
       return this.deducao;
+    }
+
+    /** 
+     * metodo que devolve o codigo da atividade 
+     * @return double com a deduçao
+    */
+
+    public int getCod(){
+      return this.cod;
     }
 
     /** 

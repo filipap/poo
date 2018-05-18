@@ -10,8 +10,8 @@ import java.util.ArrayList;
 import InterfaceAtividades.AtividadesE;
 import java.util.stream.Collectors;
 import java.time.LocalDate;
-
-public class Empresarial extends Contribuinte {
+import java.io.Serializable;
+public class Empresarial extends Contribuinte implements Serializable {
   
 /** informacao das atividades economicas nas quais atuam */
   private List<AtividadesE> infoAtividades; //fazer get e set e meter nos construtores

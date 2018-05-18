@@ -4,19 +4,20 @@ package InterfaceAtividades;
 /**
  * Educacao - classe que implementa a interface AtividadesE
  */
-public class Educacao implements AtividadesE
-{
+import java.io.Serializable;
+public class Educacao implements AtividadesE,Serializable{
     // variaveis de instancia
     private String naturezaDespesa ;
     private double deducao;
-
+    private int cod;
     /**
     * Construtor por omissao para objetos da classe Educacao
     */
     public Educacao()
     {
-      this.naturezaDespesa = "Educação";
+      this.naturezaDespesa = "4 - Educação";
       this.deducao = 0.20;
+      this.cod = 4;
     }
 
     /**
@@ -43,6 +44,15 @@ public class Educacao implements AtividadesE
       return this.deducao;
     }
 
+    /** 
+     * metodo que devolve o codigo da atividade 
+     * @return double com a deduçao
+    */
+
+    public int getCod(){
+      return this.cod;
+    }
+    
     /** 
      * metodo que devolve o objeto da classe Educacao 
      * @return objeto Educacao
