@@ -115,10 +115,13 @@ public class GestaoContribuintes implements Serializable{
 
   public Empresarial getEmpresa(int key, String pass) throws ContNaoExisteException{
     if(this.contribuintes.containsKey(key)){
-      if(this.contribuintes.get(key).getClass().getSimpleName().equals("Empresarial")){
-        return this.contribuintes.get(key).clone();
+      if (this.contribuintes.get(key).getPassword().equals(pass)){
+        if(this.contribuintes.get(key).getClass().getSimpleName().equals("Empresarial")){
+          return this.contribuintes.get(key).clone();
+        }
+        throw new ContNaoExisteException("o contribuinte não é do tipo empresarial");
       }
-      else throw new ContNaoExisteException("o contribuinte não é do tipo empresarial");
+      else throw new PassNaoCorrespondeException("oops, password incorreta");
     }
     else throw new ContNaoExisteException("não existe contribuinte com esse NIF");
   }
@@ -130,10 +133,13 @@ public class GestaoContribuintes implements Serializable{
 
   public Individuais getIndividual(int key, String pass) throws ContNaoExisteException{
     if(this.contribuintes.containsKey(key)){
-      if(this.contribuintes.get(key).getClass().getSimpleName().equals("Individuais")){
-        return this.contribuintes.get(key).clone();
+      if (this.contribuintes.get(key).getPassword().equals(pass)){
+        if(this.contribuintes.get(key).getClass().getSimpleName().equals("Individuais")){
+          return this.contribuintes.get(key).clone();
+        }
+        throw new ContNaoExisteException("o contribuinte não é do tipo individual");
       }
-      else throw new ContNaoExisteException("o contribuinte não é do tipo individual");
+      else throw new PassNaoCorrespondeException("oops, password incorreta");
     }
     else throw new ContNaoExisteException("não existe contribuinte com esse NIF");
   }
