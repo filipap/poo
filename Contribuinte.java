@@ -170,5 +170,12 @@ public class Contribuinte implements Serializable{
     return result;
   }
   
+  /**
+   * Numero de faturas de uma empresa
+   * ...
+   */
+  public int totalFaturas(){
+    return this.getListaFaturas().getFaturas().size();
+  }
   
 }
