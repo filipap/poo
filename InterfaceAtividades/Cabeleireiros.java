@@ -8,6 +8,7 @@ public class Cabeleireiros implements AtividadesE
     // variaveis de instancia
     private String naturezaDespesa ;
     private double deducao;
+    private int codigo;
 
     /**
     * Construtor por omissao para objetos da classe Cabeleireiros
@@ -16,6 +17,7 @@ public class Cabeleireiros implements AtividadesE
     {
       this.naturezaDespesa = "Cabeleireiros";
       this.deducao = 0.07;
+      this.codigo = 0;
     }
 
     /**
@@ -43,13 +45,22 @@ public class Cabeleireiros implements AtividadesE
     }
 
     /** 
+     * metodo que devolve a deduçao(em percentagem) para ser calculada em Fatura 
+     * @return double com a deduçao
+    */
+    public int getCodigo(){
+      return this.codigo;
+    }
+
+    /** 
      * metodo que devolve o objeto da classe Cabeleireiros 
      * @return objeto Cabeleireiros
     */
     public Cabeleireiros getAtividadesE(){
       Cabeleireiros res = new Cabeleireiros();
-      res.naturezaDespesa = this.naturezaDespesa;
-      res.deducao = this.deducao;
+      res.naturezaDespesa = this.getNaturezaDespesa();
+      res.deducao = this.getDeducao();
+      res.codigo = this.getCodigo();
       return res;
     }
 
@@ -60,6 +71,7 @@ public class Cabeleireiros implements AtividadesE
     public void setAtividadesE(Cabeleireiros a){
       this.naturezaDespesa = a.getNaturezaDespesa();
       this.deducao = a.getDeducao();
+      this.codigo = a.getCodigo();
     }    
 
     /**
