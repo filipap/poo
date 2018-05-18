@@ -171,5 +171,12 @@ public class Contribuinte
     return result;
   }
   
+  /**
+   * Numero de faturas de uma empresa
+   * ...
+   */
+  public int totalFaturas(){
+    return this.getListaFaturas().getFaturas().size();
+  }
   
 }

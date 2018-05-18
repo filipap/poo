@@ -154,4 +154,109 @@ public class GestaoContribuintes implements Serializable{
        new ContNaoExisteException("O contribuinte " + nif + " nao existe.");
     else this.contribuintes.remove(nif);    
   }
+  
+  /**
+   * ordena os contribuintes por gasto
+   */
+
+  private static Map<Contribuinte, Double> sortByValue(Map<Contribuinte, Double> unsortMap) {
+
+    // 1. Convert Map to List of Map
+    List<Map.Entry<Contribuinte, Double>> list =
+            new LinkedList<Map.Entry<Contribuinte, Double>>(unsortMap.entrySet());
+
+    // 2. Sort list with Collections.sort(), provide a custom Comparator
+    //    Try switch the o1 o2 position for a different order
+    Collections.sort(list, new Comparator<Map.Entry<Contribuinte, Double>>() {
+        public int compare(Map.Entry<Contribuinte, Double> o1,
+                           Map.Entry<Contribuinte, Double> o2) {
+            return (o1.getValue()).compareTo(o2.getValue());
+        }
+    });
+        // 3. Loop the sorted list and put it into a new insertion order Map LinkedHashMap
+        Map<Contribuinte, Double> sortedMap = new LinkedHashMap<Contribuinte, Double>();
+        for (Map.Entry<Contribuinte, Double> entry : list) {
+            sortedMap.put(entry.getKey(), entry.getValue());
+        }
+
+        return sortedMap;
+    }
+
+  /**
+   *   private Map<Integer, Contribuinte> contribuintes;
+   */
+  public List<Contribuinte> devolve10MaisGastadores() {
+    Map<Contribuinte, Double> valorFacturas  = new HashMap<>();
+    List<Contribuinte> res = new ArrayList<Contribuinte>();
+    Double somaValorFaturas = 0.0;
+    int j = 0;
+    for(Integer i : this.getContribuintes().keySet()){
+      for(Fatura f : contribuintes.get(i).getListaFaturas().getFaturas()){
+        somaValorFaturas = somaValorFaturas + f.getValorDespesa();
+      }
+    valorFacturas.put(contribuintes.get(i), somaValorFaturas);
+    }
+    Map<Contribuinte, Double> valorFacturasOrdenado  = new HashMap<>();
+    valorFacturasOrdenado = sortByValue(valorFacturas);
+    for(Contribuinte c : valorFacturasOrdenado.keySet()){
+      if(j <= 10){
+        res.add(c);
+        j++;
+      }
+    }
+    return res;
+  }
+
+  /**
+   * ordena os contribuintes por numero de faturas
+   */
+
+  private static Map<Contribuinte, Integer> sortNFaturas(Map<Contribuinte, Integer> unsortMap) {
+
+    // 1. Convert Map to List of Map
+    List<Map.Entry<Contribuinte, Integer>> list =
+            new LinkedList<Map.Entry<Contribuinte, Integer>>(unsortMap.entrySet());
+
+    // 2. Sort list with Collections.sort(), provide a custom Comparator
+    //    Try switch the o1 o2 position for a different order
+    Collections.sort(list, new Comparator<Map.Entry<Contribuinte, Integer>>() {
+        public int compare(Map.Entry<Contribuinte, Integer> o1,
+                           Map.Entry<Contribuinte, Integer> o2) {
+            return (o1.getValue()).compareTo(o2.getValue());
+        }
+    });
+        // 3. Loop the sorted list and put it into a new insertion order Map LinkedHashMap
+        Map<Contribuinte, Integer> sortedMap = new LinkedHashMap<Contribuinte, Integer>();
+        for (Map.Entry<Contribuinte, Integer> entry : list) {
+            sortedMap.put(entry.getKey(), entry.getValue());
+        }
+
+        return sortedMap;
+    }
+
+
+  /**
+   * empresasComMaisFaturas
+   * ...
+   */
+  public List<Contribuinte> empresasComMaisFaturas(int x){
+    Map<Contribuinte, Integer> nFaturas  = new HashMap<>();
+    Map<Contribuinte, Integer> nFaturasOrdenado  = new HashMap<>();
+    List<Contribuinte> res = new ArrayList<Contribuinte>();
+    int i = 0;
+    for(Contribuinte c : this.getContribuintes().values()){
+      if(c.getClass().getSimpleName().equals("Empresarial")){
+        nFaturas.put(c, c.totalFaturas());
+      }
+    }
+    nFaturasOrdenado = sortNFaturas(nFaturas);
+    for(Contribuinte c1 : nFaturasOrdenado.keySet()){
+      if(i <= x){
+        res.add(c1);
+        i++;
+      }
+    }
+    return res;
+  }
+
 }
