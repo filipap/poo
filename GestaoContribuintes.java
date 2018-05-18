@@ -128,7 +128,7 @@ public class GestaoContribuintes implements Serializable{
   * @return
   */  
 
-  public Individuais getEmpresa(int key, String pass) throws ContNaoExisteException{
+  public Individuais getIndividual(int key, String pass) throws ContNaoExisteException{
     if(this.contribuintes.containsKey(key)){
       if(this.contribuintes.get(key).getClass().getSimpleName().equals("Individuais")){
         return this.contribuintes.get(key).clone();
