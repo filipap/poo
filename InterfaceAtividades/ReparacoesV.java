@@ -12,7 +12,7 @@ public class ReparacoesV implements AtividadesE,Serializable{
     private int cod;
 
     /**
-    * Construtor por omissao para objetos da classe ReparacoesV
+    * Construtor por omissão para objetos da classe ReparacoesV
     */
     public ReparacoesV()
     {
@@ -22,7 +22,7 @@ public class ReparacoesV implements AtividadesE,Serializable{
     }
 
     /**
-    * Construtor de copia para objetos da classe ReparacoesV
+    * Construtor de cópia para objetos da classe ReparacoesV
     */
     public ReparacoesV(ReparacoesV s){
       this.naturezaDespesa = s.getNaturezaDespesa();
@@ -31,7 +31,7 @@ public class ReparacoesV implements AtividadesE,Serializable{
     }
     
     /** 
-     * metodo que devolve a natureza da despesa para ser comparada na Fatura 
+     * Método que devolve a natureza da despesa para ser comparada na Fatura 
      * @return String com a natureza da despesa
     */
     public String getNaturezaDespesa(){
@@ -39,7 +39,7 @@ public class ReparacoesV implements AtividadesE,Serializable{
     }
     
     /** 
-     * metodo que devolve a deduçao(em percentagem) para ser calculada em Fatura 
+     * Método que devolve a deduçao(em percentagem) para ser calculada em Fatura 
      * @return double com a deduçao
     */
     public double getDeducao(){
@@ -47,7 +47,7 @@ public class ReparacoesV implements AtividadesE,Serializable{
     }
 
     /** 
-     * metodo que devolve o codigo da atividade 
+     * Método que devolve o codigo da atividade 
      * @return double com a deduçao
     */
 
@@ -56,7 +56,7 @@ public class ReparacoesV implements AtividadesE,Serializable{
     }
 
     /** 
-     * metodo que devolve o objeto da classe ReparacoesV 
+     * Método que devolve o objeto da classe ReparacoesV 
      * @return objeto ReparacoesV
     */
     public ReparacoesV getAtividadesE(){
@@ -67,7 +67,7 @@ public class ReparacoesV implements AtividadesE,Serializable{
     }
     
     /** 
-     * metodo que atualiza o objeto da classe ReparacoesV 
+     * Método que atualiza o objeto da classe ReparacoesV 
      * @return nothing
     */
     public void setAtividadesE(ReparacoesV a){

@@ -45,16 +45,16 @@ public class GestaoContribuintes implements Serializable{
     this.contribuintes = gc.getContribuintes();    
   }
   
-  /*metodos de instancia*/
+  /*Métodos de instância*/
 
   //devolve o HashMap de Contribuintes
   public Map<Integer,Contribuinte> getContribuintes() {
     return this.contribuintes.values().stream().collect(Collectors.toMap((c) -> c.getNif(),(c) -> c.clone())); 
   }
   
-  /** metodos da classe GestaoContribuintes*/
+  /** Métodos da classe GestaoContribuintes*/
   /**
-  * metodo que retorna a representação textual do objeto
+  * Método que retorna a representação textual do objeto
   * @return 
   */
   public String toString() {
@@ -94,16 +94,15 @@ public class GestaoContribuintes implements Serializable{
 
 
   /**
-  * método que copia um objeto do tipo GestaoContribuintes
+  * Método que copia um objeto do tipo GestaoContribuintes
   * @param 
-  * 
   */
   public GestaoContribuintes clone() {
     return new GestaoContribuintes(this); 
    }
   
   /**
-  * conta o numero de contribuintes
+  * Conta o número de contribuintes
   * @return
   */
   public int contaContribuintes() {
@@ -111,7 +110,7 @@ public class GestaoContribuintes implements Serializable{
   }
 
   /**
-  * dado uma key e uma passe retorna o contribuinte do tipo empresarial 
+  * Dado uma key e uma password retorna o contribuinte do tipo empresarial 
   * @return
   */  
 
@@ -129,7 +128,7 @@ public class GestaoContribuintes implements Serializable{
   }
 
   /**
-  * dado uma key e uma passe retorna o contribuinte do tipo individuais 
+  * Dado uma key e uma passe retorna o contribuinte do tipo individuais 
   * @return
   */  
 
@@ -147,7 +146,7 @@ public class GestaoContribuintes implements Serializable{
   }
 
   /**
-  * remove um contribuinte
+  * Remove um contribuinte
   * @param 
   */
   public void removeContribuinte(Integer nif) throws ContNaoExisteException{

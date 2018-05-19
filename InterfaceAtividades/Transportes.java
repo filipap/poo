@@ -13,7 +13,7 @@ public class Transportes implements AtividadesE,Serializable{
     private int cod;
 
     /**
-    * Construtor por omissao para objetos da classe Transportes
+    * Construtor por omissão para objetos da classe Transportes
     */
     public Transportes()
     {
@@ -23,7 +23,7 @@ public class Transportes implements AtividadesE,Serializable{
     }
 
     /**
-    * Construtor de copia para objetos da classe Transportes
+    * Construtor de cópia para objetos da classe Transportes
     */
     public Transportes(Transportes s){
       this.naturezaDespesa = s.getNaturezaDespesa();
@@ -32,7 +32,7 @@ public class Transportes implements AtividadesE,Serializable{
     }
     
     /** 
-     * metodo que devolve a natureza da despesa para ser comparada na Fatura 
+     * Método que devolve a natureza da despesa para ser comparada na Fatura 
      * @return String com a natureza da despesa
     */
     public String getNaturezaDespesa(){
@@ -40,16 +40,16 @@ public class Transportes implements AtividadesE,Serializable{
     }
     
     /** 
-     * metodo que devolve a deduçao(em percentagem) para ser calculada em Fatura 
-     * @return double com a deduçao
+     * Método que devolve a dedução(em percentagem) para ser calculada em Fatura 
+     * @return double com a dedução
     */
     public double getDeducao(){
       return this.deducao;
     }
     
     /** 
-     * metodo que devolve o codigo da atividade 
-     * @return double com a deduçao
+     * Método que devolve o código da atividade 
+     * @return double com a dedução
     */
     
     public int getCod(){
@@ -57,7 +57,7 @@ public class Transportes implements AtividadesE,Serializable{
     }
 
     /** 
-     * metodo que devolve o objeto da classe Transportes 
+     * Método que devolve o objeto da classe Transportes 
      * @return objeto Transportes
     */
     public Transportes getAtividadesE(){
@@ -68,7 +68,7 @@ public class Transportes implements AtividadesE,Serializable{
     }
     
     /** 
-     * metodo que atualiza o objeto da classe Transportes 
+     * Método que atualiza o objeto da classe Transportes 
      * @return nothing
     */
     public void setAtividadesE(Transportes a){
@@ -77,7 +77,7 @@ public class Transportes implements AtividadesE,Serializable{
     }    
 
     /**
-     * Cria uma copia do objecto 
+     * Cria uma cópia do objecto 
      * @return
     */
     public Transportes clone() {

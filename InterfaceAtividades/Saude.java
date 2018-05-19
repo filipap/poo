@@ -12,7 +12,7 @@ public class Saude implements AtividadesE,Serializable{
     private double deducao;
     private int cod;
     /**
-    * Construtor por omissao para objetos da classe Saude
+    * Construtor por omissão para objetos da classe Saude
     */
     public Saude()
     {
@@ -30,7 +30,7 @@ public class Saude implements AtividadesE,Serializable{
       this.cod = s.getCod();
     }
     /** 
-     * metodo que devolve a natureza da despesa para ser comparada na Fatura 
+     * Método que devolve a natureza da despesa para ser comparada na Fatura 
      * @return String com a natureza da despesa
     */
     public String getNaturezaDespesa(){
@@ -38,15 +38,15 @@ public class Saude implements AtividadesE,Serializable{
     }
     
     /** 
-     * metodo que devolve a deduçao(em percentagem) para ser calculada em Fatura 
-     * @return double com a deduçao
+     * Método que devolve a dedução(em percentagem) para ser calculada em Fatura 
+     * @return double com a dedução
     */
     public double getDeducao(){
       return this.deducao;
     }
 
     /** 
-     * metodo que devolve o codigo da atividade 
+     * Método que devolve o código da atividade 
      * @return double com a deduçao
     */
 
@@ -55,7 +55,7 @@ public class Saude implements AtividadesE,Serializable{
     }
 
     /** 
-     * metodo que devolve o objeto da classe Saude 
+     * Método que devolve o objeto da classe Saude 
      * @return objeto Saude
     */
     public Saude getAtividadesE(){
@@ -66,7 +66,7 @@ public class Saude implements AtividadesE,Serializable{
     }
     
     /** 
-     * metodo que atualiza o objeto da classe Saude 
+     * Método que atualiza o objeto da classe Saude 
      * @return nothing
     */
     public void setAtividadesE(Saude a){
@@ -75,7 +75,7 @@ public class Saude implements AtividadesE,Serializable{
     }    
 
     /**
-     * Cria uma copia do objecto 
+     * Cria uma cópia do objecto 
      * @return
     */
     public Saude clone() {

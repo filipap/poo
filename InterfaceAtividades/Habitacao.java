@@ -13,7 +13,7 @@ public class Habitacao implements AtividadesE,Serializable{
     private int cod;
 
     /**
-    * Construtor por omissao para objetos da classe Habitacao
+    * Construtor por omissão para objetos da classe Habitacao
     */
     public Habitacao()
     {
@@ -32,7 +32,7 @@ public class Habitacao implements AtividadesE,Serializable{
     }
 
     /** 
-     * metodo que devolve a natureza da despesa para ser comparada na Fatura 
+     * Método que devolve a natureza da despesa para ser comparada na Fatura 
      * @return String com a natureza da despesa
     */
     public String getNaturezaDespesa(){
@@ -40,7 +40,7 @@ public class Habitacao implements AtividadesE,Serializable{
     }
         
     /** 
-     * metodo que devolve a deduçao(em percentagem) para ser calculada em Fatura 
+     * Método que devolve a deduçao(em percentagem) para ser calculada em Fatura 
      * @return double com a deduçao
     */
     public double getDeducao(){
@@ -48,7 +48,7 @@ public class Habitacao implements AtividadesE,Serializable{
     }
 
     /** 
-     * metodo que devolve o codigo da atividade 
+     * Método que devolve o codigo da atividade 
      * @return double com a deduçao
     */
 
@@ -57,7 +57,7 @@ public class Habitacao implements AtividadesE,Serializable{
     }
 
     /** 
-     * metodo que devolve o objeto da classe Habitacao 
+     * Método que devolve o objeto da classe Habitacao 
      * @return objeto Habitacao
     */
     public Habitacao getAtividadesE(){
@@ -68,7 +68,7 @@ public class Habitacao implements AtividadesE,Serializable{
     }
 
     /** 
-     * metodo que atualiza o objeto da classe Habitacao 
+     * Método que atualiza o objeto da classe Habitacao 
      * @return nothing
     */
     public void setAtividadesE(Habitacao a){
@@ -78,7 +78,7 @@ public class Habitacao implements AtividadesE,Serializable{
 
 
     /**
-     * Cria uma copia do objecto 
+     * Cria uma cópia do objecto 
      * @return
     */
     public Habitacao clone() {
