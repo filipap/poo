@@ -142,7 +142,7 @@ public class Empresarial extends Contribuinte implements Serializable {
   }
   
   /**
-   * Retorna total faturado num determinado intercalo de tempo
+   * Retorna total faturado num determinado intervalo de tempo
    * ...
    */
   

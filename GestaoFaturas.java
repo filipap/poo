@@ -170,24 +170,29 @@ public class GestaoFaturas implements Comparator<Fatura>,Serializable {
       return gf;
   }
   
-  /**
-  * Método que uma fatura numa determinada ordem
-  * @return 
-  */
-  public Fatura getFatura(int i){
-      Fatura f = new Fatura();
-      f = this.faturas.get(i-1);
-      return f;
-  }
   
   /**
-  * metodo atualiza as faturas com a atividade correta 
+  * metodo atualiza uma determinada fatura da lista com a atividade correta 
   * @return 
   */
 
-  /*public GestaoFaturas atualizaFaturas(int cod,int index) throws SemAtividadeException{
-      Fatura f = getFatura(index-1).atualizaFatura(cod);
-      return ;
-  }*/
+  public GestaoFaturas atualizaFaturas(int cod,int index) throws SemAtividadeException{
+      GestaoFaturas res = new GestaoFaturas();
+      for(Fatura f:this.faturas){
+        if(index-1>0||index-1<0){
+            res.addFatura(f);
+        }
+        if(index-1==0){res.addFatura(f.atualizaFatura(cod));}
+      }
+      return res;
+  }
+  
+  public double getTotalListaFaturas(){
+    return this.faturas.stream().mapToDouble(w -> w.getValorDespesa()).sum();
+   }
 
+  public int getNumberFaturas(){
+    return this.faturas.size();
+  }
 }
+

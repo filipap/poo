@@ -127,11 +127,15 @@ public class Menu {
         double valueSpent = Double.parseDouble(s.nextLine());
         return new Fatura(nifEmitente,nomeEmpresa,dt,nifCliente,descr,(int)valueSpent,at);
     }
-    
+
+    /**
+    * metodo que executa os comandos dispostos para o contribuinte individual
+    */
     public void execBotaoI(int tecla,Individuais ind){
         switch(tecla){
           case 1:{
             System.out.println(ind.getListaFaturas().toString());
+            break;
           }
           case 2:{
             System.out.println("    Lista de faturas pendentes     \n");
@@ -146,7 +150,8 @@ public class Menu {
                         int index = c.nextInt();
                         System.out.println("Introduza o codigo da atividade na qual deduz?\n");
                         int cod = c.nextInt();
-                        ind.getListaFaturas().atualizaFaturas(cod);
+                        ind.getListaFaturas().atualizaFaturas(cod,index);
+                        break;
                     }
                     catch(SemAtividadeException j){System.out.println(j.getMessage());}
                 }
@@ -155,14 +160,19 @@ public class Menu {
           }
           case 3:{
             System.out.println(ind.toString());
+            break;
           }
         }
     }
 
+    /**
+     * metodo que executa os comandos dispostos para o contribuinte coletivo
+    */
     public void execBotaoE(int tecla,Empresarial emp){
         switch(tecla){
           case 1:{
             System.out.println(emp.getListaFaturas().toString());
+            break;
           }
           case 2:{
             int nif = emp.getNif();
@@ -170,6 +180,7 @@ public class Menu {
             List<AtividadesE> at = emp.getInfoAtividades();
             emp.getListaFaturas().addFatura(scanFatura(nif,nomeEmpresa,at));
             System.out.println("Fatura emitida com sucesso!");
+            break;
           }
         }
     }
@@ -195,4 +206,72 @@ public class Menu {
         c=gc.getEmpresa(nif,pass);
         return c;
     }    
+
+    /**  
+    * este método apenas imprime o NIF, o nome do Contribuinte e o montante(aplicado a Individuais) 
+    */
+    public String toStringI (Contribuinte c){
+      StringBuilder str = new StringBuilder();
+      str.append("NIF: ")
+      .append(c.getNif()).append("\nNome: ").append(c.getNome())
+      .append("\n Montante Contribuido: ").append(c.getListaFaturas().getTotalListaFaturas());
+      return str.toString();
+    }
+
+    /**  
+    * este método apenas imprime o NIF, o nome do Contribuinte e o montante(aplicado a Empresas) 
+    */
+    public String toStringE (Contribuinte c){
+      StringBuilder str = new StringBuilder();
+      str.append("NIF: ")
+      .append(c.getNif()).append("\nNome: ").append(c.getNome())
+      .append("\n Montante Contribuido: ").append(c.getListaFaturas().getNumberFaturas());
+      return str.toString();
+    }
+
+    /**
+    * metodo toString para imprimir a lista dos contribuintes que contribuiram mais
+    */
+    public String toStringLI (List<Contribuinte> list){
+      StringBuilder st = new StringBuilder();
+      st.append(" Lista dos 10 contribuintes que mais contribuiram: \n");
+      for(Contribuinte c: list){
+        st.append("\n------------------\n").append(toStringI(c));
+      }
+      return st.append("\n\n").toString();
+    }
+
+    /**
+    * metodo toString para imprimir a lista das empresas que emitiram mais faturas
+    */
+    public String toStringLE (List<Contribuinte> list,int n){
+      StringBuilder st = new StringBuilder();
+      st.append(" Lista dos "+ n + " empresas que mais faturas emitiram: \n");
+      for(Contribuinte c: list){
+        st.append("\n------------------\n").append(toStringE(c));
+      }
+      return st.append("\n\n").toString();
+    }
+
+    /**
+    * metodo que executa os comandos do administrador
+    */
+    public void execBotaoA(int tecla,GestaoContribuintes gc){
+      switch (tecla) {
+        case 1:{
+          System.out.println(toStringLI(gc.devolve10MaisGastadores()));
+          break;
+        }
+        case 2:{
+          Scanner sc = new Scanner(System.in);
+          System.out.println("Defina X: ");
+          int n = sc.nextInt();
+          System.out.println(toStringLE(gc.empresasComMaisFaturas(n),n));
+          break;
+        }
+        case 3:{break;}
+      }
+    }
+
+
 }

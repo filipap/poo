@@ -18,6 +18,7 @@ import java.util.Comparator;
 import java.lang.Comparable;
 import java.util.LinkedList;
 import java.util.LinkedHashMap;
+import java.util.AbstractMap.SimpleEntry;
 
 public class GestaoContribuintes implements Serializable{
     // variáveis de instância - substitua o exemplo abaixo pelo seu próprio
@@ -156,9 +157,21 @@ public class GestaoContribuintes implements Serializable{
        new ContNaoExisteException("O contribuinte " + nif + " nao existe.");
     else this.contribuintes.remove(nif);    
   }
+
+  /**
+   * Converte o hashmap de contribuintes num com o gasto de cada contribuinte
+   */
+
+  private Map<Contribuinte, Double> convert(Map<Integer, Contribuinte> hash){
+      HashMap<Contribuinte, Double> sol = new HashMap<Contribuinte, Double>();
+      for (Map.Entry<Integer, Contribuinte> entry : hash.entrySet()) {
+            sol.put(entry.getValue(), entry.getValue().getListaFaturas().getTotalListaFaturas());
+      }
+      return sol;
+  }
   
   /**
-   * ordena os contribuintes por gasto
+   * metodo auxiliar que ordena os contribuintes por gasto
    */
 
   private static Map<Contribuinte, Double> sortByValue(Map<Contribuinte, Double> unsortMap) {
@@ -172,7 +185,10 @@ public class GestaoContribuintes implements Serializable{
     Collections.sort(list, new Comparator<Map.Entry<Contribuinte, Double>>() {
         public int compare(Map.Entry<Contribuinte, Double> o1,
                            Map.Entry<Contribuinte, Double> o2) {
-            return (o1.getValue()).compareTo(o2.getValue());
+              int r=0;
+              if (o1.getValue() > o2.getValue()) r = -1; 
+              if (o1.getValue() < o2.getValue()) r = 1;
+              return r;
         }
     });
         // 3. Loop the sorted list and put it into a new insertion order Map LinkedHashMap
@@ -185,7 +201,8 @@ public class GestaoContribuintes implements Serializable{
     }
 
   /**
-   *   private Map<Integer, Contribuinte> contribuintes;
+   * decolve a lista dos 10 contribuintes que mais gastaram   
+   * private Map<Integer, Contribuinte> contribuintes;
    */
   public List<Contribuinte> devolve10MaisGastadores() {
     Map<Contribuinte, Double> valorFacturas  = new HashMap<>();
@@ -201,7 +218,7 @@ public class GestaoContribuintes implements Serializable{
     Map<Contribuinte, Double> valorFacturasOrdenado  = new HashMap<>();
     valorFacturasOrdenado = sortByValue(valorFacturas);
     for(Contribuinte c : valorFacturasOrdenado.keySet()){
-      if(j <= 10){
+      if(c.getClass().getSimpleName().equals("Individuais") && j < 10){
         res.add(c);
         j++;
       }
@@ -224,7 +241,10 @@ public class GestaoContribuintes implements Serializable{
     Collections.sort(list, new Comparator<Map.Entry<Contribuinte, Integer>>() {
         public int compare(Map.Entry<Contribuinte, Integer> o1,
                            Map.Entry<Contribuinte, Integer> o2) {
-            return (o1.getValue()).compareTo(o2.getValue());
+              int r=0;
+              if (o1.getValue() > o2.getValue()) r = -1; 
+              if (o1.getValue() < o2.getValue()) r = 1;
+              return r;
         }
     });
         // 3. Loop the sorted list and put it into a new insertion order Map LinkedHashMap
@@ -253,7 +273,7 @@ public class GestaoContribuintes implements Serializable{
     }
     nFaturasOrdenado = sortNFaturas(nFaturas);
     for(Contribuinte c1 : nFaturasOrdenado.keySet()){
-      if(i <= x){
+      if(i < x){
         res.add(c1);
         i++;
       }
