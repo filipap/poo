@@ -14,6 +14,9 @@ import java.util.stream.Collectors;
 import java.io.Serializable;
 import Excecoes.SemAtividadeException;
 public class Fatura implements Serializable{
+  public final boolean INTERIOR = true;
+  public final boolean LITORAL = false;
+
   /** Número fiscal do Emitente */
   private int nifEmitente;
   /** Designação do emitente */
@@ -28,7 +31,7 @@ public class Fatura implements Serializable{
   private double valorDespesa;
   /** Natureza da despesa (atividade económica a que diz respeito)*/
   private List<AtividadesE> naturezaD;
-    
+
 
   /**
   * Construtor por omissão para objetos da classe Fatura
@@ -256,6 +259,26 @@ public class Fatura implements Serializable{
       res.add(a.getNaturezaDespesa());
     }
     return res;
+  }
+
+  /**
+  * Método que retorna o valor deduzido para IRS dado uma deducao 
+  * @return 
+  */
+
+  public double valorDeduzIRS(Fatura f,double deducao){
+      return (f.getValorDespesa())*deducao;
+  }
+
+  /**
+  * Método que retorna o valor deduzido para IRS
+  * tendo em conta a localização da empresa
+  * @return 
+  */
+
+  public double valorDeduzidoIRS(Fatura f,boolean local){
+      return local == INTERIOR ? valorDeduzIRS(f,f.getNaturezaD().get(0).getDeducao()+0.05) : 
+      valorDeduzIRS(f,f.getNaturezaD().get(0).getDeducao());
   }
 
   /**
