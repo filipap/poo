@@ -141,12 +141,7 @@ public class Empresarial extends Contribuinte implements Serializable {
   }
   
   /**
-<<<<<<< HEAD
    * Retorna total faturado num determinado intervalo de tempo
-   * ...
-=======
-   * Retorna total faturado num determinado intercalo de tempo
->>>>>>> 1d9fa8211e7f0d7260052a6fa241403dbd87664c
    */
   
   public double totalFaturado(LocalDate date1, LocalDate date2){

@@ -172,11 +172,7 @@ public class GestaoFaturas implements Comparator<Fatura>,Serializable {
   
   
   /**
-<<<<<<< HEAD
   * metodo atualiza uma determinada fatura da lista com a atividade correta 
-=======
-  * Método atualiza as facturas com a atividade correta 
->>>>>>> 1d9fa8211e7f0d7260052a6fa241403dbd87664c
   * @return 
   */
 
@@ -190,11 +186,21 @@ public class GestaoFaturas implements Comparator<Fatura>,Serializable {
       }
       return res;
   }
+
+  /**
+  * metodo que devolve o somatório do valor de despesa da lista de faturas 
+  * @return 
+  */
   
   public double getTotalListaFaturas(){
     return this.faturas.stream().mapToDouble(w -> w.getValorDespesa()).sum();
    }
-
+  
+  /**
+  * metodo que o numero de faturas emitidas 
+  * @return 
+  */
+  
   public int getNumberFaturas(){
     return this.faturas.size();
   }

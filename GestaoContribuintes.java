@@ -170,19 +170,13 @@ public class GestaoContribuintes implements Serializable{
   }
   
   /**
-<<<<<<< HEAD
    * metodo auxiliar que ordena os contribuintes por gasto
    */
 
-=======
-   * Ordena os contribuintes por gasto
-  */
->>>>>>> 1d9fa8211e7f0d7260052a6fa241403dbd87664c
   private static Map<Contribuinte, Double> sortByValue(Map<Contribuinte, Double> unsortMap) {
     List<Map.Entry<Contribuinte, Double>> list =
         new LinkedList<Map.Entry<Contribuinte, Double>>(unsortMap.entrySet());
     Collections.sort(list, new Comparator<Map.Entry<Contribuinte, Double>>() {
-<<<<<<< HEAD
         public int compare(Map.Entry<Contribuinte, Double> o1,
                            Map.Entry<Contribuinte, Double> o2) {
               int r=0;
@@ -190,12 +184,6 @@ public class GestaoContribuintes implements Serializable{
               if (o1.getValue() < o2.getValue()) r = 1;
               return r;
         }
-=======
-      public int compare(Map.Entry<Contribuinte, Double> o1,
-                      Map.Entry<Contribuinte, Double> o2) {
-        return (o1.getValue()).compareTo(o2.getValue());
-      }
->>>>>>> 1d9fa8211e7f0d7260052a6fa241403dbd87664c
     });
     Map<Contribuinte, Double> sortedMap = new LinkedHashMap<Contribuinte, Double>();
     for (Map.Entry<Contribuinte, Double> entry : list) {
@@ -205,14 +193,9 @@ public class GestaoContribuintes implements Serializable{
   }
 
   /**
-<<<<<<< HEAD
    * decolve a lista dos 10 contribuintes que mais gastaram   
    * private Map<Integer, Contribuinte> contribuintes;
    */
-=======
-   *  Método que devolve os 10 contribuintes mais gastadores
-  */
->>>>>>> 1d9fa8211e7f0d7260052a6fa241403dbd87664c
   public List<Contribuinte> devolve10MaisGastadores() {
     Map<Contribuinte, Double> valorFacturas  = new HashMap<>();
     List<Contribuinte> res = new ArrayList<Contribuinte>();
@@ -245,14 +228,10 @@ public class GestaoContribuintes implements Serializable{
     Collections.sort(list, new Comparator<Map.Entry<Contribuinte, Integer>>() {
         public int compare(Map.Entry<Contribuinte, Integer> o1,
                            Map.Entry<Contribuinte, Integer> o2) {
-<<<<<<< HEAD
               int r=0;
               if (o1.getValue() > o2.getValue()) r = -1; 
               if (o1.getValue() < o2.getValue()) r = 1;
               return r;
-=======
-          return (o1.getValue()).compareTo(o2.getValue());
->>>>>>> 1d9fa8211e7f0d7260052a6fa241403dbd87664c
         }
     });
     
