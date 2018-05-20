@@ -30,7 +30,7 @@ public class Cabeleireiros implements AtividadesE,Serializable{
     }
     
     /** 
-     * metodo que devolve a natureza da despesa para ser comparada na Fatura 
+     * Método que devolve a natureza da despesa para ser comparada na Fatura 
      * @return String com a natureza da despesa
     */
     public String getNaturezaDespesa(){
@@ -38,7 +38,7 @@ public class Cabeleireiros implements AtividadesE,Serializable{
     }
     
     /** 
-     * metodo que devolve a deduçao(em percentagem) para ser calculada em Fatura 
+     * Método que devolve a deduçao(em percentagem) para ser calculada em Fatura 
      * @return double com a deduçao
     */
     public double getDeducao(){
@@ -46,7 +46,7 @@ public class Cabeleireiros implements AtividadesE,Serializable{
     }
 
     /** 
-     * metodo que devolve a deduçao(em percentagem) para ser calculada em Fatura 
+     * Método que devolve a deduçao(em percentagem) para ser calculada em Fatura 
      * @return double com a deduçao
     */
     public int getCod(){
@@ -54,7 +54,7 @@ public class Cabeleireiros implements AtividadesE,Serializable{
     }
 
     /** 
-     * metodo que devolve o objeto da classe Cabeleireiros 
+     * Método que devolve o objeto da classe Cabeleireiros 
      * @return objeto Cabeleireiros
     */
     public Cabeleireiros getAtividadesE(){
@@ -66,7 +66,7 @@ public class Cabeleireiros implements AtividadesE,Serializable{
     }
 
     /** 
-     * metodo que atualiza o objeto da classe Cabeleireiros 
+     * Método que atualiza o objeto da classe Cabeleireiros 
      * @return nothing
     */
     public void setAtividadesE(Cabeleireiros a){
@@ -76,7 +76,7 @@ public class Cabeleireiros implements AtividadesE,Serializable{
     }    
 
     /**
-     * Cria uma copia do objecto 
+     * Cria uma cópia do objecto 
      * @return
     */
     public Cabeleireiros clone(){

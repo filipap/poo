@@ -1,6 +1,6 @@
  
 /**
- * classe dos contribuintes individuais
+ * Classe dos contribuintes individuais
  * 
  * @author Ana Guimarães(a79987), Filipa Parente (a82145), Francisco Garcia (a54810)
  */
@@ -11,17 +11,17 @@ import java.lang.String;
 import InterfaceAtividades.AtividadesE;
 import java.io.Serializable;
 public class Individuais extends Contribuinte implements Serializable {
-  /** numero de dependentes do agregado familiar */
+  /** Número de dependentes do agregado familiar */
   private int agregado;
-  /** numeros fiscais do agregado familiar */
+  /** Números fiscais do agregado familiar */
   private List<Integer> nif_agregado;
-  /** coeficiente fiscal para efeitos de deducao */
+  /** Coeficiente fiscal para efeitos de dedução */
   private float coef_fiscal;
-  /** codigos das atividades economicas para deduzir despesas */
+  /** Codigos das atividades economicas para deduzir despesas */
   private List<Integer> codigos;
 
   /**
-  * Construtor por omissao para objetos da classe Individuais
+  * Construtor por omissão para objetos da classe Individuais
   */
   public Individuais() {
     super();
@@ -54,7 +54,7 @@ public class Individuais extends Contribuinte implements Serializable {
   }
   
   /**
-  * Construtor de copia para objetos da classe Individuais
+  * Construtor de cópia para objetos da classe Individuais
   * @param umInd Contribuinte Individual
   */
   public Individuais(Individuais umInd) {
@@ -87,7 +87,7 @@ public class Individuais extends Contribuinte implements Serializable {
   }
   
   /**
-  * Devolve os codigos das atividades economicas do contribuinte individual
+  * Devolve os códigos das atividades económicas do contribuinte individual
   * @return 
   */
   public List<Integer> getCodigos() {
@@ -99,7 +99,7 @@ public class Individuais extends Contribuinte implements Serializable {
   }
   
   /**
-  * Devolve o coeficiente de deducao fiscal do contribuinte individual
+  * Devolve o coeficiente de dedução fiscal do contribuinte individual
   * @return 
   */
   public float getCoef_fiscal() {
@@ -132,7 +132,7 @@ public class Individuais extends Contribuinte implements Serializable {
   }
 
   /**
-  * Define os codigos de atividades economicas do contribuinte individual
+  * Define os códigos de atividades económicas do contribuinte individual
   * @param codigos
   */
   public void setCodigos(List<Integer> codigos) {
@@ -141,7 +141,7 @@ public class Individuais extends Contribuinte implements Serializable {
   }
   
   /**
-  * Cria uma copia do objecto 
+  * Cria uma cópia do objecto 
   * @return
   */
   public Individuais clone() {
@@ -166,7 +166,7 @@ public class Individuais extends Contribuinte implements Serializable {
   }
   
   /**
-  * Retorna uma representao textual do objecto
+  * Retorna uma representação textual do objecto
   * @return 
   */
   public String toString() {

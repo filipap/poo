@@ -1,6 +1,6 @@
 
 /**
- * classe onde se gerem as faturas
+ * Classe onde se gerem as faturas
  * 
  * @author Ana Guimarães(a79987), Filipa Parente (a82145), Francisco Garcia (a54810) 
  */
@@ -172,7 +172,11 @@ public class GestaoFaturas implements Comparator<Fatura>,Serializable {
   
   
   /**
+<<<<<<< HEAD
   * metodo atualiza uma determinada fatura da lista com a atividade correta 
+=======
+  * Método atualiza as facturas com a atividade correta 
+>>>>>>> 1d9fa8211e7f0d7260052a6fa241403dbd87664c
   * @return 
   */
 

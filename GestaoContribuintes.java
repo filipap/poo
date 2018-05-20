@@ -46,16 +46,16 @@ public class GestaoContribuintes implements Serializable{
     this.contribuintes = gc.getContribuintes();    
   }
   
-  /*metodos de instancia*/
+  /*Métodos de instância*/
 
   //devolve o HashMap de Contribuintes
   public Map<Integer,Contribuinte> getContribuintes() {
     return this.contribuintes.values().stream().collect(Collectors.toMap((c) -> c.getNif(),(c) -> c.clone())); 
   }
   
-  /** metodos da classe GestaoContribuintes*/
+  /** Métodos da classe GestaoContribuintes*/
   /**
-  * metodo que retorna a representação textual do objeto
+  * Método que retorna a representação textual do objeto
   * @return 
   */
   public String toString() {
@@ -95,16 +95,15 @@ public class GestaoContribuintes implements Serializable{
 
 
   /**
-  * método que copia um objeto do tipo GestaoContribuintes
+  * Método que copia um objeto do tipo GestaoContribuintes
   * @param 
-  * 
   */
   public GestaoContribuintes clone() {
     return new GestaoContribuintes(this); 
    }
   
   /**
-  * conta o numero de contribuintes
+  * Conta o número de contribuintes
   * @return
   */
   public int contaContribuintes() {
@@ -112,7 +111,7 @@ public class GestaoContribuintes implements Serializable{
   }
 
   /**
-  * dado uma key e uma passe retorna o contribuinte do tipo empresarial 
+  * Dado uma key e uma password retorna o contribuinte do tipo empresarial 
   * @return
   */  
 
@@ -130,7 +129,7 @@ public class GestaoContribuintes implements Serializable{
   }
 
   /**
-  * dado uma key e uma passe retorna o contribuinte do tipo individuais 
+  * Dado uma key e uma passe retorna o contribuinte do tipo individuais 
   * @return
   */  
 
@@ -148,7 +147,7 @@ public class GestaoContribuintes implements Serializable{
   }
 
   /**
-  * remove um contribuinte
+  * Remove um contribuinte
   * @param 
   */
   public void removeContribuinte(Integer nif) throws ContNaoExisteException{
@@ -171,18 +170,19 @@ public class GestaoContribuintes implements Serializable{
   }
   
   /**
+<<<<<<< HEAD
    * metodo auxiliar que ordena os contribuintes por gasto
    */
 
+=======
+   * Ordena os contribuintes por gasto
+  */
+>>>>>>> 1d9fa8211e7f0d7260052a6fa241403dbd87664c
   private static Map<Contribuinte, Double> sortByValue(Map<Contribuinte, Double> unsortMap) {
-
-    // 1. Convert Map to List of Map
     List<Map.Entry<Contribuinte, Double>> list =
-            new LinkedList<Map.Entry<Contribuinte, Double>>(unsortMap.entrySet());
-
-    // 2. Sort list with Collections.sort(), provide a custom Comparator
-    //    Try switch the o1 o2 position for a different order
+        new LinkedList<Map.Entry<Contribuinte, Double>>(unsortMap.entrySet());
     Collections.sort(list, new Comparator<Map.Entry<Contribuinte, Double>>() {
+<<<<<<< HEAD
         public int compare(Map.Entry<Contribuinte, Double> o1,
                            Map.Entry<Contribuinte, Double> o2) {
               int r=0;
@@ -190,20 +190,29 @@ public class GestaoContribuintes implements Serializable{
               if (o1.getValue() < o2.getValue()) r = 1;
               return r;
         }
+=======
+      public int compare(Map.Entry<Contribuinte, Double> o1,
+                      Map.Entry<Contribuinte, Double> o2) {
+        return (o1.getValue()).compareTo(o2.getValue());
+      }
+>>>>>>> 1d9fa8211e7f0d7260052a6fa241403dbd87664c
     });
-        // 3. Loop the sorted list and put it into a new insertion order Map LinkedHashMap
-        Map<Contribuinte, Double> sortedMap = new LinkedHashMap<Contribuinte, Double>();
-        for (Map.Entry<Contribuinte, Double> entry : list) {
-            sortedMap.put(entry.getKey(), entry.getValue());
-        }
-
-        return sortedMap;
+    Map<Contribuinte, Double> sortedMap = new LinkedHashMap<Contribuinte, Double>();
+    for (Map.Entry<Contribuinte, Double> entry : list) {
+      sortedMap.put(entry.getKey(), entry.getValue());
     }
+    return sortedMap;
+  }
 
   /**
+<<<<<<< HEAD
    * decolve a lista dos 10 contribuintes que mais gastaram   
    * private Map<Integer, Contribuinte> contribuintes;
    */
+=======
+   *  Método que devolve os 10 contribuintes mais gastadores
+  */
+>>>>>>> 1d9fa8211e7f0d7260052a6fa241403dbd87664c
   public List<Contribuinte> devolve10MaisGastadores() {
     Map<Contribuinte, Double> valorFacturas  = new HashMap<>();
     List<Contribuinte> res = new ArrayList<Contribuinte>();
@@ -213,7 +222,7 @@ public class GestaoContribuintes implements Serializable{
       for(Fatura f : contribuintes.get(i).getListaFaturas().getFaturas()){
         somaValorFaturas = somaValorFaturas + f.getValorDespesa();
       }
-    valorFacturas.put(contribuintes.get(i), somaValorFaturas);
+      valorFacturas.put(contribuintes.get(i), somaValorFaturas);
     }
     Map<Contribuinte, Double> valorFacturasOrdenado  = new HashMap<>();
     valorFacturasOrdenado = sortByValue(valorFacturas);
@@ -227,40 +236,37 @@ public class GestaoContribuintes implements Serializable{
   }
 
   /**
-   * ordena os contribuintes por numero de faturas
-   */
+   * Ordena os contribuintes pelo número de facturas
+  */
 
   private static Map<Contribuinte, Integer> sortNFaturas(Map<Contribuinte, Integer> unsortMap) {
-
-    // 1. Convert Map to List of Map
     List<Map.Entry<Contribuinte, Integer>> list =
-            new LinkedList<Map.Entry<Contribuinte, Integer>>(unsortMap.entrySet());
-
-    // 2. Sort list with Collections.sort(), provide a custom Comparator
-    //    Try switch the o1 o2 position for a different order
+          new LinkedList<Map.Entry<Contribuinte, Integer>>(unsortMap.entrySet());
     Collections.sort(list, new Comparator<Map.Entry<Contribuinte, Integer>>() {
         public int compare(Map.Entry<Contribuinte, Integer> o1,
                            Map.Entry<Contribuinte, Integer> o2) {
+<<<<<<< HEAD
               int r=0;
               if (o1.getValue() > o2.getValue()) r = -1; 
               if (o1.getValue() < o2.getValue()) r = 1;
               return r;
+=======
+          return (o1.getValue()).compareTo(o2.getValue());
+>>>>>>> 1d9fa8211e7f0d7260052a6fa241403dbd87664c
         }
     });
-        // 3. Loop the sorted list and put it into a new insertion order Map LinkedHashMap
-        Map<Contribuinte, Integer> sortedMap = new LinkedHashMap<Contribuinte, Integer>();
-        for (Map.Entry<Contribuinte, Integer> entry : list) {
-            sortedMap.put(entry.getKey(), entry.getValue());
-        }
-
-        return sortedMap;
+    
+    Map<Contribuinte, Integer> sortedMap = new LinkedHashMap<Contribuinte, Integer>();
+    for (Map.Entry<Contribuinte, Integer> entry : list) {
+      sortedMap.put(entry.getKey(), entry.getValue());
     }
+    return sortedMap;
+  }
 
 
   /**
-   * empresasComMaisFaturas
-   * ...
-   */
+   * Método que devolve a listagem de empresas com mais facturas
+  */
   public List<Contribuinte> empresasComMaisFaturas(int x){
     Map<Contribuinte, Integer> nFaturas  = new HashMap<>();
     Map<Contribuinte, Integer> nFaturasOrdenado  = new HashMap<>();

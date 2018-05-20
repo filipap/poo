@@ -14,24 +14,24 @@ import java.util.stream.Collectors;
 import java.io.Serializable;
 import Excecoes.SemAtividadeException;
 public class Fatura implements Serializable{
-  /** numero fiscal do Emitente */
+  /** Número fiscal do Emitente */
   private int nifEmitente;
-  /** designacao do emitente */
+  /** Designação do emitente */
   private String designacao;
-  /** data da despesa*/
+  /** Data da despesa*/
   private LocalDate dataDespesa;
-  /** numero fiscal do cliente*/
+  /** Número fiscal do cliente*/
   private int nifCliente;
-  /** descricao da despesa*/
+  /** Descrição da despesa*/
   private String descricao;
-  /** valor da despesa*/
+  /** Valor da despesa*/
   private double valorDespesa;
-  /** natureza da despesa (atividade economica a que diz respeito)*/
+  /** Natureza da despesa (atividade económica a que diz respeito)*/
   private List<AtividadesE> naturezaD;
     
 
   /**
-  * Construtor por omissao para objetos da classe Fatura
+  * Construtor por omissão para objetos da classe Fatura
   */
   public Fatura() {
     this.nifEmitente = 0;
@@ -66,7 +66,7 @@ public class Fatura implements Serializable{
   }
   
   /**
-  * Construtor de copia para objetos da classe Fatura
+  * Construtor de cópia para objetos da classe Fatura
   * @param f Fatura
   */
   public Fatura(Fatura f) {
@@ -80,7 +80,7 @@ public class Fatura implements Serializable{
   }
   
   
-  /** metodos de instancia da classe Fatura */
+  /** Métodos de instância da classe Fatura */
   
   /**
   * Devolve o nif do emitente
@@ -91,7 +91,7 @@ public class Fatura implements Serializable{
   }
   
   /**
-  * Devolve a designacao do emitente
+  * Devolve a designação do emitente
   * @return 
   */
   public String getDesignacao() {
@@ -115,7 +115,7 @@ public class Fatura implements Serializable{
   }
 
   /**
-  * Devolve a descricao da despesa
+  * Devolve a descrição da despesa
   * @return 
   */
   public String getDescricao() {
@@ -131,7 +131,7 @@ public class Fatura implements Serializable{
 }
 
   /**
-  * metodo que devolve o array das atividades economicas 
+  * Método que devolve o array das atividades económicas 
   * @return 
   */
   public List<AtividadesE> getNaturezaD(){
@@ -150,7 +150,7 @@ public class Fatura implements Serializable{
   }
 
   /**
-  * Define a designacao d emitente
+  * Define a designação d emitente
   * @param designacao
   */
   public void setDesignacao(String designacao) {
@@ -174,7 +174,7 @@ public class Fatura implements Serializable{
   }
   
   /**
-  * Define a descricao da despesa
+  * Define a descrição da despesa
   * @param descricao
   */
   public void setDescricao(String descricao) {
@@ -190,7 +190,7 @@ public class Fatura implements Serializable{
   }
   
   /**
-  * metodo que atualiza o array das atividades economicas 
+  * Método que atualiza o array das atividades económicas 
   * @return 
   */
 
@@ -202,7 +202,7 @@ public class Fatura implements Serializable{
   }
   
   /**
-  * Cria uma copia do objecto 
+  * Cria uma cópia do objecto 
   * @return
   */
   public Fatura clone() {
@@ -229,7 +229,7 @@ public class Fatura implements Serializable{
   }
   
   /**
-  * metodo que escolhe uma atividade conforme o codigo 
+  * Método que escolhe uma atividade conforme o código 
   * @return 
   */
 
@@ -246,8 +246,8 @@ public class Fatura implements Serializable{
   }
 
   /**
-  * metodo auxiliar que retorna o array de strings 
-  * com as atividades economicas de determinada empresa
+  * Método auxiliar que retorna o array de strings 
+  * com as atividades económicas de determinada empresa
   * @return List<String> 
   */
   public List<String> setoresAtividade(){
@@ -259,7 +259,7 @@ public class Fatura implements Serializable{
   }
 
   /**
-  * Retorna uma representaçao textual do objecto
+  * Retorna uma representação textual do objecto
   * @return String com o texto
   */
   public String toString() {

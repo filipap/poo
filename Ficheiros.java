@@ -19,7 +19,7 @@ import Excecoes.*;
 public class Ficheiros
 {
   /**
-   * escreve o estado em ficheiro de texto
+   * Escreve o estado em ficheiro de texto
    * @param nomeFicheiro
   */
   public static void escreveEmFicheiroTxt(String nomeFicheiro, GestaoContribuintes gc) throws IOException{
@@ -31,7 +31,7 @@ public class Ficheiros
   }
   
   /**
-  * metodo que guarda em ficheiro de objetos o objeto que recebe a mensagem
+  * Método que guarda em ficheiro de objetos o objeto que recebe a mensagem
   * @param nomeFicheiro
   */
   public static void guardaEstado(String nomeFicheiro, GestaoContribuintes gc) throws FileNotFoundException,IOException{
@@ -43,7 +43,7 @@ public class Ficheiros
   }
 
   /**
-   * metodo que carrega os objetos do ficheiro txt
+   * Método que carrega os objetos do ficheiro texto
    * @param nomeFicheiro
   */
   public static GestaoContribuintes carregaEstado (String nomeFicheiro) throws FileNotFoundException,IOException,ClassNotFoundException{

@@ -48,7 +48,7 @@ public class Empresarial extends Contribuinte implements Serializable {
   }
  
  /**
-  * metodo que da o array das atividades economicas 
+  * Método que devolve o array das atividades económicas 
   * @return array das atividades economicas
   */
   public List<AtividadesE> getInfoAtividades(){
@@ -58,7 +58,7 @@ public class Empresarial extends Contribuinte implements Serializable {
   } 
 
 /**
-  * metodo que atualiza o array das atividades economicas 
+  * Método que atualiza o array das atividades económicas 
   * @return nothing
   */
 
@@ -70,8 +70,8 @@ public class Empresarial extends Contribuinte implements Serializable {
   }
 
   /**
-  * Cria uma copia do objecto 
-  * @return copia do objeto
+  * Cria uma cópia do objecto 
+  * @return cópia do objeto
   */
   public Empresarial clone() {
     return new Empresarial(this);
@@ -95,8 +95,8 @@ public class Empresarial extends Contribuinte implements Serializable {
    }
 
   /**
-  * metodo auxiliar que retorna o array de strings 
-  * com as atividades economicas de determinada empresa
+  * Método auxiliar que retorna o array de strings 
+  * com as atividades económicas de uma determinada empresa
   * @return List<String> 
   */
   public List<String> setoresAtividade(){
@@ -108,7 +108,7 @@ public class Empresarial extends Contribuinte implements Serializable {
   }
 
   /**
-  * Retorna uma representao textual do objecto
+  * Retorna uma representação textual do objecto
   * @return string com a representação textual
   */
 
@@ -128,7 +128,6 @@ public class Empresarial extends Contribuinte implements Serializable {
   
   /**
    * Retorna listagens das facturas por contribuinte num determinado intervalo de datas
-   * ....
    */
   public GestaoFaturas fatBetweenDates(LocalDate date1, LocalDate date2){
       GestaoFaturas res = new GestaoFaturas();
@@ -142,8 +141,12 @@ public class Empresarial extends Contribuinte implements Serializable {
   }
   
   /**
+<<<<<<< HEAD
    * Retorna total faturado num determinado intervalo de tempo
    * ...
+=======
+   * Retorna total faturado num determinado intercalo de tempo
+>>>>>>> 1d9fa8211e7f0d7260052a6fa241403dbd87664c
    */
   
   public double totalFaturado(LocalDate date1, LocalDate date2){
