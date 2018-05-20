@@ -294,27 +294,27 @@ public class Ficheiros
 
        //alterar as faturas
        //alterar os agregados
-       Contribuinte i1 = new Individuais(131,"lipac","Filipa Cunha","rua da mata","12*34",gfFilipa,2,agC1,(float)0.15,atC1);
-       Contribuinte i2 = new Individuais(132,"edsilva","Edmundo Silva","rua das flores","12*34",gfEdmundo,2,agC1,(float)0.15,atC1);
-       Contribuinte i3 = new Individuais(133,"silvia_machado","Silvia Machado","rua 25 abril","12*34",gfSilvia,2,agC1,(float)0.15,atC1);
-       Contribuinte i4 = new Individuais(134,"me_gusta","Gustavo Sousa","rua da represa","12*34",gfGustavo,2,agC1,(float)0.15,atC1);
-       Contribuinte i5 = new Individuais(135,"miranda85","Marcelo Miranda","avenida dos combatentes","12*34",gfMarcelo,2,agC1,(float)0.15,atC1);
-       Contribuinte i6 = new Individuais(136,"magui_rib","Margarida Ribeiro","rua da mata da presa","12*34",gfGuida,2,agC1,(float)0.15,atC1);
-       Contribuinte i7 = new Individuais(137,"so_filipe","Filipe Pereira","avenida da liberdade","12*34",gfFilipe,2,agC1,(float)0.15,atC1);
-       Contribuinte i8 = new Individuais(138,"ritata","Rita Soares","rua dos combatentes da 1ª grande guerra","12*34",gfRita,2,agC1,(float)0.15,atC1);
-       Contribuinte i9 = new Individuais(139,"virgilio_ferreira","Virgílio Ferreira","praça da erva","12*34",gfVirg,2,agC1,(float)0.15,atC1);
-       Contribuinte i10 = new Individuais(140,"anab","Ana Borralho","rua dos santos","12*34",gfAna,2,agC1,(float)0.15,atC1);
+       Contribuinte i1 = new Individuais(131,"lipac","Filipa Cunha","rua da mata","12*34",gfFilipa,2,agC1,(float)0.15,atC1,false);
+       Contribuinte i2 = new Individuais(132,"edsilva","Edmundo Silva","rua das flores","12*34",gfEdmundo,2,agC1,(float)0.15,atC1,false);
+       Contribuinte i3 = new Individuais(133,"silvia_machado","Silvia Machado","rua 25 abril","12*34",gfSilvia,2,agC1,(float)0.15,atC1,false);
+       Contribuinte i4 = new Individuais(134,"me_gusta","Gustavo Sousa","rua da represa","12*34",gfGustavo,2,agC1,(float)0.15,atC1,false);
+       Contribuinte i5 = new Individuais(135,"miranda85","Marcelo Miranda","avenida dos combatentes","12*34",gfMarcelo,2,agC1,(float)0.15,atC1,false);
+       Contribuinte i6 = new Individuais(136,"magui_rib","Margarida Ribeiro","rua da mata da presa","12*34",gfGuida,2,agC1,(float)0.15,atC1,false);
+       Contribuinte i7 = new Individuais(137,"so_filipe","Filipe Pereira","avenida da liberdade","12*34",gfFilipe,2,agC1,(float)0.15,atC1,false);
+       Contribuinte i8 = new Individuais(138,"ritata","Rita Soares","rua dos combatentes da 1ª grande guerra","12*34",gfRita,2,agC1,(float)0.15,atC1,false);
+       Contribuinte i9 = new Individuais(139,"virgilio_ferreira","Virgílio Ferreira","praça da erva","12*34",gfVirg,2,agC1,(float)0.15,atC1,false);
+       Contribuinte i10 = new Individuais(140,"anab","Ana Borralho","rua dos santos","12*34",gfAna,2,agC1,(float)0.15,atC1,false);
        
-       Contribuinte e1 = new Empresarial(123,"HPG","Hospital Particular das Gambelas","rua do chafariz","12NE456",gfHPG,at);
-       Contribuinte e2 = new Empresarial(124,"citroen","Adriano Martins Ldª","rua da praia","tYvfBAka",gfcitroen,at1);
-       Contribuinte e3 = new Empresarial(125,"cortes.lisboa","Cortes de Lisboa","edificio Braga Parque, lote 16","fjPnuauc",gfCL,at2);
+       Contribuinte e1 = new Empresarial(123,"HPG","Hospital Particular das Gambelas","rua do chafariz","12NE456",gfHPG,at,true);
+       Contribuinte e2 = new Empresarial(124,"citroen","Adriano Martins Ldª","rua da praia","tYvfBAka",gfcitroen,at1,false);
+       Contribuinte e3 = new Empresarial(125,"cortes.lisboa","Cortes de Lisboa","edificio Braga Parque, lote 16","fjPnuauc",gfCL,at2,true);
        Contribuinte e4 = new Empresarial(126,"UM","Universidade do Minho - Campus de Gualtar"
-        ,"rua da Universidade","Q2ZYWQMp",gfUM,at3);
-       Contribuinte e5 = new Empresarial(127,"foz_cafe","Restaurante Foz","praia da Arda","N6mck6zA",gfRF,at4);
-       Contribuinte e6 = new Empresarial(128,"PD","Pingo Doce","Avenida da Liberdade","Y2VC7cQR",gfPD,at5);
-       Contribuinte e7 = new Empresarial(129,"HC","Hospital Comum","rua do passo","E6QVjbT7",gfHC,at6);
-       Contribuinte e8 = new Empresarial(130,"LTD","Lava Tudo Direitinho","rua do passo","GnST4yWu",gfLTD,at7);
-       Contribuinte e9 = new Empresarial(141,"patinhas","Hospital dos Patinhas","rua da graça","uKezkxvC",gfpatinhas,at8);
+        ,"rua da Universidade","Q2ZYWQMp",gfUM,at3,true);
+       Contribuinte e5 = new Empresarial(127,"foz_cafe","Restaurante Foz","praia da Arda","N6mck6zA",gfRF,at4,false);
+       Contribuinte e6 = new Empresarial(128,"PD","Pingo Doce","Avenida da Liberdade","Y2VC7cQR",gfPD,at5,false);
+       Contribuinte e7 = new Empresarial(129,"HC","Hospital Comum","rua do passo","E6QVjbT7",gfHC,at6,true);
+       Contribuinte e8 = new Empresarial(130,"LTD","Lava Tudo Direitinho","rua do passo","GnST4yWu",gfLTD,at7,true);
+       Contribuinte e9 = new Empresarial(141,"patinhas","Hospital dos Patinhas","rua da graça","uKezkxvC",gfpatinhas,at8,false);
        GestaoContribuintes gc = new GestaoContribuintes();
        try{
            gc.addContribuinte(i1);

@@ -12,16 +12,19 @@ import java.util.stream.Collectors;
 import java.time.LocalDate;
 import java.io.Serializable;
 public class Empresarial extends Contribuinte implements Serializable {
-  
-/** informacao das atividades economicas nas quais atuam */
+  public final boolean INTERIOR = true;
+  public final boolean LITORAL = false;
+  /** informacao das atividades economicas nas quais atuam */
   private List<AtividadesE> infoAtividades; //fazer get e set e meter nos construtores
-
+  /** localização da empresa */
+  private boolean local;
   /**
   * Construtor por omissao para objetos da classe Empresarial
   */
   public Empresarial() {
       super();
       this.infoAtividades = new ArrayList<>();
+      this.local = LITORAL;
   }
   
   /**
@@ -31,11 +34,14 @@ public class Empresarial extends Contribuinte implements Serializable {
   * @param nome
   * @param morada
   * @param password
+  * @param
+  * @param
   */
   public Empresarial(int nif, String email, String nome, String morada, 
-  String password,GestaoFaturas faturas, List<AtividadesE> infoAt) {
+  String password,GestaoFaturas faturas, List<AtividadesE> infoAt, boolean loc) {
     super(nif,email,nome,morada,password,faturas);
     setInfoAtividades(infoAt);
+    setLocal(loc);
   }
   
   /**
@@ -45,11 +51,12 @@ public class Empresarial extends Contribuinte implements Serializable {
   public Empresarial(Empresarial emp) {
     super(emp);
     this.infoAtividades = emp.getInfoAtividades();
+    this.local = emp.getLocal();
   }
  
- /**
+  /**
   * Método que devolve o array das atividades económicas 
-  * @return array das atividades economicas
+  * @return 
   */
   public List<AtividadesE> getInfoAtividades(){
     return this.infoAtividades.stream().filter(h->h instanceof AtividadesE)
@@ -57,9 +64,18 @@ public class Empresarial extends Contribuinte implements Serializable {
         .collect(Collectors.toList());
   } 
 
-/**
+  /**
+  * Método que devolve a localização da empresa (Litoral ou Interior) 
+  * @return 
+  */
+
+  public boolean getLocal(){
+    return this.local;
+  }
+
+  /**
   * Método que atualiza o array das atividades económicas 
-  * @return nothing
+  * @return 
   */
 
   public void setInfoAtividades(List<AtividadesE> at){
@@ -67,6 +83,15 @@ public class Empresarial extends Contribuinte implements Serializable {
     for(AtividadesE s: at){
       this.infoAtividades.add(s.clone());
     }
+  }
+
+  /**
+  * Método que atualiza a localização da empresa 
+  * @return 
+  */
+
+  public void setLocal(boolean loc){
+    this.local = loc;
   }
 
   /**
@@ -108,13 +133,26 @@ public class Empresarial extends Contribuinte implements Serializable {
   }
 
   /**
+  * Método auxiliar que retorna a localização de uma empresa
+  * @return
+  */
+  public String localizacao(){
+    StringBuilder sb = new StringBuilder();
+    if(this.local == INTERIOR){
+      sb.append("Empresa do Interior");
+    }
+    else sb.append("Empresa do Interior");
+    return sb.toString();
+  }
+
+  /**
   * Retorna uma representação textual do objecto
   * @return string com a representação textual
   */
 
   public String toString() {
     StringBuilder sb = new StringBuilder();
-    sb.append("\nSetores de atividade: \n").append(setoresAtividade());
+    sb.append("\nSetores de atividade: \n").append(setoresAtividade()).append(localizacao());
     return (super.toString())+(sb.toString());
   }
 

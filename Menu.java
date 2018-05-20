@@ -85,8 +85,14 @@ public class Menu {
         int n = Integer.parseInt(sc.next());
         List<String> at = scanAtivities(n);
         List<AtividadesE> res = insertAtivities(at);
+        System.out.println("A sua empresa localiza-se: ");
+        System.out.println("Tecla 0: Interior");
+        System.out.println("Tecla 1: Litoral");
+        int loc = Integer.parseInt(sc.next());
+        boolean local;
+        if(loc == 0) local = true; else local = false;
         int nif = Integer.parseInt(cont.get(0));
-        return new Empresarial(nif,cont.get(1),cont.get(3),cont.get(2),cont.get(4),fat,res);
+        return new Empresarial(nif,cont.get(1),cont.get(3),cont.get(2),cont.get(4),fat,res,local);
     }
 
     public List<Integer> scanAgregado(int n,String s){
@@ -108,24 +114,23 @@ public class Menu {
         System.out.println("Quantos elementos fazem parte do seu agregado familiar? "); 
         int agregado = Integer.parseInt(sc.next());
         List<Integer> nifAgregado = scanAgregado(agregado,"Digite o nif de cada elemento do seu agregado familiar: ");
-        System.out.println("Coeficiente Fiscal: ");
-        int coef_fiscal = Integer.parseInt(sc.next());
-        List<Integer> codigos = scanAgregado(2,"Codigos"); 
+        List<Integer> codigos = scanAgregado(2,"Codigos");
+        boolean categoria;
+        if(agregado > 4) categoria = true; else categoria = false; 
         int nif = Integer.parseInt(cont.get(0));
-        return new Individuais(nif,cont.get(1),cont.get(3),cont.get(2),cont.get(4),fat,agregado,nifAgregado,(float)coef_fiscal,codigos);
+        return new Individuais(nif,cont.get(1),cont.get(3),cont.get(2),cont.get(4),fat,agregado,nifAgregado,0,codigos,categoria);
     }
 
-    public Fatura scanFatura(int nifEmitente, String nomeEmpresa, List<AtividadesE> at){
+    public Fatura scanFatura(int nifEmitente, String nomeEmpresa, List<AtividadesE> at,int nifCont){
         Scanner s = new Scanner(System.in);
         System.out.println("Digite a data de despesa: ");
         String dataRecebida = s.nextLine(); 
         LocalDate dt = LocalDate.parse(dataRecebida,DateTimeFormatter.ISO_LOCAL_DATE);
-        int nifCliente = Integer.parseInt(s.nextLine());
         System.out.println("Digite uma pequena descrição da fatura que vai emitir: ");
         String descr = s.nextLine();
         System.out.println("Digite o valor da despesa: ");
         double valueSpent = Double.parseDouble(s.nextLine());
-        return new Fatura(nifEmitente,nomeEmpresa,dt,nifCliente,descr,(int)valueSpent,at);
+        return new Fatura(nifEmitente,nomeEmpresa,dt,nifCont,descr,(int)valueSpent,at);
     }
 
     /**
@@ -168,7 +173,7 @@ public class Menu {
     /**
      * metodo que executa os comandos dispostos para o contribuinte coletivo
     */
-    public void execBotaoE(int tecla,Empresarial emp){
+    public void execBotaoE(int tecla,GestaoContribuintes gc,Empresarial emp){
         switch(tecla){
           case 1:{
             System.out.println(emp.getListaFaturas().toString());
@@ -178,7 +183,11 @@ public class Menu {
             int nif = emp.getNif();
             String nomeEmpresa = emp.getNome();
             List<AtividadesE> at = emp.getInfoAtividades();
-            emp.getListaFaturas().addFatura(scanFatura(nif,nomeEmpresa,at));
+            System.out.println("Digite o NIF para o qual pretende emitir a sua fatura: ");
+            Scanner sc = new Scanner(System.in);
+            int ind = sc.nextInt();
+            emp.getListaFaturas().addFatura(scanFatura(nif,nomeEmpresa,at,ind));
+            gc.getContribuinte(ind).getListaFaturas().addFatura(scanFatura(nif,nomeEmpresa,at,ind));
             System.out.println("Fatura emitida com sucesso!");
             break;
           }

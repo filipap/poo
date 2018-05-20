@@ -26,9 +26,9 @@ public class my_tester
        gf.addFatura(f1);
        gf.addFatura(f2);
        gf.addFatura(f3);
-       Contribuinte c1 = new Individuais(122,"lipap","Filipa","rua da mata","12*34",gf,2,agC1,(float)0.15,atC1);
+       Contribuinte c1 = new Individuais(122,"lipap","Filipa","rua da mata","12*34",gf,2,agC1,(float)0.15,atC1,false);
        //System.out.println(c1.toString()+"\n");
-       Contribuinte c2 = new Empresarial(123,"lipap","Lava Tudo Direitinho","rua do passo","12NE4",gf,at);
+       Contribuinte c2 = new Empresarial(123,"lipap","Lava Tudo Direitinho","rua do passo","12NE4",gf,at,false);
        //System.out.println(c2.toString()+"\n");
        //System.out.println(gf.toString()+"\n");
        GestaoContribuintes gc = new GestaoContribuintes();

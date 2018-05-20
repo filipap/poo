@@ -80,7 +80,7 @@ public class Tester
                            if(k==0) break;
                            try{
                              Empresarial e = m.scanEmpresa(gc);
-                             m.execBotaoE(k,e);
+                             m.execBotaoE(k,gc,e);
                              break;     
                            }
                            catch(ContNaoExisteException c){

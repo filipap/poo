@@ -146,6 +146,10 @@ public class GestaoContribuintes implements Serializable{
     else throw new ContNaoExisteException("não existe contribuinte com esse NIF");
   }
 
+  public Contribuinte getContribuinte(int key){
+    return this.contribuintes.get(key);
+  }
+
   /**
   * Remove um contribuinte
   * @param 

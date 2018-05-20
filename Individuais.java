@@ -11,14 +11,19 @@ import java.lang.String;
 import InterfaceAtividades.AtividadesE;
 import java.io.Serializable;
 public class Individuais extends Contribuinte implements Serializable {
+  public final boolean NUMEROSA = true;
+  public final boolean NORMAL = false;
+  
   /** Número de dependentes do agregado familiar */
   private int agregado;
   /** Números fiscais do agregado familiar */
   private List<Integer> nif_agregado;
   /** Coeficiente fiscal para efeitos de dedução */
-  private float coef_fiscal;
+  private double coef_fiscal;
   /** Codigos das atividades economicas para deduzir despesas */
   private List<Integer> codigos;
+  /** categoria da familia */
+  private boolean categoria;
 
   /**
   * Construtor por omissão para objetos da classe Individuais
@@ -29,6 +34,7 @@ public class Individuais extends Contribuinte implements Serializable {
     this.nif_agregado =  new ArrayList<>();
     this.coef_fiscal = 0;
     this.codigos = new ArrayList<>();
+    this.categoria = NORMAL;
   }
   
   /**
@@ -45,12 +51,13 @@ public class Individuais extends Contribuinte implements Serializable {
   */
   public Individuais(int nif, String email, String nome, String morada, String password,
   GestaoFaturas faturas, int agregado, List<Integer> nif_agregado,
-                     float coef_fiscal, List<Integer> codigos) {
+                     double coef_fiscal, List<Integer> codigos,boolean cat) {
     super(nif,email,nome,morada,password,faturas);
     setAgregado(agregado);
     setNif_agregado(nif_agregado);
     setCoef_fiscal(coef_fiscal);
     setCodigos(codigos);
+    setCategoria(cat);
   }
   
   /**
@@ -64,6 +71,7 @@ public class Individuais extends Contribuinte implements Serializable {
     this.nif_agregado = umInd.getNif_agregado();
     this.coef_fiscal = umInd.getCoef_fiscal();
     this.codigos = umInd.getCodigos();
+    this.categoria = umInd.getCategoria();
   }
   
   /**
@@ -102,8 +110,16 @@ public class Individuais extends Contribuinte implements Serializable {
   * Devolve o coeficiente de dedução fiscal do contribuinte individual
   * @return 
   */
-  public float getCoef_fiscal() {
+  public double getCoef_fiscal() {
     return this.coef_fiscal;
+  }
+  
+  /**
+  * Devolve o categoria de agregado familiar
+  * @return 
+  */
+  public boolean getCategoria(){
+    return this.categoria;
   }
 
   /**
@@ -127,7 +143,7 @@ public class Individuais extends Contribuinte implements Serializable {
   * Define o coeficiente fiscal do contribuinte individual
   * @param coef_fiscal
   */
-  public void setCoef_fiscal(float coef_fiscal) {
+  public void setCoef_fiscal(double coef_fiscal) {
     this.coef_fiscal = coef_fiscal;
   }
 
@@ -138,6 +154,10 @@ public class Individuais extends Contribuinte implements Serializable {
   public void setCodigos(List<Integer> codigos) {
     this.codigos = new ArrayList<>();
     codigos.forEach(s -> {this.codigos.add(s);});
+  }
+  
+  public void setCategoria(boolean cat){
+      this.categoria = cat;
   }
   
   /**
@@ -185,8 +205,9 @@ public class Individuais extends Contribuinte implements Serializable {
     int result = super.hashCode();
     result = 31 * result + agregado;
     result = 31 * result + (nif_agregado != null ? nif_agregado.hashCode() : 0);
-    result = 31 * result + (coef_fiscal != +0.0f ? Float.floatToIntBits(coef_fiscal) : 0);
+    result = 31 * result + (coef_fiscal != 0 ? Double.hashCode(coef_fiscal) : 0);
     result = 31 * result + (codigos != null ? codigos.hashCode() : 0);
+    result = 31 * result + Boolean.hashCode(categoria);
     return result;
   }
 }
