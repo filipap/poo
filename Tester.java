@@ -94,15 +94,17 @@ public class Tester
                      }while(true);
                     }
                      case 2:{
-                      do{
                          try{
                            Individuais ind = m.scanIndividual(gc);
+                          do{
                            System.out.println("Tecla 1: Verificar faturas");
                            System.out.println("Tecla 2: Faturas pendentes");
                            System.out.println("Tecla 3: Visualizar perfil");
-                           int k = m.scanButton(1,3);
+                           System.out.println("Tecla 4: Logout");
+                           int k = m.scanButton(1,4);
+                           if(k==4)break;
                            m.execBotaoI(k,ind);
-                           break;
+                           } while(true);
                          }
                           catch(ContNaoExisteException c){
                             System.out.println(c.getMessage());
@@ -111,9 +113,7 @@ public class Tester
                           catch(PassNaoCorrespondeException p){
                             System.out.println("password errada!");
                             break;
-                          }
-      
-                      } while(true);  
+                          }  
                
                     }
                      break;

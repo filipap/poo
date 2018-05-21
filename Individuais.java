@@ -18,8 +18,8 @@ public class Individuais extends Contribuinte implements Serializable {
   private int agregado;
   /** Números fiscais do agregado familiar */
   private List<Integer> nif_agregado;
-  /** Coeficiente fiscal para efeitos de dedução */
-  private double coef_fiscal;
+   /** montante fiscal acumulado */
+  private double mont_fiscal;
   /** Codigos das atividades economicas para deduzir despesas */
   private List<Integer> codigos;
   /** categoria da familia */
@@ -30,10 +30,11 @@ public class Individuais extends Contribuinte implements Serializable {
   */
   public Individuais() {
     super();
+    
     this.agregado = 0;
     this.nif_agregado =  new ArrayList<>();
-    this.coef_fiscal = 0;
-    this.codigos = new ArrayList<>();
+    this.mont_fiscal = 0;
+    this.codigos = new ArrayList<>(); 
     this.categoria = NORMAL;
   }
   
@@ -46,16 +47,16 @@ public class Individuais extends Contribuinte implements Serializable {
   * @param password
   * @param agregado
   * @param nif_agregado
-  * @param coef_fiscal
+  * @param mont_fiscal
   * @param codigos
   */
   public Individuais(int nif, String email, String nome, String morada, String password,
   GestaoFaturas faturas, int agregado, List<Integer> nif_agregado,
-                     double coef_fiscal, List<Integer> codigos,boolean cat) {
+                     double mont_fiscal, List<Integer> codigos,boolean cat) {
     super(nif,email,nome,morada,password,faturas);
     setAgregado(agregado);
     setNif_agregado(nif_agregado);
-    setCoef_fiscal(coef_fiscal);
+    setMont_fiscal(mont_fiscal);
     setCodigos(codigos);
     setCategoria(cat);
   }
@@ -69,7 +70,7 @@ public class Individuais extends Contribuinte implements Serializable {
     super(umInd);
     this.agregado = umInd.getAgregado();
     this.nif_agregado = umInd.getNif_agregado();
-    this.coef_fiscal = umInd.getCoef_fiscal();
+    this.mont_fiscal = umInd.getMont_fiscal();
     this.codigos = umInd.getCodigos();
     this.categoria = umInd.getCategoria();
   }
@@ -110,8 +111,8 @@ public class Individuais extends Contribuinte implements Serializable {
   * Devolve o coeficiente de dedução fiscal do contribuinte individual
   * @return 
   */
-  public double getCoef_fiscal() {
-    return this.coef_fiscal;
+  public double getMont_fiscal() {
+    return this.mont_fiscal;
   }
   
   /**
@@ -143,8 +144,8 @@ public class Individuais extends Contribuinte implements Serializable {
   * Define o coeficiente fiscal do contribuinte individual
   * @param coef_fiscal
   */
-  public void setCoef_fiscal(double coef_fiscal) {
-    this.coef_fiscal = coef_fiscal;
+  public void setMont_fiscal(double mont_fiscal) {
+    this.mont_fiscal = mont_fiscal;
   }
 
   /**
@@ -182,7 +183,7 @@ public class Individuais extends Contribuinte implements Serializable {
     
     Individuais umInd = (Individuais) o;
       return(super.equals(umInd) && this.agregado == umInd.getAgregado() && this.nif_agregado.equals(umInd.getNif_agregado()) &&
-          this.coef_fiscal == umInd.getCoef_fiscal()) && this.codigos.equals(umInd.getCodigos());
+          this.mont_fiscal == umInd.getMont_fiscal()) && this.codigos.equals(umInd.getCodigos());
   }
   
   /**
@@ -192,8 +193,8 @@ public class Individuais extends Contribuinte implements Serializable {
   public String toString() {
     StringBuilder sb = new StringBuilder();
     sb.append("\nAgregado Familiar: ").append(this.agregado).append("\nNIF de cada elemento do agregado familiar: ").append(this.nif_agregado)
-        .append("\nCoeficiente de deducao fiscal: ").append(this.coef_fiscal).append("\nCodigos: ").append(this.codigos);
-    return ((super.toString()) + sb.toString());
+        .append("\nMontante total deduzido: ").append(this.mont_fiscal).append("\nCodigos: ").append(this.codigos);
+    return ((super.toString()) + sb.append("\n").toString());
   }
   
   /**
@@ -205,7 +206,7 @@ public class Individuais extends Contribuinte implements Serializable {
     int result = super.hashCode();
     result = 31 * result + agregado;
     result = 31 * result + (nif_agregado != null ? nif_agregado.hashCode() : 0);
-    result = 31 * result + (coef_fiscal != 0 ? Double.hashCode(coef_fiscal) : 0);
+    result = 31 * result + (mont_fiscal != 0 ? Double.hashCode(mont_fiscal) : 0);
     result = 31 * result + (codigos != null ? codigos.hashCode() : 0);
     result = 31 * result + Boolean.hashCode(categoria);
     return result;

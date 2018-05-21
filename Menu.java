@@ -143,28 +143,36 @@ public class Menu {
             break;
           }
           case 2:{
-            System.out.println("    Lista de faturas pendentes     \n");
-            System.out.println(ind.getListaFaturas().getFaturasPendentes().toString());
-            System.out.println("\n\n Deseja: \n Tecla 1 - Definir Atividade \n Tecla 2 - Sair");
-            int k = scanButton(1,2);
-            switch(k){
-                case 1:{
-                    try{
-                        Scanner c = new Scanner(System.in);
-                        System.out.println("Qual fatura deseja alterar?\n");
-                        int index = c.nextInt();
-                        System.out.println("Introduza o codigo da atividade na qual deduz?\n");
-                        int cod = c.nextInt();
-                        ind.getListaFaturas().atualizaFaturas(cod,index);
-                        break;
+            int f = ind.getListaFaturas().getFaturasPendentes().sizeListaFaturas();
+            if(f == 0) {
+                System.out.println("\n\n nao existem faturas pendentes \n\n");
+                break;
+            }
+            else{
+                System.out.println("    Lista de faturas pendentes     \n");
+                System.out.println(ind.getListaFaturas().getFaturasPendentes().toString());
+            
+                System.out.println("\n\n Deseja: \n Tecla 1 - Definir Atividade \n Tecla 2 - Sair");
+                int k = scanButton(1,2);
+                if(k==2) break;
+                switch(k){
+                    case 1:{
+                        try{
+                            Scanner c = new Scanner(System.in);
+                            System.out.println("Qual fatura deseja alterar?\n");
+                            int index = c.nextInt();
+                            System.out.println("Introduza o codigo da atividade na qual deduz?\n");
+                            int cod = c.nextInt();
+                            ind.getListaFaturas().atualizaFaturas(cod,index);
+                            break;
+                        }
+                        catch(SemAtividadeException j){System.out.println(j.getMessage());}
                     }
-                    catch(SemAtividadeException j){System.out.println(j.getMessage());}
                 }
-                case 2:{break;}
             }
           }
           case 3:{
-            System.out.println(ind.toString());
+            System.out.println("\n \n"+ind.toString());
             break;
           }
         }

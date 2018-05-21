@@ -90,7 +90,7 @@ public class GestaoFaturas implements Comparator<Fatura>,Serializable {
     StringBuilder sb = new StringBuilder();
     for (Fatura c: this.faturas)
        sb.append(c.toString() + "\n ----- \n");
-    return sb.toString();
+    return sb.append("\n\n").toString();
   }
   /**
   * Verifica a igualdade de dois objectos
@@ -110,6 +110,13 @@ public class GestaoFaturas implements Comparator<Fatura>,Serializable {
   }
 
   /**
+   * metodo que determina o numero de faturas da lista
+   */
+  public int sizeListaFaturas() {
+    return this.faturas.size();    
+  }
+  
+  /**
    * Método compareTo para datas 
    * Retorna 0 se forem iguais, 1 se this > fat e -1 se o fat > this
   */
@@ -119,7 +126,7 @@ public class GestaoFaturas implements Comparator<Fatura>,Serializable {
     if (f1.getDataDespesa().isAfter(f2.getDataDespesa())) r = -1; 
     if (f1.getDataDespesa().isBefore(f2.getDataDespesa())) r = 1;
     return r;
-}
+  }
   
   /**
   * Método que retorna a lista de faturas ordenada por datas

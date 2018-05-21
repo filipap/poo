@@ -62,7 +62,7 @@ public class GestaoContribuintes implements Serializable{
      StringBuffer sb = new StringBuffer();
      for (Contribuinte c: this.contribuintes.values())
        sb.append(c.toString() + "\n ----- \n");
-     return sb.toString(); 
+     return sb.append("\n\n").toString(); 
   }
   
 
