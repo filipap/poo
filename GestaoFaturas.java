@@ -137,7 +137,8 @@ public class GestaoFaturas implements Comparator<Fatura>,Serializable {
       Comparator<Fatura> comp = (Fatura a, Fatura b) ->{
         return compareByDate(a,b);
       };
-      ArrayList<Fatura> sortedList = this.getFaturas().stream().sorted(comp).collect(Collectors.toCollection(ArrayList::new));
+      ArrayList<Fatura> sortedList = new ArrayList <>();
+      sortedList = this.getFaturas().stream().sorted(comp).map(Fatura::clone).collect(Collectors.toCollection(ArrayList::new));
       setFaturas(sortedList);
   }
   
@@ -160,7 +161,8 @@ public class GestaoFaturas implements Comparator<Fatura>,Serializable {
       Comparator<Fatura> comp = (Fatura a, Fatura b) ->{
         return compare(a,b);
       };
-      ArrayList<Fatura> sortedList = this.getFaturas().stream().sorted(comp).collect(Collectors.toCollection(ArrayList::new));
+      ArrayList<Fatura> sortedList = new ArrayList <>();
+      sortedList = this.getFaturas().stream().sorted(comp).map(Fatura::clone).collect(Collectors.toCollection(ArrayList::new));
       setFaturas(sortedList);
   }
  

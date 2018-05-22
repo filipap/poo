@@ -30,7 +30,7 @@ public class Menu {
        System.out.println("Digite agora as atividades nas quais deduz para IRS das seguintes aqui listadas: ");
        System.out.println("Educação,Saúde,Cuidados Veterinários,Reparação Veículos,Cabeleireiros,Transportes,"+
        "Restauração,Habitação,Despesas Familiares");
-       ArrayList <String> atE = new ArrayList<> ();
+       ArrayList <String> atE = new ArrayList<String> ();
        while(n>0 && sc.hasNextLine()){
            atE.add(sc.nextLine());
            n--;
@@ -39,7 +39,7 @@ public class Menu {
     }
     
     public List<AtividadesE> insertAtivities(List<String> at){
-       ArrayList<AtividadesE> res = new ArrayList<>();
+       ArrayList<AtividadesE> res = new ArrayList<AtividadesE>();
        int i = 0;
        while(i<at.size()){
            if(at.get(i).equals("Educação")){ res.add(new Educacao());}
@@ -68,7 +68,7 @@ public class Menu {
         String morada = sc.next();
         System.out.println("Digite a sua password de acesso: ");
         String pass = sc.next();
-        ArrayList <String> res = new ArrayList<>();
+        ArrayList <String> res = new ArrayList<String>();
         res.add(nif);
         res.add(name);
         res.add(email);
@@ -78,13 +78,16 @@ public class Menu {
 
     }
     public Empresarial scanNewCompany(){
-        List<String> cont = scanNewContribuinte();
+        List<String> cont = new ArrayList<String>();
+        cont = scanNewContribuinte();
         GestaoFaturas fat = new GestaoFaturas();
         System.out.println("Digite o numero de atividades nas quais deduz: ");
         Scanner sc = new Scanner(System.in);
         int n = Integer.parseInt(sc.next());
-        List<String> at = scanAtivities(n);
-        List<AtividadesE> res = insertAtivities(at);
+        List<String> at = new ArrayList<String>();
+        at = scanAtivities(n);
+        List<AtividadesE> res = new ArrayList<AtividadesE>();
+        res = insertAtivities(at);
         System.out.println("A sua empresa localiza-se: ");
         System.out.println("Tecla 0: Interior");
         System.out.println("Tecla 1: Litoral");
@@ -98,7 +101,7 @@ public class Menu {
     public List<Integer> scanAgregado(int n,String s){
         System.out.println(s);
         Scanner sc = new Scanner(System.in);
-        ArrayList<Integer> res = new ArrayList<>();
+        ArrayList<Integer> res = new ArrayList<Integer>();
         while(n>0){
           int i = sc.nextInt();
           res.add(i);
@@ -108,13 +111,16 @@ public class Menu {
     }
 
     public Individuais scanNewIndividual(){
-        List<String> cont = scanNewContribuinte();
+        List<String> cont = new ArrayList<String>();
+        cont = scanNewContribuinte();
         GestaoFaturas fat = new GestaoFaturas();
         Scanner sc = new Scanner(System.in);
         System.out.println("Quantos elementos fazem parte do seu agregado familiar? "); 
         int agregado = Integer.parseInt(sc.next());
-        List<Integer> nifAgregado = scanAgregado(agregado,"Digite o nif de cada elemento do seu agregado familiar: ");
-        List<Integer> codigos = scanAgregado(2,"Codigos");
+        List<Integer> nifAgregado = new ArrayList<Integer>();
+        nifAgregado = scanAgregado(agregado,"Digite o nif de cada elemento do seu agregado familiar: ");
+        List<Integer> codigos = new ArrayList<Integer>();
+        codigos = scanAgregado(2,"Codigos");
         boolean categoria;
         if(agregado > 4) categoria = true; else categoria = false; 
         int nif = Integer.parseInt(cont.get(0));
@@ -133,13 +139,32 @@ public class Menu {
         return new Fatura(nifEmitente,nomeEmpresa,dt,nifCont,descr,(int)valueSpent,at);
     }
 
+    public void execBotaoF(int tecla, Individuais ind){
+      switch(tecla){
+        case 1:{
+          GestaoFaturas gf = ind.getListaFaturas();
+          gf.ordData();
+          System.out.println(gf.toString());
+          break;
+        }
+        case 2:{
+          GestaoFaturas gf = ind.getListaFaturas();
+          gf.ordValor();
+          System.out.println(gf.toString());
+          break;
+        }
+      }
+    }
+
     /**
     * metodo que executa os comandos dispostos para o contribuinte individual
     */
     public void execBotaoI(int tecla,Individuais ind){
         switch(tecla){
           case 1:{
-            System.out.println(ind.getListaFaturas().toString());
+            System.out.println("\n \n Tecla 1 - Ordenada por Data \n Tecla 2 - Ordenada por valor de despesa");
+            int k = scanButton(1,2);
+            execBotaoF(k,ind);
             break;
           }
           case 2:{
@@ -190,7 +215,8 @@ public class Menu {
           case 2:{
             int nif = emp.getNif();
             String nomeEmpresa = emp.getNome();
-            List<AtividadesE> at = emp.getInfoAtividades();
+            List<AtividadesE> at = new ArrayList<AtividadesE>();
+            at = emp.getInfoAtividades();
             System.out.println("Digite o NIF para o qual pretende emitir a sua fatura: ");
             Scanner sc = new Scanner(System.in);
             int ind = sc.nextInt();
