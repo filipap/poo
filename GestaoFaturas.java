@@ -45,7 +45,7 @@ public class GestaoFaturas implements Comparator<Fatura>,Serializable {
   public List<Fatura> getFaturas() {
     List<Fatura> res = new ArrayList<>();
     for(Fatura s : faturas) {
-      res.add(s);
+      res.add(s.clone());
     }
     return res;
   }
@@ -56,7 +56,7 @@ public class GestaoFaturas implements Comparator<Fatura>,Serializable {
   */
   public void setFaturas(List<Fatura> faturas) {
     this.faturas = new ArrayList<>();
-    faturas.forEach(s -> {this.faturas.add(s);});
+    faturas.forEach(s -> {this.faturas.add(s.clone());});
   }
   
   /**
@@ -98,7 +98,7 @@ public class GestaoFaturas implements Comparator<Fatura>,Serializable {
   * @param fat
   * */
   public void addFatura(Fatura fat) {
-    this.faturas.add(fat);    
+    this.faturas.add(fat.clone());    
   }
   
   /**
@@ -177,7 +177,7 @@ public class GestaoFaturas implements Comparator<Fatura>,Serializable {
             gf.addFatura(f);
         }
       }
-      return gf;
+      return gf.clone();
   }
   
   

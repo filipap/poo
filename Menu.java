@@ -129,7 +129,7 @@ public class Menu {
 
     public Fatura scanFatura(int nifEmitente, String nomeEmpresa, List<AtividadesE> at,int nifCont){
         Scanner s = new Scanner(System.in);
-        System.out.println("Digite a data de despesa: ");
+        System.out.println("Digite a data de despesa: \nex: 2011-12-03");
         String dataRecebida = s.nextLine(); 
         LocalDate dt = LocalDate.parse(dataRecebida,DateTimeFormatter.ISO_LOCAL_DATE);
         System.out.println("Digite uma pequena descrição da fatura que vai emitir: ");
@@ -139,7 +139,7 @@ public class Menu {
         return new Fatura(nifEmitente,nomeEmpresa,dt,nifCont,descr,(int)valueSpent,at);
     }
 
-    public void execBotaoF(int tecla, Individuais ind){
+    public void execBotaoFI(int tecla, Individuais ind){
       switch(tecla){
         case 1:{
           GestaoFaturas gf = ind.getListaFaturas();
@@ -164,7 +164,7 @@ public class Menu {
           case 1:{
             System.out.println("\n \n Tecla 1 - Ordenada por Data \n Tecla 2 - Ordenada por valor de despesa");
             int k = scanButton(1,2);
-            execBotaoF(k,ind);
+            execBotaoFI(k,ind);
             break;
           }
           case 2:{
@@ -203,13 +203,50 @@ public class Menu {
         }
     }
 
+    public void execBotaoFE(int tecla, Empresarial emp){
+      switch(tecla){
+        case 1:{
+          System.out.println("\nEm algum intervalo específico? \n Tecla 1 - Sim \n Tecla 2 - Não \n");
+          int k = scanButton(1,2);
+          switch(k){
+            case 1:{
+             Scanner s = new Scanner(System.in);
+             System.out.println("Digite a data inicial: \nex: 2011-12-03");
+             String dataRecebida1 = s.nextLine();
+             LocalDate dt1 = LocalDate.parse(dataRecebida1,DateTimeFormatter.ISO_LOCAL_DATE);
+             System.out.println("Digite a data final: \nex: 2011-12-03");
+             String dataRecebida2 = s.nextLine();
+             LocalDate dt2 = LocalDate.parse(dataRecebida2,DateTimeFormatter.ISO_LOCAL_DATE);
+             System.out.println(emp.fatBetweenDates(dt1,dt2).toString());
+             break; 
+            }
+            case 2:{
+             GestaoFaturas gf = emp.getListaFaturas();
+             gf.ordData();
+             System.out.println(gf.toString());
+             break;
+            }
+          }
+          break;
+        }
+        case 2:{
+          GestaoFaturas gf = emp.getListaFaturas();
+          gf.ordValor();
+          System.out.println(gf.toString());
+          break;
+        }
+      }
+    }
+
     /**
      * metodo que executa os comandos dispostos para o contribuinte coletivo
     */
     public void execBotaoE(int tecla,GestaoContribuintes gc,Empresarial emp){
         switch(tecla){
           case 1:{
-            System.out.println(emp.getListaFaturas().toString());
+            System.out.println("\n \n Tecla 1 - Ordenada por Data \n Tecla 2 - Ordenada por valor de despesa");
+            int k = scanButton(1,2);
+            execBotaoFE(k,emp);
             break;
           }
           case 2:{

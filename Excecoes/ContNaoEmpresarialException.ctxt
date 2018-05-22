@@ -1,0 +1,8 @@
+#BlueJ class context
+comment0.target=ContNaoEmpresarialException
+comment0.text=\n\ ContNaoEmpresarialException\ -\ exce\u00E7ao\ caso\ o\ contribuinte\ nao\ seja\ do\ tipo\ Empresarial\n\n\ @author\ (your\ name)\n\ @version\ (a\ version\ number\ or\ a\ date)\n
+comment1.params=
+comment1.target=ContNaoEmpresarialException()
+comment2.params=s
+comment2.target=ContNaoEmpresarialException(java.lang.String)
+numComments=3

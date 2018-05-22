@@ -240,7 +240,7 @@ public class Fatura implements Serializable{
     ArrayList<AtividadesE> res = new ArrayList<>();
     for(AtividadesE x:this.naturezaD){
       if(x.getCod()==cod){
-        res.add(x.getAtividadesE());
+        res.add(x.getAtividadesE().clone());
       }
     }
     if(res.isEmpty()) throw new SemAtividadeException("A fatura não deduz para nenhuma atividade!");
@@ -311,17 +311,4 @@ public class Fatura implements Serializable{
     result = 31 * result + (naturezaD != null ? naturezaD.hashCode() : 0);
     return result;
   }
-    
-
-  
-  /**
-   * Retorna 0 se forem iguais, 1 se this > fat e -1 se o fat > this
-   */
-  // return this.getValorDespesa.compareTo(fat.getValorDespesa());
-  public int compareTo(Fatura fat){
-    return this.getDataDespesa().compareTo(fat.getDataDespesa());
-  }
-
-
-
 }

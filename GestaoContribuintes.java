@@ -35,7 +35,6 @@ public class GestaoContribuintes implements Serializable{
   * Construtor para objetos parametrizado da classe GestaoContribuintes
   */
   public GestaoContribuintes(Map<Integer,Contribuinte> cont) {
-    //this.encomendas = encs.values().stream().collect(Collectors.toMap((e) -> e.getNEnc(),(e) -> e.clone(),(e1,e2) -> e1,HashMap::new));
     this.contribuintes = cont.values().stream().collect(Collectors.toMap((c) -> c.getNif(),(c) -> c.clone()));
   }
   
@@ -115,17 +114,18 @@ public class GestaoContribuintes implements Serializable{
   * @return
   */  
 
-  public Empresarial getEmpresa(int key, String pass) throws ContNaoExisteException,PassNaoCorrespondeException{
+  public Empresarial getEmpresaPass(int key, String pass) throws ContNaoExisteException,
+  ContNaoEmpresarialException,PassNaoCorrespondeException{
     if(this.contribuintes.containsKey(key)){
       if (this.contribuintes.get(key).getPassword().equals(pass)){
         if(this.contribuintes.get(key).getClass().getSimpleName().equals("Empresarial")){
           return (Empresarial)this.contribuintes.get(key).clone();
         }
-        throw new ContNaoExisteException("o contribuinte " + key + " não é do tipo empresarial");
+        else throw new ContNaoEmpresarialException(String.valueOf(key));
       }
-      else throw new PassNaoCorrespondeException("oops, password incorreta");
+      else throw new PassNaoCorrespondeException(pass);
     }
-    else throw new ContNaoExisteException("não existe contribuinte com esse NIF");
+    else throw new ContNaoExisteException(String.valueOf(key));
   }
 
   /**
@@ -133,21 +133,46 @@ public class GestaoContribuintes implements Serializable{
   * @return
   */  
 
-  public Individuais getIndividual(int key, String pass) throws ContNaoExisteException,PassNaoCorrespondeException{
+  public Individuais getIndividualPass(int key, String pass) throws ContNaoExisteException,
+  ContNaoIndividualException,PassNaoCorrespondeException{
     if(this.contribuintes.containsKey(key)){
       if (this.contribuintes.get(key).getPassword().equals(pass)){
         if(this.contribuintes.get(key).getClass().getSimpleName().equals("Individuais")){
           return (Individuais)this.contribuintes.get(key).clone();
         }
-        throw new ContNaoExisteException("o contribuinte" + key + "não é do tipo individual");
+        else throw new ContNaoIndividualException(String.valueOf(key));
       }
-      else throw new PassNaoCorrespondeException("oops, password incorreta");
+      else throw new PassNaoCorrespondeException(pass);
     }
-    else throw new ContNaoExisteException("não existe contribuinte com esse NIF");
+    else throw new ContNaoExisteException(String.valueOf(key));
   }
 
-  public Contribuinte getContribuinte(int key){
-    return this.contribuintes.get(key);
+  /**
+  * Dado uma key retorna o contribuinte do tipo individuais 
+  * @return
+  */
+  public Individuais getIndividual(int key) throws ContNaoIndividualException,ContNaoExisteException{
+    if(this.contribuintes.containsKey(key)){
+      if(this.contribuintes.get(key).getClass().getSimpleName().equals("Individuais")){
+        return (Individuais)this.contribuintes.get(key).clone();
+      }
+      else throw new ContNaoIndividualException(String.valueOf(key));
+    }
+    else throw new ContNaoExisteException(String.valueOf(key));
+  }
+
+  /**
+  * Dado uma key retorna o contribuinte do tipo empresarial 
+  * @return
+  */
+  public Empresarial getEmpresa(int key) throws ContNaoEmpresarialException,ContNaoExisteException{
+    if(this.contribuintes.containsKey(key)){
+      if(this.contribuintes.get(key).getClass().getSimpleName().equals("Empresarial")){
+        return (Empresarial)this.contribuintes.get(key).clone();
+      }
+      else throw new ContNaoEmpresarialException(String.valueOf(key));
+    }
+    else throw new ContNaoExisteException(String.valueOf(key));
   }
 
   /**
@@ -168,7 +193,7 @@ public class GestaoContribuintes implements Serializable{
   private Map<Contribuinte, Double> convert(Map<Integer, Contribuinte> hash){
       HashMap<Contribuinte, Double> sol = new HashMap<Contribuinte, Double>();
       for (Map.Entry<Integer, Contribuinte> entry : hash.entrySet()) {
-            sol.put(entry.getValue(), entry.getValue().getListaFaturas().getTotalListaFaturas());
+            sol.put(entry.getValue().clone(), entry.getValue().getListaFaturas().getTotalListaFaturas());
       }
       return sol;
   }
@@ -191,7 +216,7 @@ public class GestaoContribuintes implements Serializable{
     });
     Map<Contribuinte, Double> sortedMap = new LinkedHashMap<Contribuinte, Double>();
     for (Map.Entry<Contribuinte, Double> entry : list) {
-      sortedMap.put(entry.getKey(), entry.getValue());
+      sortedMap.put(entry.getKey().clone(), entry.getValue());
     }
     return sortedMap;
   }
@@ -206,16 +231,16 @@ public class GestaoContribuintes implements Serializable{
     Double somaValorFaturas = 0.0;
     int j = 0;
     for(Integer i : this.getContribuintes().keySet()){
-      for(Fatura f : contribuintes.get(i).getListaFaturas().getFaturas()){
+      for(Fatura f : this.contribuintes.get(i).getListaFaturas().getFaturas()){
         somaValorFaturas = somaValorFaturas + f.getValorDespesa();
       }
-      valorFacturas.put(contribuintes.get(i), somaValorFaturas);
+      valorFacturas.put(this.contribuintes.get(i).clone(), somaValorFaturas);
     }
     Map<Contribuinte, Double> valorFacturasOrdenado  = new HashMap<>();
     valorFacturasOrdenado = sortByValue(valorFacturas);
     for(Contribuinte c : valorFacturasOrdenado.keySet()){
       if(c.getClass().getSimpleName().equals("Individuais") && j < 10){
-        res.add(c);
+        res.add(c.clone());
         j++;
       }
     }
@@ -241,7 +266,7 @@ public class GestaoContribuintes implements Serializable{
     
     Map<Contribuinte, Integer> sortedMap = new LinkedHashMap<Contribuinte, Integer>();
     for (Map.Entry<Contribuinte, Integer> entry : list) {
-      sortedMap.put(entry.getKey(), entry.getValue());
+      sortedMap.put(entry.getKey().clone(), entry.getValue());
     }
     return sortedMap;
   }
@@ -257,17 +282,16 @@ public class GestaoContribuintes implements Serializable{
     int i = 0;
     for(Contribuinte c : this.getContribuintes().values()){
       if(c.getClass().getSimpleName().equals("Empresarial")){
-        nFaturas.put(c, c.totalFaturas());
+        nFaturas.put(c.clone(), c.totalFaturas());
       }
     }
     nFaturasOrdenado = sortNFaturas(nFaturas);
     for(Contribuinte c1 : nFaturasOrdenado.keySet()){
       if(i < x){
-        res.add(c1);
+        res.add(c1.clone());
         i++;
       }
     }
     return res;
   }
-
 }

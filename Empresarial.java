@@ -175,7 +175,7 @@ public class Empresarial extends Contribuinte implements Serializable {
               res.addFatura(this.getListaFaturas().getFaturas().get(i));
           }
       }
-      return res;
+      return res.clone();
   }
   
   /**
