@@ -141,7 +141,7 @@ public class Empresarial extends Contribuinte implements Serializable {
     if(this.local == INTERIOR){
       sb.append("Empresa do Interior");
     }
-    else sb.append("Empresa do Interior");
+    else sb.append("Empresa do Litoral");
     return sb.toString();
   }
 
@@ -175,7 +175,7 @@ public class Empresarial extends Contribuinte implements Serializable {
               res.addFatura(this.getListaFaturas().getFaturas().get(i));
           }
       }
-      return res.clone();
+      return res;
   }
   
   /**

@@ -214,14 +214,6 @@ public class GestaoFaturas implements Comparator<Fatura>,Serializable {
   public int getNumberFaturas(){
     return this.faturas.size();
   }
-  
-  /**
-  * metodo que o montante deduzido para IRS dado a localizaçao 
-  * @return 
-  */
-  public double getMontIRS(boolean loc){
-      return this.faturas.stream().mapToDouble(w -> w.valorDeduzidoIRS(w,loc)).sum();
-  }
 
 }
 

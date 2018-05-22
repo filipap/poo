@@ -25,6 +25,8 @@ public class Fatura implements Serializable{
   private LocalDate dataDespesa;
   /** Número fiscal do cliente*/
   private int nifCliente;
+  /** Montante deduzido para IRS pela fatura */
+  private double montanteDeduzido;
   /** Descrição da despesa*/
   private String descricao;
   /** Valor da despesa*/
@@ -41,6 +43,7 @@ public class Fatura implements Serializable{
     this.designacao = "n/a";
     this.dataDespesa = LocalDate.now();
     this.nifCliente = 0;
+    this.montanteDeduzido = 0;
     this.descricao = "n/a";
     this.valorDespesa = 0;
     this.naturezaD = new ArrayList<>();
@@ -57,12 +60,13 @@ public class Fatura implements Serializable{
   * @param valorDespesa 
   * @param naturezaD
   */
-  public Fatura(int nifEmitente, String designacao, LocalDate dataDespesa, int nifCliente, 
+  public Fatura(int nifEmitente, String designacao, LocalDate dataDespesa, int nifCliente,double mont,
   String descricao, int valorDespesa, List<AtividadesE> naturezaD){
     setNifEmitente(nifEmitente);
     setDesignacao(designacao);
     setDataDespesa(dataDespesa);
     setNifCliente(nifCliente);
+    setMontanteDeduzido(mont);
     setDescricao(descricao);
     setValorDespesa(valorDespesa);
     setNaturezaD(naturezaD);
@@ -77,6 +81,7 @@ public class Fatura implements Serializable{
     this.designacao = f.getDesignacao();
     this.dataDespesa = f.getDataDespesa();
     this.nifCliente = f.getNifCliente();
+    this.montanteDeduzido = f.getMontanteDeduzido();
     this.descricao = f.getDescricao();
     this.valorDespesa = f.getValorDespesa();
     this.naturezaD = f.getNaturezaD();
@@ -118,6 +123,14 @@ public class Fatura implements Serializable{
   }
 
   /**
+  * Devolve o valor do montante deduzido para IRS
+  * @return 
+  */
+  public double getMontanteDeduzido() {
+    return this.montanteDeduzido;
+  }
+
+  /**
   * Devolve a descrição da despesa
   * @return 
   */
@@ -131,7 +144,7 @@ public class Fatura implements Serializable{
   */
   public double getValorDespesa() {
     return this.valorDespesa;
-}
+  }
 
   /**
   * Método que devolve o array das atividades económicas 
@@ -169,15 +182,23 @@ public class Fatura implements Serializable{
   }
 
   /**
-  * Define o nif do cliente
+  * redefine o nif do cliente
   * @param nifCliente
   */
   public void setNifCliente(int nifCliente) {
     this.nifCliente = nifCliente;
   }
+
+  /**
+  * Redefine o valor da despesa
+  * @param valorDespesa
+  */
+  public void setMontanteDeduzido(double mont) {
+    this.montanteDeduzido = mont;
+  }
   
   /**
-  * Define a descrição da despesa
+  * redefine a descrição da despesa
   * @param descricao
   */
   public void setDescricao(String descricao) {
@@ -226,8 +247,8 @@ public class Fatura implements Serializable{
     
     Fatura f = (Fatura) o;
       return(this.nifEmitente == f.getNifEmitente() && this.designacao.equals(f.getDesignacao()) &&
-             this.dataDespesa.equals(f.getDataDespesa()) && this.nifCliente == f.getNifCliente() 
-             && this.descricao.equals(f.getDescricao()) &&
+             this.dataDespesa.equals(f.getDataDespesa()) && this.nifCliente == f.getNifCliente() &&
+             this.montanteDeduzido == (f.getMontanteDeduzido()) && this.descricao.equals(f.getDescricao()) &&
              this.valorDespesa == f.getValorDespesa());
   }
   
@@ -261,25 +282,6 @@ public class Fatura implements Serializable{
     return res;
   }
 
-  /**
-  * Método que retorna o valor deduzido para IRS dado uma deducao 
-  * @return 
-  */
-
-  public double valorDeduzIRS(Fatura f,double deducao){
-      return (f.getValorDespesa())*deducao;
-  }
-
-  /**
-  * Método que retorna o valor deduzido para IRS
-  * tendo em conta a localização da empresa
-  * @return 
-  */
-
-  public double valorDeduzidoIRS(Fatura f,boolean local){
-      return local == INTERIOR ? valorDeduzIRS(f,f.getNaturezaD().get(0).getDeducao()+0.05) : 
-      valorDeduzIRS(f,f.getNaturezaD().get(0).getDeducao());
-  }
 
   /**
   * Retorna uma representação textual do objecto
@@ -291,6 +293,7 @@ public class Fatura implements Serializable{
     StringBuilder sb = new StringBuilder();
     sb.append("NIF do emitente: ").append(nifEmitente).append("\nDesignacao do emitente: ").append(designacao)
                 .append("\nData da despesa: ").append(d).append("\nNIF do Cliente: ").append(nifCliente)
+                .append("\nMontante deduzido para IRS: ").append(montanteDeduzido)
                 .append("\nDescricao da despesa: ").append(descricao)
                 .append("\nValor da despesa: ").append(valorDespesa).append("\nNatureza da despesa: ")
                 .append(setoresAtividade());
@@ -311,4 +314,30 @@ public class Fatura implements Serializable{
     result = 31 * result + (naturezaD != null ? naturezaD.hashCode() : 0);
     return result;
   }
+
+  /**
+  * Método que retorna o valor deduzido para IRS dado uma deducao 
+  * @return 
+  */
+
+  public double valorDeduzIRS(Fatura f,double deducao){
+      return (f.getValorDespesa())*deducao;
+  }
+
+  /**
+  * Método que retorna o valor deduzido para IRS
+  * tendo em conta a localização da empresa
+  * @return 
+  */
+
+  public void valorDeduzidoIRS(Fatura f,boolean local, Empresarial emit){
+     if((emit.getInfoAtividades().size())>1) { 
+        if (emit.getLocal() == INTERIOR) {
+          setMontanteDeduzido(valorDeduzIRS(f,f.getNaturezaD().get(0).getDeducao()+0.05));
+        }
+        else {setMontanteDeduzido(valorDeduzIRS(f,f.getNaturezaD().get(0).getDeducao()));}
+     }
+     else setMontanteDeduzido(0);
+  }
+
 }

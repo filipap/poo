@@ -4,7 +4,7 @@ Email: PD
 Nome: Pingo Doce
 Morada: Avenida da Liberdade
 Setores de atividade: 
-[1 - Despesas Familiares]Empresa do Interior
+[1 - Despesas Familiares]Empresa do Litoral
 
  ----- 
 NIF: 129
@@ -128,7 +128,7 @@ Email: patinhas
 Nome: Hospital dos Patinhas
 Morada: rua da graça
 Setores de atividade: 
-[9 - Cuidados Veterinarios]Empresa do Interior
+[9 - Cuidados Veterinarios]Empresa do Litoral
 
  ----- 
 NIF: 123
@@ -144,7 +144,7 @@ Email: citroen
 Nome: Adriano Martins Ldª
 Morada: rua da praia
 Setores de atividade: 
-[7 - Reparação Veículos]Empresa do Interior
+[7 - Reparação Veículos]Empresa do Litoral
 
  ----- 
 NIF: 125
@@ -168,7 +168,7 @@ Email: foz_cafe
 Nome: Restaurante Foz
 Morada: praia da Arda
 Setores de atividade: 
-[8 - Restauração]Empresa do Interior
+[8 - Restauração]Empresa do Litoral
 
  ----- 
 

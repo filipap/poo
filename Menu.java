@@ -127,7 +127,10 @@ public class Menu {
         return new Individuais(nif,cont.get(1),cont.get(3),cont.get(2),cont.get(4),fat,agregado,nifAgregado,0,codigos,categoria);
     }
 
-    public Fatura scanFatura(int nifEmitente, String nomeEmpresa, List<AtividadesE> at,int nifCont){
+    public Fatura scanFatura(Empresarial emp,int nifCont){
+        int nifEmitente = emp.getNif();
+        String nomeEmpresa = emp.getNome();
+        double mont = 0;
         Scanner s = new Scanner(System.in);
         System.out.println("Digite a data de despesa: \nex: 2011-12-03");
         String dataRecebida = s.nextLine(); 
@@ -136,7 +139,10 @@ public class Menu {
         String descr = s.nextLine();
         System.out.println("Digite o valor da despesa: ");
         double valueSpent = Double.parseDouble(s.nextLine());
-        return new Fatura(nifEmitente,nomeEmpresa,dt,nifCont,descr,(int)valueSpent,at);
+        List<AtividadesE> at = emp.getInfoAtividades();
+        Fatura f = new Fatura(nifEmitente,nomeEmpresa,dt,nifCont,mont,descr,(int)valueSpent,at);
+        f.valorDeduzidoIRS(f,emp.getLocal(),emp);
+        return f.clone();
     }
 
     public void execBotaoFI(int tecla, Individuais ind){
@@ -250,40 +256,59 @@ public class Menu {
             break;
           }
           case 2:{
-            int nif = emp.getNif();
-            String nomeEmpresa = emp.getNome();
-            List<AtividadesE> at = new ArrayList<AtividadesE>();
-            at = emp.getInfoAtividades();
-            System.out.println("Digite o NIF para o qual pretende emitir a sua fatura: ");
-            Scanner sc = new Scanner(System.in);
-            int ind = sc.nextInt();
-            emp.getListaFaturas().addFatura(scanFatura(nif,nomeEmpresa,at,ind));
-            gc.getContribuinte(ind).getListaFaturas().addFatura(scanFatura(nif,nomeEmpresa,at,ind));
-            System.out.println("Fatura emitida com sucesso!");
-            break;
+            try{  
+              List<AtividadesE> at = new ArrayList<AtividadesE>();
+              System.out.println("Digite o NIF para o qual pretende emitir a sua fatura: ");
+              Scanner sc = new Scanner(System.in);
+              int ind = Integer.parseInt(sc.next());
+              Fatura f = scanFatura(emp,ind);
+              emp.getListaFaturas().addFatura(f);
+              gc.getIndividual(ind).getListaFaturas().addFatura(f);
+              System.out.println("Fatura emitida com sucesso!");
+              break;
+            }
+            catch(ContNaoIndividualException e){
+              System.out.println("o contribuinte " + e.getMessage() + " não é do tipo individual");
+              break;
+            }
+            catch(ContNaoExisteException c){
+              System.out.println("não existe contribuinte com NIF" + c.getMessage());
+              break;
+            }
+          }
+          case 3:{
+             Scanner s = new Scanner(System.in);
+             System.out.println("Digite a data inicial: \nex: 2011-12-03");
+             String dataRecebida1 = s.nextLine();
+             LocalDate dt1 = LocalDate.parse(dataRecebida1,DateTimeFormatter.ISO_LOCAL_DATE);
+             System.out.println("Digite a data final: \nex: 2011-12-03");
+             String dataRecebida2 = s.nextLine();
+             LocalDate dt2 = LocalDate.parse(dataRecebida2,DateTimeFormatter.ISO_LOCAL_DATE);
+             System.out.println("Total faturado entre " + dt1.toString() + " e " + dt2.toString() + "\n");
+             System.out.println((emp.totalFaturado(dt1,dt2)) + "€");
           }
         }
     }
     
-    public Individuais scanIndividual(GestaoContribuintes gc)throws ContNaoExisteException,PassNaoCorrespondeException{
+    public Individuais scanIndividual(GestaoContribuintes gc)throws ContNaoExisteException,PassNaoCorrespondeException,ContNaoIndividualException{
         Scanner sc = new Scanner(System.in);
         System.out.println("Digite o seu NIF: ");
         int nif = Integer.parseInt(sc.next());
         System.out.println("Digite a sua password de acesso: ");
         String pass = sc.next();
         Individuais c = new Individuais();
-        c = gc.getIndividual(nif,pass);
+        c = gc.getIndividualPass(nif,pass);
         return c;
     }
     
-    public Empresarial scanEmpresa(GestaoContribuintes gc)throws ContNaoExisteException,PassNaoCorrespondeException{
+    public Empresarial scanEmpresa(GestaoContribuintes gc)throws ContNaoExisteException,PassNaoCorrespondeException,ContNaoEmpresarialException{
         Scanner sc = new Scanner(System.in);
         System.out.println("Digite o seu NIF: ");
         int nif = Integer.parseInt(sc.next());
         System.out.println("Digite a sua password de acesso: ");
         String pass = sc.next();
         Empresarial c = new Empresarial();
-        c=gc.getEmpresa(nif,pass);
+        c=gc.getEmpresaPass(nif,pass);
         return c;
     }    
 

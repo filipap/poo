@@ -211,4 +211,13 @@ public class Individuais extends Contribuinte implements Serializable {
     result = 31 * result + Boolean.hashCode(categoria);
     return result;
   }
+
+  /**
+  * metodo que o montante deduzido para IRS e atualiza o mont_fiscal 
+  * @return 
+  */
+/*
+  public double getMontIRS(){
+      return this.faturas.stream().mapToDouble(w -> w.valorDeduzidoIRS(w,get)).sum();
+  }*/
 }

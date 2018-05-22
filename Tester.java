@@ -72,26 +72,31 @@ public class Tester
                        break;
                      }
                      case 1:{
-                       do{
-                           System.out.println("Tecla 1: Verificar faturas emitidas");
-                           System.out.println("Tecla 2: Emitir fatura");
-                           System.out.println("Tecla 0: Sair");
-                           int k = m.scanButton(0,2);
-                           if(k==0) break;
-                           try{
-                             Empresarial e = m.scanEmpresa(gc);
-                             m.execBotaoE(k,gc,e);
-                             break;     
-                           }
-                           catch(ContNaoExisteException c){
-                             System.out.println(c.getMessage());
+                          try{
+                              Empresarial emp = m.scanEmpresa(gc);
+                            do{
+                              System.out.println("Tecla 1: Verificar faturas emitidas");
+                              System.out.println("Tecla 2: Emitir fatura");
+                              System.out.println("Tecla 3: Verificar total faturado");
+                              System.out.println("Tecla 4: Logout");
+                              int k = m.scanButton(1,4);
+                              if(k==4)break;
+                              else m.execBotaoE(k,gc,emp);
+                            }while(true);
+                            break;
+                          }
+                          catch(ContNaoEmpresarialException c){
+                             System.out.println("o contribuinte " + c.getMessage() + " não é do tipo empresarial");
                              break;
-                           }
-                           catch(PassNaoCorrespondeException p){
-                             System.out.println("password errada!");
+                          }
+                          catch(ContNaoExisteException c){
+                             System.out.println("não existe contribuinte com NIF" + c.getMessage());
+                            break;
+                          }
+                          catch(PassNaoCorrespondeException p){
+                             System.out.println(p.getMessage() + "não é a password correta!");
                              break;
-                           }
-                     }while(true);
+                          }
                     }
                      case 2:{
                          try{
@@ -103,17 +108,21 @@ public class Tester
                            System.out.println("Tecla 4: Logout");
                            int k = m.scanButton(1,4);
                            if(k==4)break;
-                           m.execBotaoI(k,ind);
+                           else m.execBotaoI(k,ind);
                            } while(true);
                          }
+                          catch(ContNaoIndividualException c){
+                             System.out.println("o contribuinte " + c.getMessage() + " não é do tipo individual");
+                             break;
+                           }
                           catch(ContNaoExisteException c){
-                            System.out.println(c.getMessage());
-                            break;
-                          }
-                          catch(PassNaoCorrespondeException p){
-                            System.out.println("password errada!");
-                            break;
-                          }  
+                             System.out.println("não existe contribuinte com NIF " + c.getMessage());
+                             break;
+                           }
+                           catch(PassNaoCorrespondeException p){
+                             System.out.println(p.getMessage() + "não é a password correta!");
+                             break;
+                           }  
                
                     }
                      break;
