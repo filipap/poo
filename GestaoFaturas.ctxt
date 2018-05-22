@@ -7,6 +7,7 @@ comment10.params=
 comment10.target=int\ hashCode()
 comment10.text=\n\ Retorna\ o\ hashcode\n\ @return\ result\n
 comment11.params=
+<<<<<<< HEAD
 comment11.target=int\ sizeListaFaturas()
 comment11.text=\n\ metodo\ que\ determina\ o\ numero\ de\ faturas\ da\ lista\n
 comment12.params=f1\ f2
@@ -33,6 +34,10 @@ comment18.text=\n\ metodo\ que\ devolve\ o\ somat\u00F3rio\ do\ valor\ de\ despe
 comment19.params=
 comment19.target=int\ getNumberFaturas()
 comment19.text=\n\ metodo\ que\ o\ numero\ de\ faturas\ emitidas\ \n\ @return\ \n
+=======
+comment11.target=void\ ordData()
+comment11.text=\n\ \n
+>>>>>>> 8c6fed9b749c9ce8dca7796cef274baf990f55ba
 comment2.params=faturas
 comment2.target=GestaoFaturas(java.util.List)
 comment2.text=\n\ Construtor\ para\ objetos\ parametrizado\ da\ classe\ GestaoFaturas\n\ @param\ faturas\n
@@ -60,4 +65,8 @@ comment8.text=\n\ Retorna\ uma\ representao\ textual\ do\ objecto\n\ @return\ \n
 comment9.params=fat
 comment9.target=void\ addFatura(Fatura)
 comment9.text=\n\ Verifica\ a\ igualdade\ de\ dois\ objectos\n\ @param\ fat\n
+<<<<<<< HEAD
 numComments=21
+=======
+numComments=12
+>>>>>>> 8c6fed9b749c9ce8dca7796cef274baf990f55ba

@@ -13,6 +13,7 @@ import java.util.stream.Collectors;
 import java.io.Serializable;
 import Excecoes.*;
 public class GestaoFaturas implements Comparator<Fatura>,Serializable {
+
   private List<Fatura> faturas;
   /**
   * Construtor para objetos da classe GestaoFaturas
@@ -219,6 +220,6 @@ public class GestaoFaturas implements Comparator<Fatura>,Serializable {
   public double getMontIRS(boolean loc){
       return this.faturas.stream().mapToDouble(w -> w.valorDeduzidoIRS(w,loc)).sum();
   }
-  
+
 }
 

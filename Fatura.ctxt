@@ -40,6 +40,7 @@ comment20.params=cod
 comment20.target=Fatura\ atualizaFatura(int)
 comment20.text=\n\ M\u00E9todo\ que\ escolhe\ uma\ atividade\ conforme\ o\ c\u00F3digo\ \n\ @return\ \n
 comment21.params=
+<<<<<<< HEAD
 comment21.target=java.util.List\ setoresAtividade()
 comment21.text=\n\ M\u00E9todo\ auxiliar\ que\ retorna\ o\ array\ de\ strings\ \n\ com\ as\ atividades\ econ\u00F3micas\ de\ determinada\ empresa\n\ @return\ List<String>\ \n
 comment22.params=f\ deducao
@@ -54,6 +55,16 @@ comment24.text=\n\ Retorna\ uma\ representa\u00E7\u00E3o\ textual\ do\ objecto\n
 comment25.params=
 comment25.target=int\ hashCode()
 comment25.text=\n\ Retorna\ o\ hashcode\n\ @return\ result\n
+=======
+comment21.target=java.lang.String\ toString()
+comment21.text=\n\ Retorna\ uma\ representa\u00E7ao\ textual\ do\ objecto\n\ @return\ String\ com\ o\ texto\n
+comment22.params=
+comment22.target=int\ hashCode()
+comment22.text=\n\ Retorna\ o\ hashcode\n\ @return\ result\n
+comment23.params=fat
+comment23.target=int\ compareTo(Fatura)
+comment23.text=\n\ Retorna\ 0\ se\ forem\ iguais,\ 1\ se\ this\ >\ fat\ e\ -1\ se\ o\ fat\ >\ this\n
+>>>>>>> 8c6fed9b749c9ce8dca7796cef274baf990f55ba
 comment3.params=f
 comment3.target=Fatura(Fatura)
 comment3.text=\n\ Construtor\ de\ c\u00F3pia\ para\ objetos\ da\ classe\ Fatura\n\ @param\ f\ Fatura\n
@@ -75,4 +86,8 @@ comment8.text=\n\ Devolve\ a\ descri\u00E7\u00E3o\ da\ despesa\n\ @return\ \n
 comment9.params=
 comment9.target=double\ getValorDespesa()
 comment9.text=\n\ Devolve\ o\ valor\ da\ despesa\n\ @return\ \n
+<<<<<<< HEAD
 numComments=26
+=======
+numComments=24
+>>>>>>> 8c6fed9b749c9ce8dca7796cef274baf990f55ba

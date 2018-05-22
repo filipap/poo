@@ -312,4 +312,16 @@ public class Fatura implements Serializable{
     return result;
   }
     
+
+  
+  /**
+   * Retorna 0 se forem iguais, 1 se this > fat e -1 se o fat > this
+   */
+  // return this.getValorDespesa.compareTo(fat.getValorDespesa());
+  public int compareTo(Fatura fat){
+    return this.getDataDespesa().compareTo(fat.getDataDespesa());
+  }
+
+
+
 }
