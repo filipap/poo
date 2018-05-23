@@ -139,6 +139,10 @@ public class Individuais extends Contribuinte implements Serializable {
     codigos.forEach(s -> {this.codigos.add(s);});
   }
   
+  /**
+  * Define o tipo de família
+  * @param codigos
+  */
   public void setCategoria(boolean cat){
       this.categoria = cat;
   }
@@ -167,6 +171,19 @@ public class Individuais extends Contribuinte implements Serializable {
       return(super.equals(umInd) && this.agregado == umInd.getAgregado() && this.nif_agregado.equals(umInd.getNif_agregado()) &&
           this.mont_fiscal == umInd.getMont_fiscal()) && this.codigos.equals(umInd.getCodigos());
   }
+
+  /**
+  * Método auxiliar que retorna a categoria de uma familia
+  * @return
+  */
+  public String categ(){
+    StringBuilder sb = new StringBuilder();
+    if(this.categoria == NUMEROSA){
+      sb.append("família NUMEROSA");
+    }
+    else sb.append("família NORMAL");
+    return sb.toString();
+  }
   
   /**
   * Retorna uma representação textual do objecto
@@ -175,7 +192,7 @@ public class Individuais extends Contribuinte implements Serializable {
   public String toString() {
     StringBuilder sb = new StringBuilder();
     sb.append("\nAgregado Familiar: ").append(this.agregado).append("\nNIF de cada elemento do agregado familiar: ").append(this.nif_agregado)
-        .append("\nCodigos: ").append(this.codigos);
+        .append("\nCodigos: ").append(this.codigos).append("\n").append(categ());
     return ((super.toString()) + sb.append("\n").toString());
   }
   

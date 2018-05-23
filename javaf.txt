@@ -5,7 +5,8 @@ Nome: Pingo Doce
 Morada: Avenida da Liberdade
 Montante total deduzido: 14.450000000000001€
 Setores de atividade: 
-[1 - Despesas Familiares]Empresa do Litoral
+[1 - Despesas Familiares]
+Empresa do Litoral
 
  ----- 
 NIF: 129
@@ -14,7 +15,8 @@ Nome: Hospital Comum
 Morada: rua do passo
 Montante total deduzido: 0.0€
 Setores de atividade: 
-[9 - Cuidados Veterinarios, 3 - Saúde]Empresa do Interior
+[9 - Cuidados Veterinarios, 3 - Saúde]
+Empresa do Interior
 
  ----- 
 NIF: 130
@@ -23,7 +25,8 @@ Nome: Lava Tudo Direitinho
 Morada: rua do passo
 Montante total deduzido: 0.0€
 Setores de atividade: 
-[5 - Transportes, 7 - Reparação Veículos]Empresa do Interior
+[5 - Transportes, 7 - Reparação Veículos]
+Empresa do Interior
 
  ----- 
 NIF: 131
@@ -32,18 +35,20 @@ Nome: Filipa Cunha
 Morada: rua da mata
 Montante total deduzido: 32.4€
 Agregado Familiar: 2
-NIF de cada elemento do agregado familiar: [124, 125]
-Codigos: [1, 2]
+NIF de cada elemento do agregado familiar: [132, 134]
+Codigos: [1, 2, 3, 4, 5, 6, 7, 8, 9]
+família NORMAL
 
  ----- 
 NIF: 132
 Email: edsilva
 Nome: Edmundo Silva
-Morada: rua das flores
+Morada: rua da mata
 Montante total deduzido: 9.95€
 Agregado Familiar: 2
-NIF de cada elemento do agregado familiar: [124, 125]
-Codigos: [1, 2]
+NIF de cada elemento do agregado familiar: [134, 131]
+Codigos: [1, 2, 3, 4, 5, 6, 7, 8, 9]
+família NORMAL
 
  ----- 
 NIF: 133
@@ -52,18 +57,20 @@ Nome: Silvia Machado
 Morada: rua 25 abril
 Montante total deduzido: 4.5€
 Agregado Familiar: 2
-NIF de cada elemento do agregado familiar: [124, 125]
-Codigos: [1, 2]
+NIF de cada elemento do agregado familiar: [135, 136, 137, 139]
+Codigos: [1, 2, 3, 4, 5, 6, 7, 8, 9]
+família NUMEROSA
 
  ----- 
 NIF: 134
 Email: me_gusta
 Nome: Gustavo Sousa
-Morada: rua da represa
+Morada: rua da mata
 Montante total deduzido: 1455.2€
 Agregado Familiar: 2
-NIF de cada elemento do agregado familiar: [124, 125]
-Codigos: [1, 2]
+NIF de cada elemento do agregado familiar: [131, 132]
+Codigos: [1, 2, 3, 4, 5, 6, 7, 8, 9]
+família NORMAL
 
  ----- 
 NIF: 135
@@ -72,8 +79,9 @@ Nome: Marcelo Miranda
 Morada: avenida dos combatentes
 Montante total deduzido: 15.45€
 Agregado Familiar: 2
-NIF de cada elemento do agregado familiar: [124, 125]
-Codigos: [1, 2]
+NIF de cada elemento do agregado familiar: [133, 136, 137, 139]
+Codigos: [1, 2, 3, 4, 5, 6, 7, 8, 9]
+família NUMEROSA
 
  ----- 
 NIF: 136
@@ -82,8 +90,9 @@ Nome: Margarida Ribeiro
 Morada: rua da mata da presa
 Montante total deduzido: 12.05€
 Agregado Familiar: 2
-NIF de cada elemento do agregado familiar: [124, 125]
-Codigos: [1, 2]
+NIF de cada elemento do agregado familiar: [133, 135, 137, 139]
+Codigos: [1, 2, 3, 4, 5, 6, 7, 8, 9]
+família NUMEROSA
 
  ----- 
 NIF: 137
@@ -92,8 +101,9 @@ Nome: Filipe Pereira
 Morada: avenida da liberdade
 Montante total deduzido: 12.0€
 Agregado Familiar: 2
-NIF de cada elemento do agregado familiar: [124, 125]
-Codigos: [1, 2]
+NIF de cada elemento do agregado familiar: [133, 135, 136, 139]
+Codigos: [1, 2, 3, 4, 5, 6, 7, 8, 9]
+família NUMEROSA
 
  ----- 
 NIF: 138
@@ -102,8 +112,9 @@ Nome: Rita Soares
 Morada: rua dos combatentes da 1ª grande guerra
 Montante total deduzido: 975.0€
 Agregado Familiar: 2
-NIF de cada elemento do agregado familiar: [124, 125]
-Codigos: [1, 2]
+NIF de cada elemento do agregado familiar: [140]
+Codigos: [1, 2, 3, 4, 5, 6, 7, 8, 9]
+família NORMAL
 
  ----- 
 NIF: 139
@@ -112,8 +123,9 @@ Nome: Virgílio Ferreira
 Morada: praça da erva
 Montante total deduzido: 1200.6€
 Agregado Familiar: 2
-NIF de cada elemento do agregado familiar: [124, 125]
-Codigos: [1, 2]
+NIF de cada elemento do agregado familiar: [133, 135, 136, 137]
+Codigos: [1, 2, 3, 4, 5, 6, 7, 8, 9]
+família NUMEROSA
 
  ----- 
 NIF: 140
@@ -122,8 +134,9 @@ Nome: Ana Borralho
 Morada: rua dos santos
 Montante total deduzido: 6.5€
 Agregado Familiar: 2
-NIF de cada elemento do agregado familiar: [124, 125]
-Codigos: [1, 2]
+NIF de cada elemento do agregado familiar: [138]
+Codigos: [1, 2, 3, 4, 5, 6, 7, 8, 9]
+família NORMAL
 
  ----- 
 NIF: 141
@@ -132,7 +145,8 @@ Nome: Hospital dos Patinhas
 Morada: rua da graça
 Montante total deduzido: 18.2€
 Setores de atividade: 
-[9 - Cuidados Veterinarios]Empresa do Litoral
+[9 - Cuidados Veterinarios]
+Empresa do Litoral
 
  ----- 
 NIF: 123
@@ -141,7 +155,8 @@ Nome: Hospital Particular das Gambelas
 Morada: rua do chafariz
 Montante total deduzido: 95.0€
 Setores de atividade: 
-[3 - Saúde]Empresa do Interior
+[3 - Saúde]
+Empresa do Interior
 
  ----- 
 NIF: 124
@@ -150,7 +165,8 @@ Nome: Adriano Martins Ldª
 Morada: rua da praia
 Montante total deduzido: 3552.0€
 Setores de atividade: 
-[7 - Reparação Veículos]Empresa do Litoral
+[7 - Reparação Veículos]
+Empresa do Litoral
 
  ----- 
 NIF: 125
@@ -159,7 +175,8 @@ Nome: Cortes de Lisboa
 Morada: edificio Braga Parque, lote 16
 Montante total deduzido: 13.799999999999999€
 Setores de atividade: 
-[6 - Cabeleireiros]Empresa do Interior
+[6 - Cabeleireiros]
+Empresa do Interior
 
  ----- 
 NIF: 126
@@ -168,7 +185,8 @@ Nome: Universidade do Minho - Campus de Gualtar
 Morada: rua da Universidade
 Montante total deduzido: 26.25€
 Setores de atividade: 
-[4 - Educação]Empresa do Interior
+[4 - Educação]
+Empresa do Interior
 
  ----- 
 NIF: 127
@@ -177,7 +195,8 @@ Nome: Restaurante Foz
 Morada: praia da Arda
 Montante total deduzido: 16.5€
 Setores de atividade: 
-[8 - Restauração]Empresa do Litoral
+[8 - Restauração]
+Empresa do Litoral
 
  ----- 
 

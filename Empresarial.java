@@ -152,7 +152,8 @@ public class Empresarial extends Contribuinte implements Serializable {
 
   public String toString() {
     StringBuilder sb = new StringBuilder();
-    sb.append("\nSetores de atividade: \n").append(setoresAtividade()).append(localizacao()).append("\n");
+    sb.append("\nSetores de atividade: \n").append(setoresAtividade())
+    .append("\n").append(localizacao()).append("\n");
     return (super.toString())+(sb.toString());
   }
 

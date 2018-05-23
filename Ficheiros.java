@@ -56,11 +56,54 @@ public class Ficheiros
     
     public static void main(String[] arg) {
        ArrayList<Integer> agC1 = new ArrayList<>();
-       agC1.add(124);
-       agC1.add(125);
+       agC1.add(132);
+       agC1.add(134);
+       ArrayList<Integer> agC2 = new ArrayList<>();
+       agC2.add(134);
+       agC2.add(131);
+       ArrayList<Integer> agC4 = new ArrayList<>();
+       agC4.add(131);
+       agC4.add(132);
+       ArrayList<Integer> agC3 = new ArrayList<>();
+       agC3.add(135);
+       agC3.add(136);
+       agC3.add(137);
+       agC3.add(139);
+       ArrayList<Integer> agC5 = new ArrayList<>();
+       agC5.add(133);
+       agC5.add(136);
+       agC5.add(137);
+       agC5.add(139);
+       ArrayList<Integer> agC6 = new ArrayList<>();
+       agC6.add(133);
+       agC6.add(135);
+       agC6.add(137);
+       agC6.add(139);
+       ArrayList<Integer> agC7 = new ArrayList<>();
+       agC7.add(133);
+       agC7.add(135);
+       agC7.add(136);
+       agC7.add(139);
+       ArrayList<Integer> agC9 = new ArrayList<>();
+       agC9.add(133);
+       agC9.add(135);
+       agC9.add(136);
+       agC9.add(137);
+       ArrayList<Integer> agC8 = new ArrayList<>();
+       agC8.add(140);
+       ArrayList<Integer> agC10 = new ArrayList<>();
+       agC10.add(138);
        ArrayList<Integer> atC1 = new ArrayList<>();
        atC1.add(1);
        atC1.add(2);
+       atC1.add(3);
+       atC1.add(4);
+       atC1.add(5);
+       atC1.add(6);
+       atC1.add(7);
+       atC1.add(8);
+       atC1.add(9);
+
        Saude s1 = new Saude();
        ReparacoesV r1 = new ReparacoesV();
        Animais a1 = new Animais();
@@ -296,15 +339,15 @@ public class Ficheiros
        //alterar as faturas
        //alterar os agregados
        Contribuinte i1 = new Individuais(131,"lipac","Filipa Cunha","rua da mata","12*34",gfFilipa,2,agC1,atC1,false);
-       Contribuinte i2 = new Individuais(132,"edsilva","Edmundo Silva","rua das flores","12*34",gfEdmundo,2,agC1,atC1,false);
-       Contribuinte i3 = new Individuais(133,"silvia_machado","Silvia Machado","rua 25 abril","12*34",gfSilvia,2,agC1,atC1,false);
-       Contribuinte i4 = new Individuais(134,"me_gusta","Gustavo Sousa","rua da represa","12*34",gfGustavo,2,agC1,atC1,false);
-       Contribuinte i5 = new Individuais(135,"miranda85","Marcelo Miranda","avenida dos combatentes","12*34",gfMarcelo,2,agC1,atC1,false);
-       Contribuinte i6 = new Individuais(136,"magui_rib","Margarida Ribeiro","rua da mata da presa","12*34",gfGuida,2,agC1,atC1,false);
-       Contribuinte i7 = new Individuais(137,"so_filipe","Filipe Pereira","avenida da liberdade","12*34",gfFilipe,2,agC1,atC1,false);
-       Contribuinte i8 = new Individuais(138,"ritata","Rita Soares","rua dos combatentes da 1ª grande guerra","12*34",gfRita,2,agC1,atC1,false);
-       Contribuinte i9 = new Individuais(139,"virgilio_ferreira","Virgílio Ferreira","praça da erva","12*34",gfVirg,2,agC1,atC1,false);
-       Contribuinte i10 = new Individuais(140,"anab","Ana Borralho","rua dos santos","12*34",gfAna,2,agC1,atC1,false);
+       Contribuinte i2 = new Individuais(132,"edsilva","Edmundo Silva","rua da mata","12*34",gfEdmundo,2,agC2,atC1,false);
+       Contribuinte i3 = new Individuais(133,"silvia_machado","Silvia Machado","rua 25 abril","12*34",gfSilvia,2,agC3,atC1,true);
+       Contribuinte i4 = new Individuais(134,"me_gusta","Gustavo Sousa","rua da mata","12*34",gfGustavo,2,agC4,atC1,false);
+       Contribuinte i5 = new Individuais(135,"miranda85","Marcelo Miranda","avenida dos combatentes","12*34",gfMarcelo,2,agC5,atC1,true);
+       Contribuinte i6 = new Individuais(136,"magui_rib","Margarida Ribeiro","rua da mata da presa","12*34",gfGuida,2,agC6,atC1,true);
+       Contribuinte i7 = new Individuais(137,"so_filipe","Filipe Pereira","avenida da liberdade","12*34",gfFilipe,2,agC7,atC1,true);
+       Contribuinte i8 = new Individuais(138,"ritata","Rita Soares","rua dos combatentes da 1ª grande guerra","12*34",gfRita,2,agC8,atC1,false);
+       Contribuinte i9 = new Individuais(139,"virgilio_ferreira","Virgílio Ferreira","praça da erva","12*34",gfVirg,2,agC9,atC1,true);
+       Contribuinte i10 = new Individuais(140,"anab","Ana Borralho","rua dos santos","12*34",gfAna,2,agC10,atC1,false);
        
        Contribuinte e1 = new Empresarial(123,"HPG","Hospital Particular das Gambelas","rua do chafariz","12NE456",gfHPG,at,true);
        Contribuinte e2 = new Empresarial(124,"citroen","Adriano Martins Ldª","rua da praia","tYvfBAka",gfcitroen,at1,false);

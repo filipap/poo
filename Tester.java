@@ -104,10 +104,11 @@ public class Tester
                           do{
                            System.out.println("Tecla 1: Verificar faturas");
                            System.out.println("Tecla 2: Visualizar perfil");
-                           System.out.println("Tecla 3: Faturas pendentes");
-                           System.out.println("Tecla 4: Logout");
-                           int k = m.scanButton(1,4);
-                           if(k==4)break;
+                           System.out.println("Tecla 3: Visualizar montante acumulado pelo agregado familiar");
+                           System.out.println("Tecla 4: Faturas pendentes");
+                           System.out.println("Tecla 5: Logout");
+                           int k = m.scanButton(1,5);
+                           if(k==5)break;
                            else m.execBotaoI(k,ind,gc);
                            } while(true);
                          }

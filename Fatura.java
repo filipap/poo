@@ -354,6 +354,4 @@ public class Fatura implements Serializable{
      }
      else setMontanteDeduzido(0);
   }
-
-
 }

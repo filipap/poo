@@ -1,9 +1,9 @@
 
 /**
- * Write a description of class Menu here.
+ * Menu - classe auxiliar to Teste
  *
- * @author (your name)
- * @version (a version number or a date)
+ * @author Ana Guimarães(a79987), Filipa Parente (a82145), Francisco Garcia (a54810)
+ * 
  */
 import java.util.Scanner;
 import InterfaceAtividades.*;
@@ -167,7 +167,7 @@ public class Menu {
     public void execBotaoI(int tecla,Individuais ind, GestaoContribuintes gc){
         switch(tecla){
           case 1:{
-            System.out.println("\n \n Tecla 1 - Ordenada por Data \n Tecla 2 - Ordenada por valor de despesa");
+            System.out.println("\nTecla 1 - Ordenada por Data \nTecla 2 - Ordenada por valor de despesa");
             int k = scanButton(1,2);
             execBotaoFI(k,ind);
             break;
@@ -177,6 +177,25 @@ public class Menu {
             break;
           }
           case 3:{
+            try{
+              int sum = 0;
+              for(int i: ind.getNif_agregado()){
+                Individuais indiv = gc.getIndividual(i);
+                sum+=indiv.getMont_fiscal();
+              }
+              System.out.println("Montante acumulado pelo agregado familiar: \n" + sum + "€");
+              break;
+            }
+            catch(ContNaoIndividualException j){
+              System.out.println("a conta " + j.getMessage() + " não é do tipo individual\n");
+              break;
+            }
+            catch(ContNaoExisteException j){
+              System.out.println("não existe utilizador com NIF " + j.getMessage() + "\n");
+              break;
+            }
+          }
+          case 4:{
             int f = ind.getListaFaturas().getFaturasPendentes().sizeListaFaturas();
             if(f == 0) {
                 System.out.println("\n\n nao existem faturas pendentes \n\n");
@@ -204,19 +223,19 @@ public class Menu {
                             ind.getListaFaturas().getFaturasPendentes().atualizaFatura(g, cod,ind,emp);
                             //atualizei a lista de faturas do empresarial
                             emp.getListaFaturas().setFaturas(emp.atualizaFaturasAtCorretaE(fat,g).getFaturas());
-                            System.out.println("Operação efetuada com sucesso!");
+                            System.out.println("Operação efetuada com sucesso!\n");
                             break;
                         }
                         catch(ContNaoIndividualException j){
-                          System.out.println("a conta " + j.getMessage() + "não é do tipo individual");
+                          System.out.println("a conta " + j.getMessage() + " não é do tipo individual\n");
                           break;
                         }
                         catch(ContNaoEmpresarialException j){
-                          System.out.println("a conta " + j.getMessage() + "não é do tipo empresarial");
+                          System.out.println("a conta " + j.getMessage() + " não é do tipo empresarial\n");
                           break;
                         }
                         catch(ContNaoExisteException j){
-                          System.out.println("não existe utilizador com NIF " + j.getMessage());
+                          System.out.println("não existe utilizador com NIF " + j.getMessage() + "\n");
                           break;
                         }
                     }
@@ -270,7 +289,7 @@ public class Menu {
     public void execBotaoE(int tecla,GestaoContribuintes gc,Empresarial emp){
         switch(tecla){
           case 1:{
-            System.out.println("\n \n Tecla 1 - Ordenada por Data \n Tecla 2 - Ordenada por valor de despesa");
+            System.out.println("\nTecla 1 - Ordenada por Data \nTecla 2 - Ordenada por valor de despesa");
             int k = scanButton(1,2);
             execBotaoFE(k,emp);
             break;
@@ -285,15 +304,15 @@ public class Menu {
               Fatura f = scanFatura(emp,indiv);
               emp.getListaFaturas().addFatura(f);
               gc.getIndividual(ind).getListaFaturas().addFatura(f);
-              System.out.println("Fatura emitida com sucesso!");
+              System.out.println("Fatura emitida com sucesso!\n");
               break;
             }
             catch(ContNaoIndividualException e){
-              System.out.println("o contribuinte " + e.getMessage() + " não é do tipo individual");
+              System.out.println("o contribuinte " + e.getMessage() + " não é do tipo individual\n");
               break;
             }
             catch(ContNaoExisteException c){
-              System.out.println("não existe contribuinte com NIF" + c.getMessage());
+              System.out.println("não existe contribuinte com NIF " + c.getMessage() + "\n");
               break;
             }
           }
@@ -340,7 +359,7 @@ public class Menu {
       StringBuilder str = new StringBuilder();
       str.append("NIF: ")
       .append(c.getNif()).append("\nNome: ").append(c.getNome())
-      .append("\n Montante Contribuido: ").append(c.getListaFaturas().getTotalListaFaturas());
+      .append("\nMontante Contribuido: ").append(c.getListaFaturas().getTotalListaFaturas());
       return str.toString();
     }
 
@@ -351,7 +370,7 @@ public class Menu {
       StringBuilder str = new StringBuilder();
       str.append("NIF: ")
       .append(c.getNif()).append("\nNome: ").append(c.getNome())
-      .append("\n Montante Contribuido: ").append(c.getListaFaturas().getNumberFaturas());
+      .append("\nMontante Contribuido: ").append(c.getListaFaturas().getNumberFaturas());
       return str.toString();
     }
 
@@ -360,7 +379,7 @@ public class Menu {
     */
     public String toStringLI (List<Contribuinte> list){
       StringBuilder st = new StringBuilder();
-      st.append(" Lista dos 10 contribuintes que mais contribuiram: \n");
+      st.append("Lista dos 10 contribuintes que mais contribuiram: \n");
       for(Contribuinte c: list){
         st.append("\n------------------\n").append(toStringI(c) + "€");
       }
@@ -372,7 +391,7 @@ public class Menu {
     */
     public String toStringLE (List<Contribuinte> list,int n){
       StringBuilder st = new StringBuilder();
-      st.append(" Lista das "+ n + " empresas que mais faturas emitiram: \n");
+      st.append("Lista das "+ n + " empresas que mais faturas emitiram: \n");
       for(Contribuinte c: list){
         st.append("\n------------------\n").append(toStringE(c));
       }
@@ -395,7 +414,7 @@ public class Menu {
     */
     public String toStringLEX (List<Contribuinte> list,int n){
       StringBuilder st = new StringBuilder();
-      st.append(" Lista das "+ n + " empresas que mais deduziram: \n");
+      st.append("Lista das "+ n + " empresas que mais deduziram: \n");
       for(Contribuinte c: list){
         st.append("\n------------------\n").append(toStringEX(c));
       }
