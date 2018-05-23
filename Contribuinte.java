@@ -22,6 +22,8 @@ public class Contribuinte implements Serializable{
   private String morada;
   /** password de acesso */
   private String password;
+  /** montante fiscal acumulado */
+  private double mont_fiscal;
   /** lista de faturas */
   private GestaoFaturas listaFaturas;
 
@@ -35,21 +37,21 @@ public class Contribuinte implements Serializable{
     this.nome = "n/a";
     this.morada = "n/a";
     this.password = "n/a";
+    this.mont_fiscal = 0;
     this.listaFaturas = new GestaoFaturas();
   }
    
   /**
   * Construtor para objetos parametrizado da classe Contribuinte
   */  
-  public Contribuinte(int nif, String email, String nome, String morada, String pass,GestaoFaturas faturas){
-    /*if("todos as passes dos contribuintes".cointains(pass)){
-    return new PasswordException();
-    }*/
+  public Contribuinte(int nif, String email, String nome, String morada, 
+    String pass,GestaoFaturas faturas){
     setNif(nif);
     setEmail(email);
     setNome(nome);
     setMorada(morada);
     setPassword(pass);
+    setMont_fiscal(faturas.reducaoImposto());
     setListaFaturas(faturas);
   }
   
@@ -62,6 +64,7 @@ public class Contribuinte implements Serializable{
      this.nome = c.getNome();
      this.morada = c.getMorada();
      this.password = c.getPassword();
+     this.mont_fiscal = c.getMont_fiscal();
      this.listaFaturas = c.getListaFaturas();
   }
   
@@ -108,6 +111,15 @@ public class Contribuinte implements Serializable{
      this.password = pass;
   }
 
+  //para o montante fiscal
+  public double getMont_fiscal() {
+    return this.mont_fiscal;
+  }
+
+  public void setMont_fiscal(double mont_fiscal) {
+    this.mont_fiscal = mont_fiscal;
+  }
+
   // para a lista de faturas de cada contribuinte
   public GestaoFaturas getListaFaturas() {
     return this.listaFaturas;
@@ -152,7 +164,8 @@ public class Contribuinte implements Serializable{
     StringBuilder sb = new StringBuilder();
     sb.append("NIF: ").append(this.nif).append("\nEmail: ").append(this.email)
          .append("\nNome: ").append(this.nome)
-         .append("\nMorada: ").append(this.morada);   
+         .append("\nMorada: ").append(this.morada)
+         .append("\nMontante total deduzido: ").append(this.mont_fiscal  + "€");  
     return sb.toString();
   } 
   

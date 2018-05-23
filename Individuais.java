@@ -33,7 +33,6 @@ public class Individuais extends Contribuinte implements Serializable {
     
     this.agregado = 0;
     this.nif_agregado =  new ArrayList<>();
-    this.mont_fiscal = 0;
     this.codigos = new ArrayList<>(); 
     this.categoria = NORMAL;
   }
@@ -51,12 +50,11 @@ public class Individuais extends Contribuinte implements Serializable {
   * @param codigos
   */
   public Individuais(int nif, String email, String nome, String morada, String password,
-  GestaoFaturas faturas, int agregado, List<Integer> nif_agregado,
-                     double mont_fiscal, List<Integer> codigos,boolean cat) {
+   GestaoFaturas faturas, int agregado, List<Integer> nif_agregado,
+    List<Integer> codigos,boolean cat) {
     super(nif,email,nome,morada,password,faturas);
     setAgregado(agregado);
     setNif_agregado(nif_agregado);
-    setMont_fiscal(mont_fiscal);
     setCodigos(codigos);
     setCategoria(cat);
   }
@@ -108,14 +106,6 @@ public class Individuais extends Contribuinte implements Serializable {
   }
   
   /**
-  * Devolve o coeficiente de dedução fiscal do contribuinte individual
-  * @return 
-  */
-  public double getMont_fiscal() {
-    return this.mont_fiscal;
-  }
-  
-  /**
   * Devolve o categoria de agregado familiar
   * @return 
   */
@@ -138,14 +128,6 @@ public class Individuais extends Contribuinte implements Serializable {
   public void setNif_agregado(List<Integer> nif_agregado) {
     this.nif_agregado = new ArrayList<>();
     nif_agregado.forEach(s -> {this.nif_agregado.add(s);});
-  }
-  
-  /**
-  * Define o coeficiente fiscal do contribuinte individual
-  * @param coef_fiscal
-  */
-  public void setMont_fiscal(double mont_fiscal) {
-    this.mont_fiscal = mont_fiscal;
   }
 
   /**
@@ -193,7 +175,7 @@ public class Individuais extends Contribuinte implements Serializable {
   public String toString() {
     StringBuilder sb = new StringBuilder();
     sb.append("\nAgregado Familiar: ").append(this.agregado).append("\nNIF de cada elemento do agregado familiar: ").append(this.nif_agregado)
-        .append("\nMontante total deduzido: ").append(this.mont_fiscal).append("\nCodigos: ").append(this.codigos);
+        .append("\nCodigos: ").append(this.codigos);
     return ((super.toString()) + sb.append("\n").toString());
   }
   
@@ -212,12 +194,6 @@ public class Individuais extends Contribuinte implements Serializable {
     return result;
   }
 
-  /**
-  * metodo que o montante deduzido para IRS e atualiza o mont_fiscal 
-  * @return 
-  */
-/*
-  public double getMontIRS(){
-      return this.faturas.stream().mapToDouble(w -> w.valorDeduzidoIRS(w,get)).sum();
-  }*/
+
+  
 }

@@ -200,13 +200,14 @@ public class GestaoFaturas implements Comparator<Fatura>,Serializable {
   }
 
   /**
+  * Método da fase 2
   * metodo que devolve o somatório do valor do montante deduzido para IRS 
   * @return 
   */
   
-  public double getMontanteTotal(){
+  public double reducaoImposto(){
     return this.faturas.stream().mapToDouble(w -> w.getMontanteDeduzido()).sum();
-   }
+  }
 
   /**
   * Método que escolhe uma atividade conforme o código e atualiza o montante deduzido

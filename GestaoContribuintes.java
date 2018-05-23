@@ -304,7 +304,7 @@ public class GestaoContribuintes implements Serializable{
     Double somaValorFaturas = 0.0;
     int j = 0;
     for(Integer i : this.getContribuintes().keySet()){
-        somaValorFaturas = this.contribuintes.get(i).getListaFaturas().getMontanteTotal();
+        somaValorFaturas = this.contribuintes.get(i).getListaFaturas().reducaoImposto();
         valorFacturas.put(this.contribuintes.get(i).clone(), somaValorFaturas);
     }
     Map<Contribuinte, Double> valorFacturasOrdenado  = new HashMap<>();

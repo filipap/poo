@@ -3,6 +3,7 @@ NIF: 128
 Email: PD
 Nome: Pingo Doce
 Morada: Avenida da Liberdade
+Montante total deduzido: 14.450000000000001€
 Setores de atividade: 
 [1 - Despesas Familiares]Empresa do Litoral
 
@@ -11,6 +12,7 @@ NIF: 129
 Email: HC
 Nome: Hospital Comum
 Morada: rua do passo
+Montante total deduzido: 0.0€
 Setores de atividade: 
 [9 - Cuidados Veterinarios, 3 - Saúde]Empresa do Interior
 
@@ -19,6 +21,7 @@ NIF: 130
 Email: LTD
 Nome: Lava Tudo Direitinho
 Morada: rua do passo
+Montante total deduzido: 0.0€
 Setores de atividade: 
 [5 - Transportes, 7 - Reparação Veículos]Empresa do Interior
 
@@ -27,9 +30,9 @@ NIF: 131
 Email: lipac
 Nome: Filipa Cunha
 Morada: rua da mata
+Montante total deduzido: 32.4€
 Agregado Familiar: 2
 NIF de cada elemento do agregado familiar: [124, 125]
-Montante total deduzido: 0.15000000596046448
 Codigos: [1, 2]
 
  ----- 
@@ -37,9 +40,9 @@ NIF: 132
 Email: edsilva
 Nome: Edmundo Silva
 Morada: rua das flores
+Montante total deduzido: 9.95€
 Agregado Familiar: 2
 NIF de cada elemento do agregado familiar: [124, 125]
-Montante total deduzido: 0.15000000596046448
 Codigos: [1, 2]
 
  ----- 
@@ -47,9 +50,9 @@ NIF: 133
 Email: silvia_machado
 Nome: Silvia Machado
 Morada: rua 25 abril
+Montante total deduzido: 4.5€
 Agregado Familiar: 2
 NIF de cada elemento do agregado familiar: [124, 125]
-Montante total deduzido: 0.15000000596046448
 Codigos: [1, 2]
 
  ----- 
@@ -57,9 +60,9 @@ NIF: 134
 Email: me_gusta
 Nome: Gustavo Sousa
 Morada: rua da represa
+Montante total deduzido: 1455.2€
 Agregado Familiar: 2
 NIF de cada elemento do agregado familiar: [124, 125]
-Montante total deduzido: 0.15000000596046448
 Codigos: [1, 2]
 
  ----- 
@@ -67,9 +70,9 @@ NIF: 135
 Email: miranda85
 Nome: Marcelo Miranda
 Morada: avenida dos combatentes
+Montante total deduzido: 15.45€
 Agregado Familiar: 2
 NIF de cada elemento do agregado familiar: [124, 125]
-Montante total deduzido: 0.15000000596046448
 Codigos: [1, 2]
 
  ----- 
@@ -77,9 +80,9 @@ NIF: 136
 Email: magui_rib
 Nome: Margarida Ribeiro
 Morada: rua da mata da presa
+Montante total deduzido: 12.05€
 Agregado Familiar: 2
 NIF de cada elemento do agregado familiar: [124, 125]
-Montante total deduzido: 0.15000000596046448
 Codigos: [1, 2]
 
  ----- 
@@ -87,9 +90,9 @@ NIF: 137
 Email: so_filipe
 Nome: Filipe Pereira
 Morada: avenida da liberdade
+Montante total deduzido: 12.0€
 Agregado Familiar: 2
 NIF de cada elemento do agregado familiar: [124, 125]
-Montante total deduzido: 0.15000000596046448
 Codigos: [1, 2]
 
  ----- 
@@ -97,9 +100,9 @@ NIF: 138
 Email: ritata
 Nome: Rita Soares
 Morada: rua dos combatentes da 1ª grande guerra
+Montante total deduzido: 975.0€
 Agregado Familiar: 2
 NIF de cada elemento do agregado familiar: [124, 125]
-Montante total deduzido: 0.15000000596046448
 Codigos: [1, 2]
 
  ----- 
@@ -107,9 +110,9 @@ NIF: 139
 Email: virgilio_ferreira
 Nome: Virgílio Ferreira
 Morada: praça da erva
+Montante total deduzido: 1200.6€
 Agregado Familiar: 2
 NIF de cada elemento do agregado familiar: [124, 125]
-Montante total deduzido: 0.15000000596046448
 Codigos: [1, 2]
 
  ----- 
@@ -117,9 +120,9 @@ NIF: 140
 Email: anab
 Nome: Ana Borralho
 Morada: rua dos santos
+Montante total deduzido: 6.5€
 Agregado Familiar: 2
 NIF de cada elemento do agregado familiar: [124, 125]
-Montante total deduzido: 0.15000000596046448
 Codigos: [1, 2]
 
  ----- 
@@ -127,6 +130,7 @@ NIF: 141
 Email: patinhas
 Nome: Hospital dos Patinhas
 Morada: rua da graça
+Montante total deduzido: 18.2€
 Setores de atividade: 
 [9 - Cuidados Veterinarios]Empresa do Litoral
 
@@ -135,6 +139,7 @@ NIF: 123
 Email: HPG
 Nome: Hospital Particular das Gambelas
 Morada: rua do chafariz
+Montante total deduzido: 95.0€
 Setores de atividade: 
 [3 - Saúde]Empresa do Interior
 
@@ -143,6 +148,7 @@ NIF: 124
 Email: citroen
 Nome: Adriano Martins Ldª
 Morada: rua da praia
+Montante total deduzido: 3552.0€
 Setores de atividade: 
 [7 - Reparação Veículos]Empresa do Litoral
 
@@ -151,6 +157,7 @@ NIF: 125
 Email: cortes.lisboa
 Nome: Cortes de Lisboa
 Morada: edificio Braga Parque, lote 16
+Montante total deduzido: 13.799999999999999€
 Setores de atividade: 
 [6 - Cabeleireiros]Empresa do Interior
 
@@ -159,6 +166,7 @@ NIF: 126
 Email: UM
 Nome: Universidade do Minho - Campus de Gualtar
 Morada: rua da Universidade
+Montante total deduzido: 26.25€
 Setores de atividade: 
 [4 - Educação]Empresa do Interior
 
@@ -167,6 +175,7 @@ NIF: 127
 Email: foz_cafe
 Nome: Restaurante Foz
 Morada: praia da Arda
+Montante total deduzido: 16.5€
 Setores de atividade: 
 [8 - Restauração]Empresa do Litoral
 

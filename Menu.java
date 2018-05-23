@@ -123,7 +123,7 @@ public class Menu {
         boolean categoria;
         if(agregado > 4) categoria = true; else categoria = false; 
         int nif = Integer.parseInt(cont.get(0));
-        return new Individuais(nif,cont.get(1),cont.get(3),cont.get(2),cont.get(4),fat,agregado,nifAgregado,0,codigos,categoria);
+        return new Individuais(nif,cont.get(1),cont.get(3),cont.get(2),cont.get(4),fat,agregado,nifAgregado,codigos,categoria);
     }
 
     public Fatura scanFatura(Empresarial emp,Individuais ind){
@@ -362,7 +362,7 @@ public class Menu {
       StringBuilder st = new StringBuilder();
       st.append(" Lista dos 10 contribuintes que mais contribuiram: \n");
       for(Contribuinte c: list){
-        st.append("\n------------------\n").append(toStringI(c));
+        st.append("\n------------------\n").append(toStringI(c) + "€");
       }
       return st.append("\n\n").toString();
     }
@@ -386,7 +386,7 @@ public class Menu {
       StringBuilder str = new StringBuilder();
       str.append("NIF: ")
       .append(c.getNif()).append("\nNome: ").append(c.getNome())
-      .append("\n Montante deduzido: ").append(c.getListaFaturas().getMontanteTotal()+ "€");
+      .append("\nMontante deduzido: ").append(c.getMont_fiscal() + "€");
       return str.toString();
     }
 
