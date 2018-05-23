@@ -200,7 +200,9 @@ public class Menu {
                             Empresarial emp = gc.getEmpresa(fat.getNifEmitente());
                             ind.getListaFaturas().setFaturas(ind.getListaFaturas().atualizaFaturasAtCorreta(cod,index,gc).getFaturas());
                             Fatura g = fat.clone();
+                            //atualizei a lista de faturas do individual
                             ind.getListaFaturas().getFaturasPendentes().atualizaFatura(g, cod,ind,emp);
+                            //atualizei a lista de faturas do empresarial
                             emp.getListaFaturas().setFaturas(emp.atualizaFaturasAtCorretaE(fat,g).getFaturas());
                             System.out.println("Operação efetuada com sucesso!");
                             break;

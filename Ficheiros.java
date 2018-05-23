@@ -313,7 +313,7 @@ public class Ficheiros
         ,"rua da Universidade","Q2ZYWQMp",gfUM,at3,true);
        Contribuinte e5 = new Empresarial(127,"foz_cafe","Restaurante Foz","praia da Arda","N6mck6zA",gfRF,at4,false);
        Contribuinte e6 = new Empresarial(128,"PD","Pingo Doce","Avenida da Liberdade","Y2VC7cQR",gfPD,at5,false);
-       Contribuinte e7 = new Empresarial(129,"HC","Hospital Comum","rua do passo","E6QVjbT7",gfHC,at6,true);
+       Contribuinte e7 = new Empresarial(129,"HC","Hospital Comum","rua do passo","12NE456",gfHC,at6,true);
        Contribuinte e8 = new Empresarial(130,"LTD","Lava Tudo Direitinho","rua do passo","GnST4yWu",gfLTD,at7,true);
        Contribuinte e9 = new Empresarial(141,"patinhas","Hospital dos Patinhas","rua da graça","uKezkxvC",gfpatinhas,at8,false);
        GestaoContribuintes gc = new GestaoContribuintes();
