@@ -215,5 +215,14 @@ public class GestaoFaturas implements Comparator<Fatura>,Serializable {
     return this.faturas.size();
   }
 
+  /**
+  * metodo que devolve o somatório do valor do montante deduzido para IRS 
+  * @return 
+  */
+  
+  public double getMontanteTotal(){
+    return this.faturas.stream().mapToDouble(w -> w.getMontanteDeduzido()).sum();
+   }
+
 }
 

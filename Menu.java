@@ -351,9 +351,32 @@ public class Menu {
     */
     public String toStringLE (List<Contribuinte> list,int n){
       StringBuilder st = new StringBuilder();
-      st.append(" Lista dos "+ n + " empresas que mais faturas emitiram: \n");
+      st.append(" Lista das "+ n + " empresas que mais faturas emitiram: \n");
       for(Contribuinte c: list){
         st.append("\n------------------\n").append(toStringE(c));
+      }
+      return st.append("\n\n").toString();
+    }
+
+    /**  
+    * este método apenas imprime o NIF, o nome do Contribuinte e o montante deduzido (aplicado a Empresas) 
+    */
+    public String toStringEX (Contribuinte c){
+      StringBuilder str = new StringBuilder();
+      str.append("NIF: ")
+      .append(c.getNif()).append("\nNome: ").append(c.getNome())
+      .append("\n Montante deduzido: ").append(c.getListaFaturas().getMontanteTotal()+ "€");
+      return str.toString();
+    }
+
+    /**
+    * metodo toString para imprimir a lista das empresas que deduziram mais
+    */
+    public String toStringLEX (List<Contribuinte> list,int n){
+      StringBuilder st = new StringBuilder();
+      st.append(" Lista das "+ n + " empresas que mais deduziram: \n");
+      for(Contribuinte c: list){
+        st.append("\n------------------\n").append(toStringEX(c));
       }
       return st.append("\n\n").toString();
     }
@@ -374,7 +397,13 @@ public class Menu {
           System.out.println(toStringLE(gc.empresasComMaisFaturas(n),n));
           break;
         }
-        case 3:{break;}
+        case 3:{
+          Scanner sc = new Scanner(System.in);
+          System.out.println("Defina X: ");
+          int n = sc.nextInt();
+          System.out.println(toStringLEX(gc.xEmpresasQueMaisDeduzem(n),n));
+          break;
+        }
       }
     }
 

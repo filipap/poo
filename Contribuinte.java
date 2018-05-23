@@ -170,11 +170,4 @@ public class Contribuinte implements Serializable{
     return result;
   }
   
-  /**
-   * Método que calcula o número total de facturas
-   */
-  public int totalFaturas(){
-    return this.getListaFaturas().getFaturas().size();
-  }
-  
 }

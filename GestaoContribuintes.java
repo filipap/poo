@@ -231,9 +231,7 @@ public class GestaoContribuintes implements Serializable{
     Double somaValorFaturas = 0.0;
     int j = 0;
     for(Integer i : this.getContribuintes().keySet()){
-      for(Fatura f : this.contribuintes.get(i).getListaFaturas().getFaturas()){
-        somaValorFaturas = somaValorFaturas + f.getValorDespesa();
-      }
+      somaValorFaturas = this.contribuintes.get(i).getListaFaturas().getTotalListaFaturas();
       valorFacturas.put(this.contribuintes.get(i).clone(), somaValorFaturas);
     }
     Map<Contribuinte, Double> valorFacturasOrdenado  = new HashMap<>();
@@ -282,7 +280,7 @@ public class GestaoContribuintes implements Serializable{
     int i = 0;
     for(Contribuinte c : this.getContribuintes().values()){
       if(c.getClass().getSimpleName().equals("Empresarial")){
-        nFaturas.put(c.clone(), c.totalFaturas());
+        nFaturas.put(c.clone(), c.getListaFaturas().getNumberFaturas());
       }
     }
     nFaturasOrdenado = sortNFaturas(nFaturas);
@@ -294,4 +292,31 @@ public class GestaoContribuintes implements Serializable{
     }
     return res;
   }
+
+
+  /**
+   * devolve a lista das X empresas que mais deduziram   
+   * private Map<Integer, Contribuinte> contribuintes;
+   */
+  public List<Contribuinte> xEmpresasQueMaisDeduzem(int x) {
+    Map<Contribuinte, Double> valorFacturas  = new HashMap<>();
+    List<Contribuinte> res = new ArrayList<Contribuinte>();
+    Double somaValorFaturas = 0.0;
+    int j = 0;
+    for(Integer i : this.getContribuintes().keySet()){
+        somaValorFaturas = this.contribuintes.get(i).getListaFaturas().getMontanteTotal();
+        valorFacturas.put(this.contribuintes.get(i).clone(), somaValorFaturas);
+    }
+    Map<Contribuinte, Double> valorFacturasOrdenado  = new HashMap<>();
+    valorFacturasOrdenado = sortByValue(valorFacturas);
+    for(Contribuinte c : valorFacturasOrdenado.keySet()) {
+      if(c.getClass().getSimpleName().equals("Empresarial") && j < x){
+        res.add(c.clone());
+        j++;
+      }
+    }
+    return res;
+  }
+
+
 } 
