@@ -39,16 +39,16 @@ public class Tester
                    int j = m.scanButton(1,2);
                    switch(j){
                        case 1:{
-                           Empresarial e = m.scanNewCompany();
                            try{
+                                Empresarial e = m.scanNewCompany();
                                 gc.addContribuinte(e);
                            }
                            catch(ContJaExisteException g){System.out.println("já existe esse contribuinte");}
                            break;     
                        }
                        case 2:{
-                           Individuais ind = m.scanNewIndividual();
                            try{
+                                Individuais ind = m.scanNewIndividual();
                                 gc.addContribuinte(ind);
                            }
                            catch(ContJaExisteException g){System.out.println("já existe esse contribuinte");}
@@ -129,6 +129,16 @@ public class Tester
                }
                }
            }
+           try{
+             f.guardaEstado("javaf.obj",gc);
+           }
+           catch(FileNotFoundException fil){System.out.println("ficheiro nao encontrado!");}
+           catch(IOException h){System.out.println("erro a aceder ao ficheiro!");}
+       
+           try{
+             f.escreveEmFicheiroTxt("javaf.txt",gc);
+           }
+           catch(IOException h){System.out.println("erro a aceder ao ficheiro!");}
         }
            
          }while(true);
@@ -137,16 +147,6 @@ public class Tester
        catch(ClassNotFoundException c){System.out.println("classe nao encontrada");}
        catch(IOException i){System.out.println("erro ao abrir o ficheiro");}
        
-       try{
-           f.guardaEstado("javaf.obj",gc);
-       }
-       catch(FileNotFoundException fil){System.out.println("ficheiro nao encontrado!");}
-       catch(IOException h){System.out.println("erro a aceder ao ficheiro!");}
-       
-       try{
-           f.escreveEmFicheiroTxt("javaf.txt",gc);
-       }
-       catch(IOException h){System.out.println("erro a aceder ao ficheiro!");}
        System.exit(0);
     }  
 }

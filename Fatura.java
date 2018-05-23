@@ -260,11 +260,14 @@ public class Fatura implements Serializable{
   public Fatura atualizaFatura(int cod) throws SemAtividadeException{
     ArrayList<AtividadesE> res = new ArrayList<>();
     for(AtividadesE x:this.naturezaD){
+      System.out.println(x.getCod());
       if(x.getCod()==cod){
         res.add(x.getAtividadesE().clone());
       }
     }
-    if(res.isEmpty()) throw new SemAtividadeException("A fatura não deduz para nenhuma atividade!");
+
+    this.montanteDeduzido = (this.valorDespesa)*((this.naturezaD).get(0).getDeducao());
+    if(res.isEmpty()) throw new SemAtividadeException(String.valueOf(cod));
     setNaturezaD(res);
     return this.clone();
   }
@@ -330,14 +333,25 @@ public class Fatura implements Serializable{
   * @return 
   */
 
-  public void valorDeduzidoIRS(Fatura f,boolean local, Empresarial emit){
-     if((emit.getInfoAtividades().size())>1) { 
+  public void valorDeduzidoIRS(Fatura f,Empresarial emit, Individuais ind){
+     if((emit.getInfoAtividades().size())==1) { 
         if (emit.getLocal() == INTERIOR) {
-          setMontanteDeduzido(valorDeduzIRS(f,f.getNaturezaD().get(0).getDeducao()+0.05));
+          if(ind.getCategoria() == true){
+            setMontanteDeduzido(valorDeduzIRS(f,f.getNaturezaD().get(0).getDeducao()+0.1));
+          }
+          else{
+            setMontanteDeduzido(valorDeduzIRS(f,f.getNaturezaD().get(0).getDeducao()+0.05));
+          }
         }
-        else {setMontanteDeduzido(valorDeduzIRS(f,f.getNaturezaD().get(0).getDeducao()));}
+        else {
+          if(ind.getCategoria() == true){
+            setMontanteDeduzido(valorDeduzIRS(f,f.getNaturezaD().get(0).getDeducao()+0.05));
+          }
+          else{
+            setMontanteDeduzido(valorDeduzIRS(f,f.getNaturezaD().get(0).getDeducao()));
+          }
+        }
      }
      else setMontanteDeduzido(0);
   }
-
 }

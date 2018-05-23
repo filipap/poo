@@ -131,6 +131,14 @@ Setores de atividade:
 [9 - Cuidados Veterinarios]Empresa do Litoral
 
  ----- 
+NIF: 145
+Email: Patinhas
+Nome: rua dos patinhas
+Morada: patinhas@sapo
+Setores de atividade: 
+[3 - Saúde]Empresa do Interior
+
+ ----- 
 NIF: 123
 Email: HPG
 Nome: Hospital Particular das Gambelas

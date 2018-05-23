@@ -57,17 +57,17 @@ public class Menu {
     }
 
     public List<String> scanNewContribuinte(){
-        Scanner sc = new Scanner(System.in);
         System.out.println("Digite o seu NIF: ");
-        String nif = sc.next();
+        Scanner sc = new Scanner(System.in);
+        String nif = sc.nextLine();
         System.out.println("Digite o seu nome: ");
-        String name = sc.next();
+        String name = sc.nextLine();
         System.out.println("Digite o seu email: ");
-        String email = sc.next();
+        String email = sc.nextLine();
         System.out.println("Digite a sua morada: ");
-        String morada = sc.next();
+        String morada = sc.nextLine();
         System.out.println("Digite a sua password de acesso: ");
-        String pass = sc.next();
+        String pass = sc.nextLine();
         ArrayList <String> res = new ArrayList<String>();
         res.add(nif);
         res.add(name);
@@ -78,8 +78,7 @@ public class Menu {
 
     }
     public Empresarial scanNewCompany(){
-        List<String> cont = new ArrayList<String>();
-        cont = scanNewContribuinte();
+        List<String> cont = scanNewContribuinte();
         GestaoFaturas fat = new GestaoFaturas();
         System.out.println("Digite o numero de atividades nas quais deduz: ");
         Scanner sc = new Scanner(System.in);
@@ -127,7 +126,7 @@ public class Menu {
         return new Individuais(nif,cont.get(1),cont.get(3),cont.get(2),cont.get(4),fat,agregado,nifAgregado,0,codigos,categoria);
     }
 
-    public Fatura scanFatura(Empresarial emp,int nifCont){
+    public Fatura scanFatura(Empresarial emp,Individuais ind){
         int nifEmitente = emp.getNif();
         String nomeEmpresa = emp.getNome();
         double mont = 0;
@@ -140,8 +139,8 @@ public class Menu {
         System.out.println("Digite o valor da despesa: ");
         double valueSpent = Double.parseDouble(s.nextLine());
         List<AtividadesE> at = emp.getInfoAtividades();
-        Fatura f = new Fatura(nifEmitente,nomeEmpresa,dt,nifCont,mont,descr,(int)valueSpent,at);
-        f.valorDeduzidoIRS(f,emp.getLocal(),emp);
+        Fatura f = new Fatura(nifEmitente,nomeEmpresa,dt,(ind.getNif()),mont,descr,(int)valueSpent,at);
+        f.valorDeduzidoIRS(f,emp,ind);
         return f.clone();
     }
 
@@ -261,7 +260,8 @@ public class Menu {
               System.out.println("Digite o NIF para o qual pretende emitir a sua fatura: ");
               Scanner sc = new Scanner(System.in);
               int ind = Integer.parseInt(sc.next());
-              Fatura f = scanFatura(emp,ind);
+              Individuais indiv = gc.getIndividual(ind);
+              Fatura f = scanFatura(emp,indiv);
               emp.getListaFaturas().addFatura(f);
               gc.getIndividual(ind).getListaFaturas().addFatura(f);
               System.out.println("Fatura emitida com sucesso!");
