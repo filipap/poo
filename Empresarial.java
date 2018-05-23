@@ -192,4 +192,6 @@ public class Empresarial extends Contribuinte implements Serializable {
       }
       return res;
   }
+
+  
 }

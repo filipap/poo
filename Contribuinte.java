@@ -169,5 +169,20 @@ public class Contribuinte implements Serializable{
     result = 31 * result + (this.password != null ? this.password.hashCode() : 0);
     return result;
   }
+
+  /**
+   * Metodo que atualiza a fatura antiga com o montante fiscal
+   */
+  public GestaoFaturas atualizaFaturasAtCorretaE (Fatura antiga, Fatura nova){
+    GestaoFaturas res = new GestaoFaturas();
+    for(Fatura d : this.listaFaturas.getFaturas()){
+        if (d.equals(antiga)){
+          res.addFatura(nova);
+        }
+        else res.addFatura(d);
+    }
+    return res;
+  }
+
   
 }

@@ -11,6 +11,7 @@ import java.util.Comparator;
 import java.lang.Comparable;
 import java.util.stream.Collectors;
 import java.io.Serializable;
+import InterfaceAtividades.AtividadesE;
 import Excecoes.*;
 public class GestaoFaturas implements Comparator<Fatura>,Serializable {
 
@@ -179,23 +180,6 @@ public class GestaoFaturas implements Comparator<Fatura>,Serializable {
       }
       return gf.clone();
   }
-  
-  
-  /**
-  * metodo atualiza uma determinada fatura da lista com a atividade correta 
-  * @return 
-  */
-
-  public GestaoFaturas atualizaFaturas(int cod,int index) throws SemAtividadeException{
-      GestaoFaturas res = new GestaoFaturas();
-      for(Fatura f:this.faturas){
-        if(index-1>0||index-1<0){
-            res.addFatura(f);
-        }
-        if(index-1==0){res.addFatura(f.atualizaFatura(cod));}
-      }
-      return res;
-  }
 
   /**
   * metodo que devolve o somatório do valor de despesa da lista de faturas 
@@ -223,6 +207,43 @@ public class GestaoFaturas implements Comparator<Fatura>,Serializable {
   public double getMontanteTotal(){
     return this.faturas.stream().mapToDouble(w -> w.getMontanteDeduzido()).sum();
    }
+
+  /**
+  * Método que escolhe uma atividade conforme o código e atualiza o montante deduzido
+  * @return 
+  */
+
+  public void atualizaFatura(Fatura f, int cod,Individuais ind, Empresarial emp){
+    ArrayList<AtividadesE> res = new ArrayList<>();
+    for(AtividadesE x: f.getNaturezaD()){
+      if(x.getCod()==cod){
+        res.add(x.getAtividadesE().clone());
+      }
+    }
+    f.setNaturezaD(res);
+    f.valorDeduzidoIRS(f,emp,ind);
+  }
+
+  /**
+  * metodo atualiza uma determinada fatura da lista com a atividade correta 
+  * @return 
+  */
+  public GestaoFaturas atualizaFaturasAtCorreta(int cod,int index,GestaoContribuintes gc) throws
+  ContNaoIndividualException,ContNaoEmpresarialException,ContNaoExisteException{
+       GestaoFaturas res = new GestaoFaturas();
+       Fatura f = getFaturasPendentes().getFaturas().get(index);
+       Fatura g = f.clone();
+       Individuais ind = gc.getIndividual(f.getNifCliente());
+       Empresarial emp = gc.getEmpresa(f.getNifEmitente());
+       atualizaFatura(f,cod,ind,emp);
+       for(Fatura d : this.faturas){
+        if (d.equals(g)){
+          res.addFatura(f);
+        }
+        else res.addFatura(d);
+       }
+       return res;
+  }
 
 }
 

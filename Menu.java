@@ -164,7 +164,7 @@ public class Menu {
     /**
     * metodo que executa os comandos dispostos para o contribuinte individual
     */
-    public void execBotaoI(int tecla,Individuais ind){
+    public void execBotaoI(int tecla,Individuais ind, GestaoContribuintes gc){
         switch(tecla){
           case 1:{
             System.out.println("\n \n Tecla 1 - Ordenada por Data \n Tecla 2 - Ordenada por valor de despesa");
@@ -173,6 +173,10 @@ public class Menu {
             break;
           }
           case 2:{
+            System.out.println("\n \n"+ind.toString());
+            break;
+          }
+          case 3:{
             int f = ind.getListaFaturas().getFaturasPendentes().sizeListaFaturas();
             if(f == 0) {
                 System.out.println("\n\n nao existem faturas pendentes \n\n");
@@ -184,26 +188,41 @@ public class Menu {
             
                 System.out.println("\n\n Deseja: \n Tecla 1 - Definir Atividade \n Tecla 2 - Sair");
                 int k = scanButton(1,2);
-                if(k==2) break;
                 switch(k){
                     case 1:{
                         try{
                             Scanner c = new Scanner(System.in);
-                            System.out.println("Qual fatura deseja alterar?\n");
+                            System.out.println("Qual fatura deseja alterar?");
                             int index = c.nextInt();
-                            System.out.println("Introduza o codigo da atividade na qual deduz?\n");
+                            System.out.println("Introduza o codigo da atividade na qual deduz?");
                             int cod = c.nextInt();
-                            ind.getListaFaturas().atualizaFaturas(cod,index);
+                            Fatura fat = ind.getListaFaturas().getFaturasPendentes().getFaturas().get(index);
+                            Empresarial emp = gc.getEmpresa(fat.getNifEmitente());
+                            ind.getListaFaturas().setFaturas(ind.getListaFaturas().atualizaFaturasAtCorreta(cod,index,gc).getFaturas());
+                            Fatura g = fat.clone();
+                            ind.getListaFaturas().getFaturasPendentes().atualizaFatura(g, cod,ind,emp);
+                            emp.getListaFaturas().setFaturas(emp.atualizaFaturasAtCorretaE(fat,g).getFaturas());
+                            System.out.println("Operação efetuada com sucesso!");
                             break;
                         }
-                        catch(SemAtividadeException j){System.out.println(j.getMessage());}
+                        catch(ContNaoIndividualException j){
+                          System.out.println("a conta " + j.getMessage() + "não é do tipo individual");
+                          break;
+                        }
+                        catch(ContNaoEmpresarialException j){
+                          System.out.println("a conta " + j.getMessage() + "não é do tipo empresarial");
+                          break;
+                        }
+                        catch(ContNaoExisteException j){
+                          System.out.println("não existe utilizador com NIF " + j.getMessage());
+                          break;
+                        }
+                    }
+                    case 2:{
+                      break;
                     }
                 }
             }
-          }
-          case 3:{
-            System.out.println("\n \n"+ind.toString());
-            break;
           }
         }
     }

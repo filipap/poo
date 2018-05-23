@@ -82,7 +82,7 @@ public class Tester
                               int k = m.scanButton(1,4);
                               if(k==4)break;
                               else m.execBotaoE(k,gc,emp);
-                            }while(true);
+                            } while(true);
                             break;
                           }
                           catch(ContNaoEmpresarialException c){
@@ -103,12 +103,12 @@ public class Tester
                            Individuais ind = m.scanIndividual(gc);
                           do{
                            System.out.println("Tecla 1: Verificar faturas");
-                           System.out.println("Tecla 2: Faturas pendentes");
-                           System.out.println("Tecla 3: Visualizar perfil");
+                           System.out.println("Tecla 2: Visualizar perfil");
+                           System.out.println("Tecla 3: Faturas pendentes");
                            System.out.println("Tecla 4: Logout");
                            int k = m.scanButton(1,4);
                            if(k==4)break;
-                           else m.execBotaoI(k,ind);
+                           else m.execBotaoI(k,ind,gc);
                            } while(true);
                          }
                           catch(ContNaoIndividualException c){

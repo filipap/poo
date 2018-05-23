@@ -334,7 +334,7 @@ public class Fatura implements Serializable{
   */
 
   public void valorDeduzidoIRS(Fatura f,Empresarial emit, Individuais ind){
-     if((emit.getInfoAtividades().size())==1) { 
+     if((f.getNaturezaD().size())==1) { 
         if (emit.getLocal() == INTERIOR) {
           if(ind.getCategoria() == true){
             setMontanteDeduzido(valorDeduzIRS(f,f.getNaturezaD().get(0).getDeducao()+0.1));
@@ -354,4 +354,6 @@ public class Fatura implements Serializable{
      }
      else setMontanteDeduzido(0);
   }
+
+
 }
