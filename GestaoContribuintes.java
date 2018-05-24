@@ -132,7 +132,11 @@ public class GestaoContribuintes implements Serializable{
   * @return
   */
   public int contaFaturasPendentes() {
-    return this.contribuintes.entrySet().stream().mapToInt(e -> e.getValue().getListaFaturas().getNumberFaturasPendentes()).sum();    
+    int nf = 0;
+    for(Map.Entry<Integer,Contribuinte> entry : this.contribuintes.entrySet()){
+      nf += entry.getValue().getListaFaturas().getFaturasPendentes().getFaturas().size();
+    }    
+    return nf;
   }
 
 

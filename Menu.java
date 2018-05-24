@@ -449,9 +449,7 @@ public class Menu {
           System.out.println("\nExistem "  + gc.contaContribuintes() + " contribuintes no sistema dos quais: ");
           System.out.println(" - " + gc.contaEmpresas() + " são do tipo coletivo");
           System.out.println(" - " + gc.contaIndividuais() + " são do tipo individual\n");
-        }
-        case 5 :{
-          System.out.println("\nExistem "  + gc.contaFaturasPendentes() + " faturas pendentes\n");
+          break;
         }
       }
     }
