@@ -68,7 +68,8 @@ public class Tester
                        System.out.println("Tecla 2: verificar X empresas que emitiram mais faturas");
                        System.out.println("Tecla 3: verificar X empresas que deduzem maior montante para efeitos de IRS");
                        System.out.println("Tecla 4: Número de contribuintes do sistema");
-                       int k = m.scanButton(1,4);
+                       System.out.println("Tecla 5: Número de faturas pendentes no sistema");
+                       int k = m.scanButton(1,5);
                        m.execBotaoA(k,gc);
                        break;
                      }

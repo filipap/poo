@@ -451,6 +451,9 @@ public class Menu {
           System.out.println(" - " + gc.contaIndividuais() + " são do tipo individual\n");
           break;
         }
+        case 5:{
+          System.out.println("\nExistem "  + gc.contaFaturasPendentes() + " faturas pendentes ");
+        }
       }
     }
 
