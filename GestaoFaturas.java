@@ -182,6 +182,22 @@ public class GestaoFaturas implements Comparator<Fatura>,Serializable {
   }
 
   /**
+  * Método que retorna o numero de faturas pendentes da lista
+  * @return 
+  */
+
+  public int getNumberFaturasPendentes(){
+    int res = 0;
+      for(Fatura f:this.faturas){
+        if(f.getNaturezaD().size() > 1){
+            res++;
+        }
+      }
+      return res;
+  }
+
+
+  /**
   * metodo que devolve o somatório do valor de despesa da lista de faturas 
   * @return 
   */

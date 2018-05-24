@@ -110,6 +110,33 @@ public class GestaoContribuintes implements Serializable{
   }
 
   /**
+  * Conta o número de contribuintes coletivos
+  * @return
+  */
+  public int contaEmpresas() {
+    return (int)this.contribuintes.entrySet().stream()
+    .filter(e->e.getValue().getClass().getSimpleName().equals("Empresarial")).count();    
+  }
+
+  /**
+  * Conta o número de contribuintes individuais
+  * @return
+  */
+  public int contaIndividuais() {
+    return (int)this.contribuintes.entrySet().stream()
+    .filter(e->e.getValue().getClass().getSimpleName().equals("Individuais")).count();    
+  }
+
+  /**
+  * Conta o número de contribuintes
+  * @return
+  */
+  public int contaFaturasPendentes() {
+    return this.contribuintes.entrySet().stream().mapToInt(e -> e.getValue().getListaFaturas().getNumberFaturasPendentes()).sum();    
+  }
+
+
+  /**
   * Dado uma key e uma password retorna o contribuinte do tipo empresarial 
   * @return
   */  

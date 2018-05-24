@@ -210,21 +210,21 @@ public class Menu {
                 switch(k){
                     case 1:{
                         try{
-                            Scanner c = new Scanner(System.in);
-                            System.out.println("Qual fatura deseja alterar?");
-                            int index = c.nextInt();
-                            System.out.println("Introduza o codigo da atividade na qual deduz?");
-                            int cod = c.nextInt();
-                            Fatura fat = ind.getListaFaturas().getFaturasPendentes().getFaturas().get(index);
-                            Empresarial emp = gc.getEmpresa(fat.getNifEmitente());
-                            ind.getListaFaturas().setFaturas(ind.getListaFaturas().atualizaFaturasAtCorreta(cod,index,gc).getFaturas());
-                            Fatura g = fat.clone();
-                            //atualizei a lista de faturas do individual
-                            ind.getListaFaturas().getFaturasPendentes().atualizaFatura(g, cod,ind,emp);
-                            //atualizei a lista de faturas do empresarial
-                            emp.getListaFaturas().setFaturas(emp.atualizaFaturasAtCorretaE(fat,g).getFaturas());
-                            System.out.println("Operação efetuada com sucesso!\n");
-                            break;
+                          Scanner c = new Scanner(System.in);
+                          System.out.println("Qual fatura deseja alterar?");
+                          int index = c.nextInt();
+                          System.out.println("Introduza o codigo da atividade na qual deduz?");
+                          int cod = c.nextInt();
+                          Fatura fat = ind.getListaFaturas().getFaturasPendentes().getFaturas().get(index);
+                          Empresarial emp = gc.getEmpresa(fat.getNifEmitente());
+                          ind.getListaFaturas().setFaturas(ind.getListaFaturas().atualizaFaturasAtCorreta(cod,index,gc).getFaturas());
+                          Fatura g = fat.clone();
+                          //atualizei a lista de faturas do individual
+                          ind.getListaFaturas().getFaturasPendentes().atualizaFatura(g, cod,ind,emp);
+                          //atualizei a lista de faturas do empresarial
+                          emp.getListaFaturas().setFaturas(emp.atualizaFaturasAtCorretaE(fat,g).getFaturas());
+                          System.out.println("Operação efetuada com sucesso!\n");
+                          break;
                         }
                         catch(ContNaoIndividualException j){
                           System.out.println("a conta " + j.getMessage() + " não é do tipo individual\n");
@@ -326,6 +326,7 @@ public class Menu {
              LocalDate dt2 = LocalDate.parse(dataRecebida2,DateTimeFormatter.ISO_LOCAL_DATE);
              System.out.println("Total faturado entre " + dt1.toString() + " e " + dt2.toString() + "\n");
              System.out.println((emp.totalFaturado(dt1,dt2)) + "€");
+             break;
           }
         }
     }
@@ -379,7 +380,7 @@ public class Menu {
     */
     public String toStringLI (List<Contribuinte> list){
       StringBuilder st = new StringBuilder();
-      st.append("Lista dos 10 contribuintes que mais contribuiram: \n");
+      st.append("\nLista dos 10 contribuintes que mais contribuiram: \n");
       for(Contribuinte c: list){
         st.append("\n------------------\n").append(toStringI(c) + "€");
       }
@@ -391,7 +392,7 @@ public class Menu {
     */
     public String toStringLE (List<Contribuinte> list,int n){
       StringBuilder st = new StringBuilder();
-      st.append("Lista das "+ n + " empresas que mais faturas emitiram: \n");
+      st.append("\nLista das "+ n + " empresas que mais faturas emitiram: \n");
       for(Contribuinte c: list){
         st.append("\n------------------\n").append(toStringE(c));
       }
@@ -414,7 +415,7 @@ public class Menu {
     */
     public String toStringLEX (List<Contribuinte> list,int n){
       StringBuilder st = new StringBuilder();
-      st.append("Lista das "+ n + " empresas que mais deduziram: \n");
+      st.append("\nLista das "+ n + " empresas que mais deduziram: \n");
       for(Contribuinte c: list){
         st.append("\n------------------\n").append(toStringEX(c));
       }
@@ -443,6 +444,14 @@ public class Menu {
           int n = sc.nextInt();
           System.out.println(toStringLEX(gc.xEmpresasQueMaisDeduzem(n),n));
           break;
+        }
+        case 4:{
+          System.out.println("\nExistem "  + gc.contaContribuintes() + " contribuintes no sistema dos quais: ");
+          System.out.println(" - " + gc.contaEmpresas() + " são do tipo coletivo");
+          System.out.println(" - " + gc.contaIndividuais() + " são do tipo individual\n");
+        }
+        case 5 :{
+          System.out.println("\nExistem "  + gc.contaFaturasPendentes() + " faturas pendentes\n");
         }
       }
     }

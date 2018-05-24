@@ -23,7 +23,7 @@ public class Tester
        try{
         do{
            gc = f.carregaEstado("javaf.obj");
-           System.out.println("--------- f-faturas -----------\n");
+           System.out.println("\n--------- f-faturas -----------\n");
            System.out.println("Registe-se ou faça login: ");
            System.out.println("Tecla 1: Registar");
            System.out.println("Tecla 2: Fazer Login");
@@ -63,11 +63,13 @@ public class Tester
                  int j = m.scanButton(0,2);
                    switch(j){
                      case 0:{
-                       System.out.println("    Administrador do Sistema    ");
+                       System.out.println("\n    Administrador do Sistema    ");
                        System.out.println("Tecla 1: verificar 10 contribuintes que mais gastaram");
                        System.out.println("Tecla 2: verificar X empresas que emitiram mais faturas");
                        System.out.println("Tecla 3: verificar X empresas que deduzem maior montante para efeitos de IRS");
-                       int k = m.scanButton(1,3);
+                       System.out.println("Tecla 4: Número de contribuintes do sistema");
+                       System.out.println("Tecla 5: Número de faturas pendentes");
+                       int k = m.scanButton(1,5);
                        m.execBotaoA(k,gc);
                        break;
                      }
@@ -86,15 +88,15 @@ public class Tester
                             break;
                           }
                           catch(ContNaoEmpresarialException c){
-                             System.out.println("o contribuinte " + c.getMessage() + " não é do tipo empresarial");
+                             System.out.println("\no contribuinte " + c.getMessage() + " não é do tipo empresarial\n");
                              break;
                           }
                           catch(ContNaoExisteException c){
-                             System.out.println("não existe contribuinte com NIF" + c.getMessage());
+                             System.out.println("\nnão existe contribuinte com NIF" + c.getMessage() + "\n");
                             break;
                           }
                           catch(PassNaoCorrespondeException p){
-                             System.out.println(p.getMessage() + "não é a password correta!");
+                             System.out.println("\n" + p.getMessage() + "não é a password correta!\n");
                              break;
                           }
                     }
@@ -113,15 +115,15 @@ public class Tester
                            } while(true);
                          }
                           catch(ContNaoIndividualException c){
-                             System.out.println("o contribuinte " + c.getMessage() + " não é do tipo individual");
+                             System.out.println("\no contribuinte " + c.getMessage() + " não é do tipo individual\n");
                              break;
                            }
                           catch(ContNaoExisteException c){
-                             System.out.println("não existe contribuinte com NIF " + c.getMessage());
+                             System.out.println("\nnão existe contribuinte com NIF " + c.getMessage() + "\n");
                              break;
                            }
                            catch(PassNaoCorrespondeException p){
-                             System.out.println(p.getMessage() + "não é a password correta!");
+                             System.out.println("\n" + p.getMessage() + "não é a password correta!\n");
                              break;
                            }  
                
