@@ -7,7 +7,6 @@ comment10.params=
 comment10.target=int\ hashCode()
 comment10.text=\n\ Retorna\ o\ hashcode\n\ @return\ result\n
 comment11.params=
-<<<<<<< HEAD
 comment11.target=int\ sizeListaFaturas()
 comment11.text=\n\ metodo\ que\ determina\ o\ numero\ de\ faturas\ da\ lista\n
 comment12.params=f1\ f2
@@ -25,25 +24,27 @@ comment15.text=\n\ M\u00E9todo\ que\ retorna\ a\ lista\ de\ faturas\ ordenada\ p
 comment16.params=
 comment16.target=GestaoFaturas\ getFaturasPendentes()
 comment16.text=\n\ M\u00E9todo\ que\ retorna\ a\ lista\ de\ faturas\ pendentes\n\ @return\ \n
-comment17.params=cod\ index
-comment17.target=GestaoFaturas\ atualizaFaturas(int,\ int)
-comment17.text=\n\ metodo\ atualiza\ uma\ determinada\ fatura\ da\ lista\ com\ a\ atividade\ correta\ \n\ @return\ \n
+comment17.params=
+comment17.target=double\ getTotalListaFaturas()
+comment17.text=\n\ metodo\ que\ devolve\ o\ somat\u00F3rio\ do\ valor\ de\ despesa\ da\ lista\ de\ faturas\ \n\ @return\ \n
 comment18.params=
-comment18.target=double\ getTotalListaFaturas()
-comment18.text=\n\ metodo\ que\ devolve\ o\ somat\u00F3rio\ do\ valor\ de\ despesa\ da\ lista\ de\ faturas\ \n\ @return\ \n
+comment18.target=int\ getNumberFaturas()
+comment18.text=\n\ metodo\ que\ o\ numero\ de\ faturas\ emitidas\ \n\ @return\ \n
 comment19.params=
-comment19.target=int\ getNumberFaturas()
-comment19.text=\n\ metodo\ que\ o\ numero\ de\ faturas\ emitidas\ \n\ @return\ \n
-=======
-comment11.target=void\ ordData()
-comment11.text=\n\ \n
->>>>>>> 8c6fed9b749c9ce8dca7796cef274baf990f55ba
+comment19.target=double\ reducaoImposto()
+comment19.text=\n\ M\u00E9todo\ da\ fase\ 2\n\ metodo\ que\ devolve\ o\ somat\u00F3rio\ do\ valor\ do\ montante\ deduzido\ para\ IRS\ \n\ @return\ \n
 comment2.params=faturas
 comment2.target=GestaoFaturas(java.util.List)
 comment2.text=\n\ Construtor\ para\ objetos\ parametrizado\ da\ classe\ GestaoFaturas\n\ @param\ faturas\n
-comment20.params=loc
-comment20.target=double\ getMontIRS(boolean)
-comment20.text=\n\ metodo\ que\ o\ montante\ deduzido\ para\ IRS\ dado\ a\ localiza\u00E7ao\ \n\ @return\ \n
+comment20.params=f\ cod\ ind\ emp
+comment20.target=void\ atualizaFatura(Fatura,\ int,\ Individuais,\ Empresarial)
+comment20.text=\n\ M\u00E9todo\ que\ escolhe\ uma\ atividade\ conforme\ o\ c\u00F3digo\ e\ atualiza\ o\ montante\ deduzido\n\ @return\ \n
+comment21.params=cod\ index\ gc
+comment21.target=GestaoFaturas\ atualizaFaturasAtCorreta(int,\ int,\ GestaoContribuintes)
+comment21.text=\n\ metodo\ atualiza\ uma\ determinada\ fatura\ da\ lista\ com\ a\ atividade\ correta\ \n\ @return\ \n
+comment22.params=date1\ date2\ nifEmitente
+comment22.target=GestaoFaturas\ fatBetweenDates(java.time.LocalDate,\ java.time.LocalDate,\ int)
+comment22.text=\n\ Retorna\ listagens\ das\ facturas\ por\ contribuinte\ num\ determinado\ intervalo\ de\ datas\n
 comment3.params=fat
 comment3.target=GestaoFaturas(GestaoFaturas)
 comment3.text=\n\ Construtor\ de\ copia\ para\ objetos\ da\ classe\ GestaoFaturas\n\ @param\ fat\ Fatura\n
@@ -65,8 +66,4 @@ comment8.text=\n\ Retorna\ uma\ representao\ textual\ do\ objecto\n\ @return\ \n
 comment9.params=fat
 comment9.target=void\ addFatura(Fatura)
 comment9.text=\n\ Verifica\ a\ igualdade\ de\ dois\ objectos\n\ @param\ fat\n
-<<<<<<< HEAD
-numComments=21
-=======
-numComments=12
->>>>>>> 8c6fed9b749c9ce8dca7796cef274baf990f55ba
+numComments=23

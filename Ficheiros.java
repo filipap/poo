@@ -350,15 +350,15 @@ public class Ficheiros
        Contribuinte i10 = new Individuais(140,"anab","Ana Borralho","rua dos santos","12*34",gfAna,2,agC10,atC1,false);
        
        Contribuinte e1 = new Empresarial(123,"HPG","Hospital Particular das Gambelas","rua do chafariz","12NE456",gfHPG,at,true);
-       Contribuinte e2 = new Empresarial(124,"citroen","Adriano Martins Ldª","rua da praia","tYvfBAka",gfcitroen,at1,false);
-       Contribuinte e3 = new Empresarial(125,"cortes.lisboa","Cortes de Lisboa","edificio Braga Parque, lote 16","fjPnuauc",gfCL,at2,true);
+       Contribuinte e2 = new Empresarial(124,"citroen","Adriano Martins Ldª","rua da praia","12NE456",gfcitroen,at1,false);
+       Contribuinte e3 = new Empresarial(125,"cortes.lisboa","Cortes de Lisboa","edificio Braga Parque, lote 16","12NE456",gfCL,at2,true);
        Contribuinte e4 = new Empresarial(126,"UM","Universidade do Minho - Campus de Gualtar"
-        ,"rua da Universidade","Q2ZYWQMp",gfUM,at3,true);
-       Contribuinte e5 = new Empresarial(127,"foz_cafe","Restaurante Foz","praia da Arda","N6mck6zA",gfRF,at4,false);
-       Contribuinte e6 = new Empresarial(128,"PD","Pingo Doce","Avenida da Liberdade","Y2VC7cQR",gfPD,at5,false);
+        ,"rua da Universidade","12NE456",gfUM,at3,true);
+       Contribuinte e5 = new Empresarial(127,"foz_cafe","Restaurante Foz","praia da Arda","12NE456",gfRF,at4,false);
+       Contribuinte e6 = new Empresarial(128,"PD","Pingo Doce","Avenida da Liberdade","12NE456",gfPD,at5,false);
        Contribuinte e7 = new Empresarial(129,"HC","Hospital Comum","rua do passo","12NE456",gfHC,at6,true);
-       Contribuinte e8 = new Empresarial(130,"LTD","Lava Tudo Direitinho","rua do passo","GnST4yWu",gfLTD,at7,true);
-       Contribuinte e9 = new Empresarial(141,"patinhas","Hospital dos Patinhas","rua da graça","uKezkxvC",gfpatinhas,at8,false);
+       Contribuinte e8 = new Empresarial(130,"LTD","Lava Tudo Direitinho","rua do passo","12NE456",gfLTD,at7,true);
+       Contribuinte e9 = new Empresarial(141,"patinhas","Hospital dos Patinhas","rua da graça","12NE456",gfpatinhas,at8,false);
        GestaoContribuintes gc = new GestaoContribuintes();
        try{
            gc.addContribuinte(i1);

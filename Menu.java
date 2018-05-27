@@ -11,6 +11,7 @@ import java.util.ArrayList;
 import java.util.List;
 import java.time.LocalDate;
 import java.time.format.DateTimeFormatter;
+import java.time.format.DateTimeParseException;
 import Excecoes.*;
 import java.io.*;
 public class Menu {
@@ -126,22 +127,27 @@ public class Menu {
         return new Individuais(nif,cont.get(1),cont.get(3),cont.get(2),cont.get(4),fat,agregado,nifAgregado,codigos,categoria);
     }
 
-    public Fatura scanFatura(Empresarial emp,Individuais ind){
-        int nifEmitente = emp.getNif();
-        String nomeEmpresa = emp.getNome();
-        double mont = 0;
-        Scanner s = new Scanner(System.in);
-        System.out.println("Digite a data de despesa: \nex: 2011-12-03");
-        String dataRecebida = s.nextLine(); 
-        LocalDate dt = LocalDate.parse(dataRecebida,DateTimeFormatter.ISO_LOCAL_DATE);
-        System.out.println("Digite uma pequena descrição da fatura que vai emitir: ");
-        String descr = s.nextLine();
-        System.out.println("Digite o valor da despesa: ");
-        double valueSpent = Double.parseDouble(s.nextLine());
-        List<AtividadesE> at = emp.getInfoAtividades();
-        Fatura f = new Fatura(nifEmitente,nomeEmpresa,dt,(ind.getNif()),mont,descr,(int)valueSpent,at);
-        f.valorDeduzidoIRS(f,emp,ind);
-        return f.clone();
+    public Fatura scanFatura(Empresarial emp,Individuais ind) throws DateTimeParseException {
+        try{
+          int nifEmitente = emp.getNif();
+          String nomeEmpresa = emp.getNome();
+          double mont = 0;
+          Scanner s = new Scanner(System.in);
+          System.out.println("Digite a data de despesa: \nex: 2011-12-03");
+          String dataRecebida = s.nextLine(); 
+          LocalDate dt = LocalDate.parse(dataRecebida,DateTimeFormatter.ISO_LOCAL_DATE);
+          System.out.println("Digite uma pequena descrição da fatura que vai emitir: ");
+          String descr = s.nextLine();
+          System.out.println("Digite o valor da despesa: ");
+          double valueSpent = Double.parseDouble(s.nextLine());
+          List<AtividadesE> at = emp.getInfoAtividades();
+          Fatura f = new Fatura(nifEmitente,nomeEmpresa,dt,(ind.getNif()),mont,descr,(int)valueSpent,at);
+          f.valorDeduzidoIRS(f,emp,ind);
+          return f.clone();
+        }
+        catch(DateTimeParseException g){
+          throw new DateTimeParseException("não escreveu a data no formato correto!",null,g.getErrorIndex());
+        }
     }
 
     public void execBotaoFI(int tecla, Individuais ind){
@@ -255,29 +261,43 @@ public class Menu {
           int k = scanButton(1,2);
           switch(k){
             case 1:{
-             Scanner s = new Scanner(System.in);
-             System.out.println("Digite a data inicial: \nex: 2011-12-03");
-             String dataRecebida1 = s.nextLine();
-             LocalDate dt1 = LocalDate.parse(dataRecebida1,DateTimeFormatter.ISO_LOCAL_DATE);
-             System.out.println("Digite a data final: \nex: 2011-12-03");
-             String dataRecebida2 = s.nextLine();
-             LocalDate dt2 = LocalDate.parse(dataRecebida2,DateTimeFormatter.ISO_LOCAL_DATE);
-             System.out.println(emp.fatBetweenDates(dt1,dt2).toString());
-             break; 
+             try{
+              Scanner s = new Scanner(System.in);
+              System.out.println("Digite o contribuinte no qual deseja obter a lista de faturas:");
+              int nif = Integer.parseInt(s.nextLine());
+              System.out.println("Digite a data inicial: \nex: 2011-12-03");
+              String dataRecebida1 = s.nextLine();
+              LocalDate dt1 = LocalDate.parse(dataRecebida1,DateTimeFormatter.ISO_LOCAL_DATE);
+              System.out.println("Digite a data final: \nex: 2011-12-03");
+              String dataRecebida2 = s.nextLine();
+              LocalDate dt2 = LocalDate.parse(dataRecebida2,DateTimeFormatter.ISO_LOCAL_DATE);
+              System.out.println("\n" + emp.fatBetweenDates(nif,dt1,dt2).toString() + "\n");
+              break;
+             } 
+             catch(DateTimeParseException g){
+              System.out.println("\nnão escreveu a data no formato correto!\n");
+              break;
+             }
             }
             case 2:{
-             GestaoFaturas gf = emp.getListaFaturas();
+             Scanner s = new Scanner(System.in);
+             System.out.println("Digite o contribuinte no qual deseja obter a lista de faturas:");
+             int nif = Integer.parseInt(s.nextLine());
+             GestaoFaturas gf = emp.fatNif(nif);
              gf.ordData();
-             System.out.println(gf.toString());
+             System.out.println("\n" + gf.toString() + "\n");
              break;
             }
           }
           break;
         }
         case 2:{
-          GestaoFaturas gf = emp.getListaFaturas();
+          Scanner s = new Scanner(System.in);
+          System.out.println("Digite o contribuinte no qual deseja obter a lista de faturas:");
+          int nif = Integer.parseInt(s.nextLine());
+          GestaoFaturas gf = emp.fatNif(nif);
           gf.ordValor();
-          System.out.println(gf.toString());
+          System.out.println("\n" + gf.toString() + "\n");
           break;
         }
       }
@@ -313,6 +333,10 @@ public class Menu {
             }
             catch(ContNaoExisteException c){
               System.out.println("não existe contribuinte com NIF " + c.getMessage() + "\n");
+              break;
+            }
+            catch(DateTimeParseException g){
+              System.out.println("não escreveu a data no formato correto!");
               break;
             }
           }

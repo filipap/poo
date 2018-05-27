@@ -77,7 +77,7 @@ public class Tester
                           try{
                               Empresarial emp = m.scanEmpresa(gc);
                             do{
-                              System.out.println("Tecla 1: Verificar faturas emitidas");
+                              System.out.println("Tecla 1: Verificar faturas emitidas por contribuinte");
                               System.out.println("Tecla 2: Emitir fatura");
                               System.out.println("Tecla 3: Verificar total faturado");
                               System.out.println("Tecla 4: Logout");
@@ -96,7 +96,7 @@ public class Tester
                             break;
                           }
                           catch(PassNaoCorrespondeException p){
-                             System.out.println("\n" + p.getMessage() + "não é a password correta!\n");
+                             System.out.println("\n" + p.getMessage() + " não é a password correta!\n");
                              break;
                           }
                     }
@@ -123,7 +123,7 @@ public class Tester
                              break;
                            }
                            catch(PassNaoCorrespondeException p){
-                             System.out.println("\n" + p.getMessage() + "não é a password correta!\n");
+                             System.out.println("\n" + p.getMessage() + " não é a password correta!\n");
                              break;
                            }  
                

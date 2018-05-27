@@ -165,19 +165,6 @@ public class Empresarial extends Contribuinte implements Serializable {
     return super.hashCode();
   }
   
-  /**
-   * Retorna listagens das facturas por contribuinte num determinado intervalo de datas
-   */
-  public GestaoFaturas fatBetweenDates(LocalDate date1, LocalDate date2){
-      GestaoFaturas res = new GestaoFaturas();
-      for(int i = 0; i < this.getListaFaturas().getFaturas().size() ; i++){
-          if(this.getListaFaturas().getFaturas().get(i).getDataDespesa().isAfter(date1) && 
-          this.getListaFaturas().getFaturas().get(i).getDataDespesa().isBefore(date2)){
-              res.addFatura(this.getListaFaturas().getFaturas().get(i));
-          }
-      }
-      return res;
-  }
   
   /**
    * Retorna total faturado num determinado intervalo de tempo
@@ -194,5 +181,31 @@ public class Empresarial extends Contribuinte implements Serializable {
       return res;
   }
 
+   /**
+   * Retorna listagens das faturas por contribuinte num determinado intervalo de datas
+   */
+  public GestaoFaturas fatBetweenDates(int nifCliente, LocalDate date1, LocalDate date2){
+      GestaoFaturas res = new GestaoFaturas();
+      for(int i = 0; i < this.getListaFaturas().getFaturas().size() ; i++){
+          if(this.getListaFaturas().getFaturas().get(i).getDataDespesa().isAfter(date1) && 
+           ((this.getListaFaturas().getFaturas().get(i).getNifCliente()) == nifCliente) &&
+            this.getListaFaturas().getFaturas().get(i).getDataDespesa().isBefore(date2)){
+              res.addFatura(this.getListaFaturas().getFaturas().get(i));
+          }
+      }
+      return res;
+  }
   
+  /**
+   * Retorna listagens das faturas por contribuinte ordenadas por data
+   */
+  public GestaoFaturas fatNif(int nifCliente){
+      GestaoFaturas res = new GestaoFaturas();
+      for(int i = 0; i < this.getListaFaturas().getFaturas().size() ; i++){
+          if(((this.getListaFaturas().getFaturas().get(i).getNifCliente()) == nifCliente)){
+              res.addFatura(this.getListaFaturas().getFaturas().get(i));
+          }
+      }
+      return res;
+  }
 }
