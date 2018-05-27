@@ -12,6 +12,7 @@ import java.time.LocalDate;
 import java.util.Scanner;
 import InterfaceAtividades.*;
 import java.util.Iterator;
+import java.util.InputMismatchException;
 import java.io.*;
 import Excecoes.*;
 public class Tester
@@ -23,8 +24,9 @@ public class Tester
        try{
         do{
            gc = f.carregaEstado("javaf.obj");
-           System.out.println("\n--------- f-faturas -----------\n");
-           System.out.println("Registe-se ou faça login: ");
+           System.out.println("\n--------- JavaFatura -----------\n");
+           System.out.println("\n Seja bem vindo ao JavaFatura\n");
+           System.out.println("Registe-se ou faça login: \n");
            System.out.println("Tecla 1: Registar");
            System.out.println("Tecla 2: Fazer Login");
            System.out.println("Tecla 0: Sair da aplicação");
@@ -36,6 +38,7 @@ public class Tester
                case 1:{
                    System.out.println("Tecla 1: Contribuinte Coletivo");
                    System.out.println("Tecla 2: Contribuinte Individual");
+                 try{  
                    int j = m.scanButton(1,2);
                    switch(j){
                        case 1:{
@@ -55,12 +58,18 @@ public class Tester
                            break;
                        }
                     }
-                       break;
+                    break;
+                  }
+                    catch(InputMismatchException h){
+                      System.out.println("não digitou nenhum dos botões!");
+                      break;
+                    } 
                }
                case 2:{
                  System.out.println("Tecla 1: Contribuinte Coletivo");
                  System.out.println("Tecla 2: Contribuinte Individual");
-                 int j = m.scanButton(0,2);
+                 try{
+                   int j = m.scanButton(0,2);
                    switch(j){
                      case 0:{
                        System.out.println("\n    Administrador do Sistema    ");
@@ -128,8 +137,13 @@ public class Tester
                            }  
                
                     }
-                     break;
-               }
+                     break;     
+                  }
+                }
+                catch(InputMismatchException j){
+                  System.out.println("não digitou nenhum dos botões");
+                  break;
+                }
                }
            }
            try{
@@ -149,6 +163,7 @@ public class Tester
        catch(FileNotFoundException g){System.out.println("ficheiro nao encontrado");}
        catch(ClassNotFoundException c){System.out.println("classe nao encontrada");}
        catch(IOException i){System.out.println("erro ao abrir o ficheiro");}
+       catch(InputMismatchException j){System.out.println("não digitou nenhum dos botões");}
        
        System.exit(0);
     }  

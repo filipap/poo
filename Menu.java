@@ -12,18 +12,18 @@ import java.util.List;
 import java.time.LocalDate;
 import java.time.format.DateTimeFormatter;
 import java.time.format.DateTimeParseException;
+import java.util.InputMismatchException;
 import Excecoes.*;
 import java.io.*;
 public class Menu {
     
-    public int scanButton(int inicio,int fim){
+    public int scanButton(int inicio,int fim) throws InputMismatchException{
        Scanner sc = new Scanner(System.in);
           int i = sc.nextInt();
-          while (i<=inicio && i>=fim) {
-            i = sc.nextInt();
-            System.out.println("escolha uma das opções");
+          if (i<inicio || i>fim) {
+            throw new InputMismatchException(String.valueOf(i));
           }
-          return i;
+          else return i;
     }
     
     public List<String> scanAtivities(int n){
@@ -174,9 +174,12 @@ public class Menu {
         switch(tecla){
           case 1:{
             System.out.println("\nTecla 1 - Ordenada por Data \nTecla 2 - Ordenada por valor de despesa");
+           try{
             int k = scanButton(1,2);
             execBotaoFI(k,ind);
             break;
+           }
+           catch(InputMismatchException j){System.out.println("não digitou nenhum dos botões"); break;}
           }
           case 2:{
             System.out.println("\n \n"+ind.toString());
@@ -212,6 +215,7 @@ public class Menu {
                 System.out.println(ind.getListaFaturas().getFaturasPendentes().toString());
             
                 System.out.println("\n\n Deseja: \n Tecla 1 - Definir Atividade \n Tecla 2 - Sair");
+               try{ 
                 int k = scanButton(1,2);
                 switch(k){
                     case 1:{
@@ -249,6 +253,8 @@ public class Menu {
                       break;
                     }
                 }
+              }
+              catch(InputMismatchException j){System.out.println("não digitou nenhum dos botões");break;}
             }
           }
         }
