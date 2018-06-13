@@ -1,8 +1,0 @@
-#BlueJ class context
-comment0.target=PassNaoCorrespondeException
-comment0.text=\n\ classe\ de\ exce\u00E7ao\ para\ a\ password\ nao\ correspondente\n
-comment1.params=
-comment1.target=PassNaoCorrespondeException()
-comment2.params=s
-comment2.target=PassNaoCorrespondeException(java.lang.String)
-numComments=3

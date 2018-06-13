@@ -1,8 +1,0 @@
-#BlueJ class context
-comment0.target=ContNaoIndividualException
-comment0.text=\n\ ContNaoIndividualException\ -\ exce\u00E7ao\ caso\ o\ contribuinte\ nao\ seja\ do\ tipo\ Individuais\n\n
-comment1.params=
-comment1.target=ContNaoIndividualException()
-comment2.params=s
-comment2.target=ContNaoIndividualException(java.lang.String)
-numComments=3
