@@ -31,7 +31,7 @@ public class Tester
            System.out.println("Tecla 2: Fazer Login");
            System.out.println("Tecla 0: Sair da aplicação");
            Scanner sc = new Scanner(System.in);
-           int i = m.scanButton(1,2);
+           int i = m.scanButton(0,2);
            if(i == 0){break;}
            else{
            switch(i){
